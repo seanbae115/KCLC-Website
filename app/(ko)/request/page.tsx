@@ -27,7 +27,7 @@ export default function RequestPage() {
           <div className="shell" style={{ display: "grid", gridTemplateColumns: "1.4fr .8fr", gap: 50 }}>
             <div className="form-card">
               <form action={FORMSPREE.request} method="POST">
-                <input type="hidden" name="_next" value="https://www.kslcampus.org/thank-you?form=request" />
+                <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=request" />
                 <input type="hidden" name="_subject" value="[KSLC] 상담 요청" />
                 <div className="form-grid">
                   <div className="field">

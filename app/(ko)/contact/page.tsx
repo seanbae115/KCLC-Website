@@ -54,7 +54,7 @@ export default function ContactPage() {
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>일반 문의</h3>
                 <form action={FORMSPREE.contact} method="POST">
-                  <input type="hidden" name="_next" value="https://www.kslcampus.org/thank-you?form=contact" />
+                  <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=contact" />
                   <input type="hidden" name="_subject" value="[KSLC] 일반 문의" />
                   <div className="form-grid">
                     <div className="field">

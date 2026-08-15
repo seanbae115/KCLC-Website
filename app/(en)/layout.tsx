@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.kslcampus.org"),
+  metadataBase: new URL("https://kslcampus.org"),
   title: {
     default: "Korean Senior Life Campus (KSLC) | A Community Before a Campus",
     template: "%s | KSLC",

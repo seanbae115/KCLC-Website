@@ -54,7 +54,7 @@ export default function ContactPageEn() {
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>General Inquiry</h3>
                 <form action={FORMSPREE.contact} method="POST">
-                  <input type="hidden" name="_next" value="https://www.kslcampus.org/en/thank-you?form=contact" />
+                  <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=contact" />
                   <input type="hidden" name="_subject" value="[KSLC] General Inquiry" />
                   <div className="form-grid">
                     <div className="field">

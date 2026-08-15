@@ -13,7 +13,7 @@ export const siteInfo = {
     email: "info@kslcampus.org",
     address: "6291 Homewood Ave., Buena Park, CA 90621",
     mapQuery: "https://www.google.com/maps/search/?api=1&query=6291+Homewood+Ave+Buena+Park+CA+90621",
-    domain: "www.kslcampus.org",
+    domain: "kslcampus.org",
   },
   en: {
     name: "Korean Senior Life Campus",
@@ -25,7 +25,7 @@ export const siteInfo = {
     email: "info@kslcampus.org",
     address: "6291 Homewood Ave., Buena Park, CA 90621",
     mapQuery: "https://www.google.com/maps/search/?api=1&query=6291+Homewood+Ave+Buena+Park+CA+90621",
-    domain: "www.kslcampus.org",
+    domain: "kslcampus.org",
   },
 };
 

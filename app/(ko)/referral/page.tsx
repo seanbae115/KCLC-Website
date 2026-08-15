@@ -25,7 +25,7 @@ export default function ReferralPage() {
           <div className="shell" style={{ display: "grid", gridTemplateColumns: "1.4fr .8fr", gap: 50 }}>
             <div className="form-card">
               <form action={FORMSPREE.referral} method="POST">
-                <input type="hidden" name="_next" value="https://www.kslcampus.org/thank-you?form=referral" />
+                <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=referral" />
                 <input type="hidden" name="_subject" value="[KSLC] 기관 의뢰 문의" />
                 <div className="form-grid">
                   <div className="field full">

@@ -63,7 +63,7 @@ export const FORMSPREE = {
 The forms already redirect to a "thank you" page on the KSLC site after
 submission (`/thank-you` and `/en/thank-you`), with the exact confirmation
 wording from the build proposal (e.g. "상담 요청이 접수되었습니다..."). That
-redirect is hardcoded to `https://www.kslcampus.org/...` — once the domain is
+redirect is hardcoded to `https://kslcampus.org/...` — once the domain is
 live this works automatically; until then, testing a live Formspree submission
 will redirect to the real domain rather than localhost.
 
@@ -74,9 +74,7 @@ npm run build
 ```
 
 This produces a fully static site in `out/` — plain HTML, CSS, JS, and images,
-with no server required. Upload the contents of `out/` to any static host
-(Netlify, Vercel, Cloudflare Pages, GitHub Pages, or traditional shared
-hosting/cPanel) and point `www.kslcampus.org` at it.
+with no server required.
 
 To preview the production build locally before deploying:
 
@@ -84,6 +82,36 @@ To preview the production build locally before deploying:
 npm run build
 npx serve out
 ```
+
+## Going live on kslcampus.org (cPanel)
+
+The canonical domain is `kslcampus.org` (no `www`) — that's baked into every
+form's confirmation redirect and into the page metadata already.
+`www.kslcampus.org` will redirect to it via the included `.htaccess`.
+
+1. **Point the domain at your hosting.** In your domain registrar's DNS
+   settings, set the A record for `kslcampus.org` (and `www`) to your cPanel
+   host's IP address — your hosting provider's welcome email or cPanel's
+   "Domains" page will have the exact IP/nameservers to use. If the domain is
+   registered somewhere other than the host, this is usually an A record
+   change, not a full nameserver change.
+2. **Upload the site.** Run `npm run build`, then upload everything *inside*
+   `out/` (not the `out` folder itself) to `public_html/` via cPanel's File
+   Manager or FTP. This includes the `.htaccess` file — make sure your FTP
+   client is set to show hidden files, or it'll skip it silently.
+3. **Enable SSL.** In cPanel, go to SSL/TLS Status (or "AutoSSL") and issue a
+   free Let's Encrypt certificate for `kslcampus.org` and `www.kslcampus.org`.
+   This usually only works once DNS is already pointed at the host. Then turn
+   on "Force HTTPS Redirect" for the domain.
+4. **Verify the www redirect.** Visit `http://www.kslcampus.org` and confirm
+   it lands on `https://kslcampus.org`. The redirect rule is already in
+   `public/.htaccess`.
+5. **Re-check the forms.** Submit a test consultation request and confirm it
+   (a) emails you via Formspree and (b) redirects to
+   `https://kslcampus.org/thank-you?form=request` with the right message.
+   This won't work correctly until both Formspree is configured (see above)
+   *and* the domain is live, since the redirect URL is hardcoded to the real
+   domain.
 
 ## Content to confirm before going live
 
