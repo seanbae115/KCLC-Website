@@ -22,7 +22,7 @@ export default function ReferralPage() {
         />
 
         <section className="section">
-          <div className="shell" style={{ display: "grid", gridTemplateColumns: "1.4fr .8fr", gap: 50 }}>
+          <div className="shell split-form">
             <div className="form-card">
               <form action={FORMSPREE.referral} method="POST">
                 <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=referral" />

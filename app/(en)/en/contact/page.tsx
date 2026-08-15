@@ -17,7 +17,7 @@ export default function ContactPageEn() {
         <PageHero kicker="CONTACT" title="Contact & Directions" lead="If you have any questions, please reach out anytime." />
 
         <section className="section">
-          <div className="shell" style={{ display: "grid", gridTemplateColumns: ".8fr 1.2fr", gap: 50 }}>
+          <div className="shell split-info">
             <div>
               <div className="card" style={{ marginBottom: 24 }}>
                 <h3>Contact Information</h3>

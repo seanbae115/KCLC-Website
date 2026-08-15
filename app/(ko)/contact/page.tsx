@@ -17,7 +17,7 @@ export default function ContactPage() {
         <PageHero kicker="CONTACT" title="문의·오시는 길" lead="궁금한 점이 있으시면 언제든지 연락 주세요." />
 
         <section className="section">
-          <div className="shell" style={{ display: "grid", gridTemplateColumns: ".8fr 1.2fr", gap: 50 }}>
+          <div className="shell split-info">
             <div>
               <div className="card" style={{ marginBottom: 24 }}>
                 <h3>연락처</h3>

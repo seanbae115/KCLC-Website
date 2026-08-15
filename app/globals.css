@@ -229,6 +229,8 @@ footer { padding: 76px 0 25px; background: white; border-top: 1px solid var(--ru
 .team-card p { margin: 0; color: var(--ink-softer); font-size: 14px; }
 
 /* Forms */
+.split-form { display: grid; grid-template-columns: 1.4fr .8fr; gap: 50px; }
+.split-info { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
 .form-card { background: white; border: 1px solid var(--rule); padding: 46px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 26px; }
 .field { display: grid; gap: 8px; }
@@ -276,7 +278,7 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   .mobile-nav { display: block; }
   .hero-grid { grid-template-columns: 1fr; min-height: auto; padding: 60px 0; }
   .hero-mark { display: none; }
-  .purpose-grid, .process-grid, .partners-grid, .resource-card, .contact-card, .info-grid { grid-template-columns: 1fr; gap: 40px; }
+  .purpose-grid, .process-grid, .partners-grid, .resource-card, .contact-card, .info-grid, .split-form, .split-info { grid-template-columns: 1fr; gap: 40px; }
   .service-grid, .card-grid, .card-grid.cols-2, .card-grid.cols-4 { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { border-right: 0; border-bottom: 1px solid #cbd0d3; }
@@ -302,6 +304,7 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   .partner-visual { min-height: 300px; } .connection { width: 66px; height: 66px; font-size: 11px; } .connection.center { width: 96px; height: 96px; font-size: 18px; }
   .resource-card { padding: 36px 22px; } .contact { padding-top: 16px; } .contact-card { padding: 36px 22px; }
   .footer-grid { grid-template-columns: 1fr; } .footer-grid > div:first-child { grid-column: auto; }
+  .footer-grid img { height: 52px; }
   .footer-bottom { flex-direction: column; gap: 8px; }
   .form-card { padding: 26px; }
   .team-grid { grid-template-columns: 1fr 1fr; }
