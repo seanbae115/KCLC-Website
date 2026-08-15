@@ -272,9 +272,8 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   .nav-text-action { display: none; }
 }
 @media (max-width: 900px) {
-  .desktop-nav, .nav-actions .nav-text-action, .nav-secondary { display: none; }
+  .desktop-nav, .nav-actions, .nav-secondary { display: none; }
   .mobile-nav { display: block; }
-  .nav-actions { gap: 12px; }
   .hero-grid { grid-template-columns: 1fr; min-height: auto; padding: 60px 0; }
   .hero-mark { display: none; }
   .purpose-grid, .process-grid, .partners-grid, .resource-card, .contact-card, .info-grid { grid-template-columns: 1fr; gap: 40px; }
