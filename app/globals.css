@@ -14,7 +14,7 @@
   --footer-muted: #6e7275;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 150px; }
+html { scroll-padding-top: 150px; }
 body {
   margin: 0;
   background: var(--warm);
@@ -310,4 +310,4 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .roadmap-item { grid-template-columns: 1fr; gap: 4px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
