@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -26,9 +27,12 @@ export default function RequestPage() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <form action={FORMSPREE_ENDPOINT} method="POST">
-                <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=request" />
-                <input type="hidden" name="_subject" value="[KSLC] 상담 요청" />
+              <FormspreeForm
+                action={FORMSPREE_ENDPOINT}
+                redirectTo="/thank-you?form=request"
+                subject="[KSLC] 상담 요청"
+                errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+              >
                 <div className="form-grid">
                   <div className="field">
                     <label htmlFor="name">이름 *</label>
@@ -103,7 +107,7 @@ export default function RequestPage() {
                   제출하신 정보는 상담 연결 목적으로만 사용되며{" "}
                   <a href="/privacy">개인정보처리방침</a>에 따라 관리됩니다.
                 </p>
-              </form>
+              </FormspreeForm>
             </div>
             <div className="form-side">
               <Notice>

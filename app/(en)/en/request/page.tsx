@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -26,9 +27,12 @@ export default function RequestPageEn() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <form action={FORMSPREE_ENDPOINT} method="POST">
-                <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=request" />
-                <input type="hidden" name="_subject" value="[KSLC] Consultation Request" />
+              <FormspreeForm
+                action={FORMSPREE_ENDPOINT}
+                redirectTo="/en/thank-you?form=request"
+                subject="[KSLC] Consultation Request"
+                errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+              >
                 <div className="form-grid">
                   <div className="field">
                     <label htmlFor="name">Name *</label>
@@ -104,7 +108,7 @@ export default function RequestPageEn() {
                   only to connect you with services, in accordance with our{" "}
                   <a href="/en/privacy">Privacy Policy</a>.
                 </p>
-              </form>
+              </FormspreeForm>
             </div>
             <div className="form-side">
               <Notice>

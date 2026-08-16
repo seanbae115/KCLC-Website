@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -53,9 +54,12 @@ export default function ContactPageEn() {
               />
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>General Inquiry</h3>
-                <form action={FORMSPREE_ENDPOINT} method="POST">
-                  <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=contact" />
-                  <input type="hidden" name="_subject" value="[KSLC] General Inquiry" />
+                <FormspreeForm
+                  action={FORMSPREE_ENDPOINT}
+                  redirectTo="/en/thank-you?form=contact"
+                  subject="[KSLC] General Inquiry"
+                  errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+                >
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">Name *</label>
@@ -81,7 +85,7 @@ export default function ContactPageEn() {
                       Send Message
                     </button>
                   </div>
-                </form>
+                </FormspreeForm>
               </div>
             </div>
           </div>

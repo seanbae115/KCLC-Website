@@ -251,6 +251,7 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
 .radio-item input { width: 18px; height: 18px; }
 .form-actions { margin-top: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .form-consent { font-size: 13px; color: var(--ink-softer); line-height: 1.7; margin-top: 18px; }
+.form-error { margin-top: 18px; padding: 14px 18px; background: #fbeaea; border-left: 4px solid #b3261e; color: #7a1c14; font-weight: 700; font-size: 15px; }
 .form-side { display: grid; gap: 20px; align-content: start; }
 .form-side .card { background: var(--warm); }
 

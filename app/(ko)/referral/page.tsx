@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -24,9 +25,12 @@ export default function ReferralPage() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <form action={FORMSPREE_ENDPOINT} method="POST">
-                <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=referral" />
-                <input type="hidden" name="_subject" value="[KSLC] 기관 의뢰 문의" />
+              <FormspreeForm
+                action={FORMSPREE_ENDPOINT}
+                redirectTo="/thank-you?form=referral"
+                subject="[KSLC] 기관 의뢰 문의"
+                errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+              >
                 <div className="form-grid">
                   <div className="field full">
                     <label htmlFor="org">기관명 *</label>
@@ -65,7 +69,7 @@ export default function ReferralPage() {
                     기관 의뢰 문의 보내기
                   </button>
                 </div>
-              </form>
+              </FormspreeForm>
             </div>
             <div className="form-side">
               <Notice>

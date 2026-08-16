@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -24,9 +25,12 @@ export default function ReferralPageEn() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <form action={FORMSPREE_ENDPOINT} method="POST">
-                <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=referral" />
-                <input type="hidden" name="_subject" value="[KSLC] Institutional Referral Inquiry" />
+              <FormspreeForm
+                action={FORMSPREE_ENDPOINT}
+                redirectTo="/en/thank-you?form=referral"
+                subject="[KSLC] Institutional Referral Inquiry"
+                errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+              >
                 <div className="form-grid">
                   <div className="field full">
                     <label htmlFor="org">Organization Name *</label>
@@ -65,7 +69,7 @@ export default function ReferralPageEn() {
                     Send Referral Inquiry
                   </button>
                 </div>
-              </form>
+              </FormspreeForm>
             </div>
             <div className="form-side">
               <Notice>

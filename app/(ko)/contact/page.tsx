@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import FormspreeForm from "@/components/FormspreeForm";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -53,9 +54,12 @@ export default function ContactPage() {
               />
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>일반 문의</h3>
-                <form action={FORMSPREE_ENDPOINT} method="POST">
-                  <input type="hidden" name="_next" value="https://kslcampus.org/thank-you?form=contact" />
-                  <input type="hidden" name="_subject" value="[KSLC] 일반 문의" />
+                <FormspreeForm
+                  action={FORMSPREE_ENDPOINT}
+                  redirectTo="/thank-you?form=contact"
+                  subject="[KSLC] 일반 문의"
+                  errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+                >
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">이름 *</label>
@@ -81,7 +85,7 @@ export default function ContactPage() {
                       문의 보내기
                     </button>
                   </div>
-                </form>
+                </FormspreeForm>
               </div>
             </div>
           </div>
