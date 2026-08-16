@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
-import { FORMSPREE } from "@/lib/forms";
+import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
   title: "Contact & Directions",
@@ -53,7 +53,7 @@ export default function ContactPageEn() {
               />
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>General Inquiry</h3>
-                <form action={FORMSPREE.contact} method="POST">
+                <form action={FORMSPREE_ENDPOINT} method="POST">
                   <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=contact" />
                   <input type="hidden" name="_subject" value="[KSLC] General Inquiry" />
                   <div className="form-grid">

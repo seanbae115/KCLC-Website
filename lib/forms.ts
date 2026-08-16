@@ -1,9 +1,12 @@
-// Replace these with your real Formspree form endpoints before launch.
-// Sign up free at https://formspree.io, create a form for each purpose below,
-// and paste the endpoint ID (the part after /f/) in place of "YOUR_FORM_ID".
+// All three site forms (consultation request, institutional referral, general
+// contact) submit to this single Formspree endpoint, which forwards every
+// submission to kslcampus.org@gmail.com. Each form sends its own "_subject"
+// field so submissions stay clearly labeled in the inbox even though they
+// share one endpoint.
+//
+// To set this up:
+// 1. Sign up free at https://formspree.io using kslcampus.org@gmail.com.
+// 2. Create one form (any name, e.g. "KSLC Website").
+// 3. Copy the endpoint ID (the part after /f/) and paste it below.
 // See README.md for full setup steps.
-export const FORMSPREE = {
-  request: "https://formspree.io/f/YOUR_REQUEST_FORM_ID",
-  referral: "https://formspree.io/f/YOUR_REFERRAL_FORM_ID",
-  contact: "https://formspree.io/f/YOUR_CONTACT_FORM_ID",
-};
+export const FORMSPREE_ENDPOINT = "https://formspree.io/f/xgawlgoz";

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import { FORMSPREE } from "@/lib/forms";
+import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
   title: "Request a Consultation",
@@ -26,7 +26,7 @@ export default function RequestPageEn() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <form action={FORMSPREE.request} method="POST">
+              <form action={FORMSPREE_ENDPOINT} method="POST">
                 <input type="hidden" name="_next" value="https://kslcampus.org/en/thank-you?form=request" />
                 <input type="hidden" name="_subject" value="[KSLC] Consultation Request" />
                 <div className="form-grid">

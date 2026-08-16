@@ -41,24 +41,29 @@ links to the matching page in the other language.
 ## Set up the forms (required before launch)
 
 The consultation request, institutional referral, and general contact forms
-submit via [Formspree](https://formspree.io) — a free service that emails you
-form submissions with no backend required.
+all submit to one [Formspree](https://formspree.io) endpoint — a free service
+that emails you form submissions with no backend required. Each form sends
+its own `_subject` field (e.g. "[KSLC] 상담 요청" vs "[KSLC] 일반 문의"), so
+even sharing one endpoint, submissions stay clearly labeled in the inbox.
 
-1. Create a free account at https://formspree.io.
-2. Create three forms (or one form with three names) and note each Form ID
-   (the part after `/f/` in the endpoint URL, e.g. `mzzabc123`).
-3. Open `lib/forms.ts` and replace the placeholder IDs:
+1. Go to https://formspree.io and sign up **using kslcampus.org@gmail.com**
+   as the account email — Formspree sends notifications to the account owner's
+   email by default, so this is the simplest way to get everything landing
+   in that inbox.
+2. Create one form (any name works, e.g. "KSLC Website").
+3. Copy its endpoint ID (the part after `/f/` in the URL Formspree shows you,
+   e.g. `mzzabc123`) and open `lib/forms.ts`:
 
 ```ts
-export const FORMSPREE = {
-  request: "https://formspree.io/f/YOUR_REQUEST_FORM_ID",
-  referral: "https://formspree.io/f/YOUR_REFERRAL_FORM_ID",
-  contact: "https://formspree.io/f/YOUR_CONTACT_FORM_ID",
-};
+export const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 ```
 
-4. In Formspree's dashboard, set each form's confirmation email to go to the
-   KSLC staff inbox that should receive submissions.
+Replace `YOUR_FORM_ID` with the real ID. That's the only thing that needs to
+change — all three forms already point at this one constant.
+
+4. Formspree's free tier requires confirming your first submission by email
+   before the form goes fully live — submit a test consultation request once
+   this is wired up and confirm it from kslcampus.org@gmail.com.
 
 The forms already redirect to a "thank you" page on the KSLC site after
 submission (`/thank-you` and `/en/thank-you`), with the exact confirmation
