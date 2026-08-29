@@ -146,10 +146,14 @@ export default function AboutPageEn() {
             <div className="roadmap">
               {roadmap.map((r) => (
                 <div className="roadmap-item" key={r.phase}>
-                  <strong>{r.phase}</strong>
-                  <p>
-                    <strong style={{ color: "var(--navy)" }}>{r.title}</strong> — {r.desc}
-                  </p>
+                  <div className="roadmap-phase">
+                    <span>PHASE</span>
+                    <strong>{r.phase.replace("Phase ", "")}</strong>
+                  </div>
+                  <div>
+                    <h3>{r.title}</h3>
+                    <p>{r.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
