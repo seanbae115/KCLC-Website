@@ -35,24 +35,26 @@ export default function Header({ lang, currentPath }: { lang: Lang; currentPath:
               {lang === "ko" ? "한국어 | English" : "English | 한국어"}
             </Link>
           </div>
-          <details className="mobile-nav">
-            <summary aria-label={lang === "ko" ? "메뉴 열기" : "Open menu"}>
-              {lang === "ko" ? "메뉴" : "Menu"}
-            </summary>
-            <div className="mobile-menu">
-              {nav.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-              <Link href={cta.request.href}>{cta.request.label}</Link>
-              <Link href={cta.referral.href}>{cta.referral.label}</Link>
-              <Link href={cta.donate.href}>{cta.donate.label}</Link>
-              <Link href={langHref(currentPath, otherLang)}>
-                {lang === "ko" ? "English" : "한국어"}
-              </Link>
-            </div>
-          </details>
+          <div className="mobile-controls">
+            <Link className="nav-lang" href={langHref(currentPath, otherLang)}>
+              {lang === "ko" ? "English" : "한국어"}
+            </Link>
+            <details className="mobile-nav">
+              <summary aria-label={lang === "ko" ? "메뉴 열기" : "Open menu"}>
+                {lang === "ko" ? "메뉴" : "Menu"}
+              </summary>
+              <div className="mobile-menu">
+                {nav.map((item) => (
+                  <Link key={item.href} href={item.href}>
+                    {item.label}
+                  </Link>
+                ))}
+                <Link href={cta.request.href}>{cta.request.label}</Link>
+                <Link href={cta.referral.href}>{cta.referral.label}</Link>
+                <Link href={cta.donate.href}>{cta.donate.label}</Link>
+              </div>
+            </details>
+          </div>
         </div>
         <div className="shell nav-secondary">
           <nav className="desktop-nav" aria-label={lang === "ko" ? "주요 메뉴" : "Main menu"}>
