@@ -25,18 +25,22 @@ page reloads automatically.
 
 ```
 app/
-  (ko)/            Korean pages — the default language, served at "/"
-  (en)/en/         English pages — mirrored structure, served at "/en/..."
+  (en)/            English pages — the default language, served at "/"
+  (ko)/ko/         Korean pages — served at "/ko/..."
+  global-not-found.tsx   Custom 404 (required since there are two root layouts)
 components/        Shared Header, Footer, PageHero, Notice
-lib/nav.ts         Menu labels, contact info, and KO<->EN link mapping
-lib/forms.ts        Formspree endpoint IDs (see "Set up the forms" below)
-public/            Logo, board photos, downloadable presentations
+lib/nav.ts         Menu labels, contact info, and EN<->KO link mapping
+lib/forms.ts        Formspree endpoint (see "Set up the forms" below)
+public/            Logo, hero photo, board photos, downloadable presentations
 ```
 
-Every Korean page under `app/(ko)/` has a matching English page at the same
-path under `app/(en)/en/`. For example `app/(ko)/services/page.tsx` pairs with
-`app/(en)/en/services/page.tsx`. The language switcher in the header always
-links to the matching page in the other language.
+English is the default language, served unprefixed at `/`. Every English page
+under `app/(en)/` has a matching Korean page at the same path prefixed with
+`/ko`, under `app/(ko)/ko/`. For example `app/(en)/services/page.tsx` pairs
+with `app/(ko)/ko/services/page.tsx`, served at `/services` and `/ko/services`
+respectively. The language switcher in the header always links to the
+matching page in the other language — this is driven by `lib/nav.ts`, so
+individual pages never hardcode the `/ko` prefix themselves.
 
 ## Set up the forms (required before launch)
 
@@ -65,12 +69,12 @@ change — all three forms already point at this one constant.
    before the form goes fully live — submit a test consultation request once
    this is wired up and confirm it from kslcampus.org@gmail.com.
 
-The forms already redirect to a "thank you" page on the KSLC site after
-submission (`/thank-you` and `/en/thank-you`), with the exact confirmation
-wording from the build proposal (e.g. "상담 요청이 접수되었습니다..."). That
-redirect is hardcoded to `https://kslcampus.org/...` — once the domain is
-live this works automatically; until then, testing a live Formspree submission
-will redirect to the real domain rather than localhost.
+The forms submit via JavaScript (`components/FormspreeForm.tsx`) and redirect
+to a "thank you" page on the KSLC site after a successful submission
+(`/thank-you` for English, `/ko/thank-you` for Korean), with the exact
+confirmation wording from the build proposal (e.g. "상담 요청이
+접수되었습니다..."). This redirect is client-side, so it works the same on
+localhost, a preview deploy, or the live domain.
 
 ## Build and deploy
 
@@ -129,8 +133,8 @@ brand/vision documents, but a few things are placeholders you should review:
   2.4MB each); compress them (e.g. with [Squoosh](https://squoosh.app)) before
   launch so pages load quickly on mobile.
 - **Board bios**: only name and title are shown for each director, since no
-  100–150자 bio text was available. Add bios in `app/(ko)/leadership/page.tsx`
-  and `app/(en)/en/leadership/page.tsx` if you'd like them.
+  100–150자 bio text was available. Add bios in `app/(en)/leadership/page.tsx`
+  and `app/(ko)/ko/leadership/page.tsx` if you'd like them.
 - **Resources page** currently only links the two official presentation
   files. Add the brochure, checklist, and policy briefs mentioned in the
   build proposal as they're finalized.

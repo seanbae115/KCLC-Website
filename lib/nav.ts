@@ -11,8 +11,8 @@ export const siteInfo = {
     phone: "714-788-2002",
     phoneHref: "tel:+17147882002",
     email: "info@kslcampus.org",
-    address: "6291 Homewood Ave., Buena Park, CA 90621",
-    mapQuery: "https://www.google.com/maps/search/?api=1&query=6291+Homewood+Ave+Buena+Park+CA+90621",
+    address: "7342 Orangethorpe Ave, #B-109, Buena Park, CA 90621",
+    mapQuery: "https://www.google.com/maps/search/?api=1&query=7342+Orangethorpe+Ave+%23B-109+Buena+Park+CA+90621",
     domain: "kslcampus.org",
   },
   en: {
@@ -23,91 +23,93 @@ export const siteInfo = {
     phone: "714-788-2002",
     phoneHref: "tel:+17147882002",
     email: "info@kslcampus.org",
-    address: "6291 Homewood Ave., Buena Park, CA 90621",
-    mapQuery: "https://www.google.com/maps/search/?api=1&query=6291+Homewood+Ave+Buena+Park+CA+90621",
+    address: "7342 Orangethorpe Ave, #B-109, Buena Park, CA 90621",
+    mapQuery: "https://www.google.com/maps/search/?api=1&query=7342+Orangethorpe+Ave+%23B-109+Buena+Park+CA+90621",
     domain: "kslcampus.org",
   },
 };
 
 // Primary top navigation (kept to 7 items per the brand/UX guidelines)
+// English is the default language, served at "/". Korean is served at "/ko/...".
 export const primaryNav: Record<Lang, NavItem[]> = {
-  ko: [
-    { label: "홈", href: "/" },
-    { label: "KSLC 소개", href: "/about" },
-    { label: "Navigation Center", href: "/navigation-center" },
-    { label: "서비스", href: "/services" },
-    { label: "자료실", href: "/resources" },
-    { label: "참여·협력", href: "/partnership" },
-    { label: "문의", href: "/contact" },
-  ],
   en: [
-    { label: "Home", href: "/en" },
-    { label: "About KSLC", href: "/en/about" },
-    { label: "Navigation Center", href: "/en/navigation-center" },
-    { label: "Services", href: "/en/services" },
-    { label: "Resources", href: "/en/resources" },
-    { label: "Get Involved", href: "/en/partnership" },
-    { label: "Contact", href: "/en/contact" },
+    { label: "Home", href: "/" },
+    { label: "About KSLC", href: "/about" },
+    { label: "Navigation Center", href: "/navigation-center" },
+    { label: "Services", href: "/services" },
+    { label: "Resources", href: "/resources" },
+    { label: "Get Involved", href: "/partnership" },
+    { label: "Contact", href: "/contact" },
+  ],
+  ko: [
+    { label: "홈", href: "/ko" },
+    { label: "KSLC 소개", href: "/ko/about" },
+    { label: "Navigation Center", href: "/ko/navigation-center" },
+    { label: "서비스", href: "/ko/services" },
+    { label: "자료실", href: "/ko/resources" },
+    { label: "참여·협력", href: "/ko/partnership" },
+    { label: "문의", href: "/ko/contact" },
   ],
 };
 
 export const ctaNav: Record<Lang, { request: NavItem; referral: NavItem; donate: NavItem }> = {
-  ko: {
-    request: { label: "상담 요청", href: "/request" },
-    referral: { label: "기관 의뢰", href: "/referral" },
-    donate: { label: "후원하기", href: "/partnership#donate" },
-  },
   en: {
-    request: { label: "Request Consultation", href: "/en/request" },
-    referral: { label: "Institutional Referral", href: "/en/referral" },
-    donate: { label: "Donate", href: "/en/partnership#donate" },
+    request: { label: "Request Consultation", href: "/request" },
+    referral: { label: "Institutional Referral", href: "/referral" },
+    donate: { label: "Donate", href: "/partnership#donate" },
+  },
+  ko: {
+    request: { label: "상담 요청", href: "/ko/request" },
+    referral: { label: "기관 의뢰", href: "/ko/referral" },
+    donate: { label: "후원하기", href: "/ko/partnership#donate" },
   },
 };
 
 export const footerLinks: Record<Lang, NavItem[]> = {
-  ko: [
-    { label: "개인정보처리방침", href: "/privacy" },
-    { label: "이용약관", href: "/terms" },
-    { label: "접근성 안내", href: "/accessibility" },
-    { label: "차별금지 안내", href: "/nondiscrimination" },
-    { label: "사진·콘텐츠 사용정책", href: "/media-policy" },
-    { label: "저작권 안내", href: "/copyright" },
-    { label: "긴급상황 안내", href: "/emergency" },
-    { label: "문의 및 민원처리 안내", href: "/complaints" },
-  ],
   en: [
-    { label: "Privacy Policy", href: "/en/privacy" },
-    { label: "Terms of Use", href: "/en/terms" },
-    { label: "Accessibility", href: "/en/accessibility" },
-    { label: "Non-Discrimination Notice", href: "/en/nondiscrimination" },
-    { label: "Photo & Content Use Policy", href: "/en/media-policy" },
-    { label: "Copyright Notice", href: "/en/copyright" },
-    { label: "Emergency Information", href: "/en/emergency" },
-    { label: "Contact & Complaints", href: "/en/complaints" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Use", href: "/terms" },
+    { label: "Accessibility", href: "/accessibility" },
+    { label: "Non-Discrimination Notice", href: "/nondiscrimination" },
+    { label: "Photo & Content Use Policy", href: "/media-policy" },
+    { label: "Copyright Notice", href: "/copyright" },
+    { label: "Emergency Information", href: "/emergency" },
+    { label: "Contact & Complaints", href: "/complaints" },
+  ],
+  ko: [
+    { label: "개인정보처리방침", href: "/ko/privacy" },
+    { label: "이용약관", href: "/ko/terms" },
+    { label: "접근성 안내", href: "/ko/accessibility" },
+    { label: "차별금지 안내", href: "/ko/nondiscrimination" },
+    { label: "사진·콘텐츠 사용정책", href: "/ko/media-policy" },
+    { label: "저작권 안내", href: "/ko/copyright" },
+    { label: "긴급상황 안내", href: "/ko/emergency" },
+    { label: "문의 및 민원처리 안내", href: "/ko/complaints" },
   ],
 };
 
 export const footerQuickLinks: Record<Lang, NavItem[]> = {
-  ko: [
-    { label: "KSLC 소개", href: "/about" },
-    { label: "리더십·조직", href: "/leadership" },
-    { label: "서비스 안내", href: "/services" },
-    { label: "이용 절차", href: "/process" },
-    { label: "자료실", href: "/resources" },
-    { label: "참여·협력", href: "/partnership" },
-  ],
   en: [
-    { label: "About KSLC", href: "/en/about" },
-    { label: "Leadership", href: "/en/leadership" },
-    { label: "Services", href: "/en/services" },
-    { label: "How It Works", href: "/en/process" },
-    { label: "Resources", href: "/en/resources" },
-    { label: "Get Involved", href: "/en/partnership" },
+    { label: "About KSLC", href: "/about" },
+    { label: "Leadership", href: "/leadership" },
+    { label: "Services", href: "/services" },
+    { label: "How It Works", href: "/process" },
+    { label: "Resources", href: "/resources" },
+    { label: "Get Involved", href: "/partnership" },
+  ],
+  ko: [
+    { label: "KSLC 소개", href: "/ko/about" },
+    { label: "리더십·조직", href: "/ko/leadership" },
+    { label: "서비스 안내", href: "/ko/services" },
+    { label: "이용 절차", href: "/ko/process" },
+    { label: "자료실", href: "/ko/resources" },
+    { label: "참여·협력", href: "/ko/partnership" },
   ],
 };
 
-// Given a language-neutral path (e.g. "/services", "/" ) return the href for each language.
+// Given a language-neutral path (e.g. "/services", "/") return the href for each language.
+// English is unprefixed (default); Korean is prefixed with "/ko".
 export function langHref(path: string, lang: Lang): string {
-  if (lang === "ko") return path;
-  return path === "/" ? "/en" : `/en${path}`;
+  if (lang === "en") return path;
+  return path === "/" ? "/ko" : `/ko${path}`;
 }

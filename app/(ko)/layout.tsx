@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   description:
     "KSLC Navigation Center는 한인 시니어와 가족을 위해 건강, 공공혜택, 주거, 돌봄, 지역사회 서비스를 연결합니다.",
-  alternates: { languages: { ko: "/", en: "/en" } },
+  alternates: { languages: { ko: "/ko", en: "/" } },
   icons: { icon: "/favicon.svg" },
 };
 

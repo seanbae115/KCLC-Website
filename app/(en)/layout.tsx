@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   description:
     "KSLC Navigation Center connects Korean seniors and their families to health, benefits, housing, care, and community services.",
-  alternates: { languages: { en: "/en", ko: "/" } },
+  alternates: { languages: { en: "/", ko: "/ko" } },
   icons: { icon: "/favicon.svg" },
 };
 

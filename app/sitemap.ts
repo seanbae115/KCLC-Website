@@ -30,10 +30,10 @@ const slugs = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   for (const slug of slugs) {
-    const koPath = slug ? `/${slug}` : "/";
-    const enPath = slug ? `/en/${slug}` : "/en";
-    entries.push({ url: `${base}${koPath}` });
+    const enPath = slug ? `/${slug}` : "/";
+    const koPath = slug ? `/ko/${slug}` : "/ko";
     entries.push({ url: `${base}${enPath}` });
+    entries.push({ url: `${base}${koPath}` });
   }
   return entries;
 }
