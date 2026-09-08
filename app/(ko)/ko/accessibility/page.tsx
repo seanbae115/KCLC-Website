@@ -46,7 +46,7 @@ export default function AccessibilityPage() {
             <h2>4. 불편사항 신고</h2>
             <p>
               웹사이트 이용 중 접근성 문제를 발견하셨다면{" "}
-              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는 714-788-2002로 알려
+              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는 (657) 239-0226로 알려
               주십시오. 신속히 확인하고 개선하겠습니다.
             </p>
           </div>

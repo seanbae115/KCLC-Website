@@ -3,7 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm from "@/components/FormspreeForm";
+import FormspreeForm, { RequiredCheckGroup } from "@/components/FormspreeForm";
+import { emergencyWarning } from "@/components/EmergencyContacts";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -31,7 +32,11 @@ export default function RequestPageEn() {
                 action={FORMSPREE_ENDPOINT}
                 redirectTo="/thank-you?form=request"
                 subject="[KSLC] Consultation Request"
-                errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+                lang="en"
+                submitLabel="Send Consultation Request"
+                requiredGroups={[
+                  { name: "Help Areas", message: "Please select at least one area you would like help with." },
+                ]}
               >
                 <div className="form-grid">
                   <div className="field">
@@ -73,17 +78,11 @@ export default function RequestPageEn() {
                       ))}
                     </div>
                   </fieldset>
-                  <fieldset className="field full">
-                    <legend>What Areas Do You Need Help With? *</legend>
-                    <div className="check-grid">
-                      {helpAreas.map((a) => (
-                        <label className="check-item" key={a}>
-                          <input type="checkbox" name="Help Areas" value={a} />
-                          {a}
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
+                  <RequiredCheckGroup
+                    name="Help Areas"
+                    legend="What Areas Do You Need Help With? *"
+                    options={helpAreas}
+                  />
                   <div className="field full">
                     <label htmlFor="notes">
                       Anything Else You&apos;d Like to Share <span className="hint">(optional)</span>
@@ -97,10 +96,10 @@ export default function RequestPageEn() {
                     </label>
                   </div>
                 </div>
-                <div className="form-actions">
-                  <button type="submit" className="button button-gold">
-                    Send Consultation Request
-                  </button>
+                <div className="notice emergency-warning" role="note">
+                  <strong>If this is an emergency, do not use this form.</strong>
+                  <br />
+                  {emergencyWarning.en}
                 </div>
                 <p className="form-consent">
                   Please do not enter medical records, Social Security numbers, insurance numbers, or
@@ -121,8 +120,8 @@ export default function RequestPageEn() {
               <div className="card">
                 <h3>Prefer to call right away?</h3>
                 <p>
-                  <a href="tel:+17147882002" style={{ color: "var(--navy)", fontWeight: 700 }}>
-                    714-788-2002
+                  <a href="tel:+16572390226" style={{ color: "var(--navy)", fontWeight: 700 }}>
+                    (657) 239-0226
                   </a>
                 </p>
                 <p>Weekdays 9:00 AM – 5:00 PM</p>

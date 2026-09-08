@@ -10,12 +10,11 @@ const audiences = [
 ];
 
 const services = [
-  { number: "01", title: "건강·의료 Navigation", desc: "주치의·전문의 연결, 병원 예약, 퇴원 후 지원, 의료교통을 돕습니다." },
-  { number: "02", title: "보험·공공혜택", desc: "Medi-Cal, Medicare, SSI·SSA, CalFresh 신청과 갱신을 안내합니다." },
-  { number: "03", title: "IHSS·가족돌봄", desc: "IHSS 정보, 가족돌봄자 지원, 성인주간보호, 재가서비스를 연결합니다." },
-  { number: "04", title: "주거 Navigation", desc: "시니어 아파트, Affordable Housing, 퇴거 예방과 주거안정을 돕습니다." },
-  { number: "05", title: "교통·생활지원", desc: "진료 교통, 식사 지원, 사회적 고립 예방, 디지털 접근을 안내합니다." },
-  { number: "06", title: "법률·지역자원", desc: "법률구조기관, 시민권·이민 정보, 교회·비영리기관 연결을 지원합니다." },
+  { number: "01", title: "보험·공공혜택", desc: "Medi-Cal, Medicare, SSI·SSA, CalFresh 신청과 갱신을 안내합니다." },
+  { number: "02", title: "IHSS·가족돌봄", desc: "IHSS 정보, 가족돌봄자 지원, 성인주간보호, 재가서비스를 연결합니다." },
+  { number: "03", title: "주거 Navigation", desc: "시니어 아파트, Affordable Housing, 퇴거 예방과 주거안정을 돕습니다." },
+  { number: "04", title: "교통·생활지원", desc: "진료 교통, 식사 지원, 사회적 고립 예방, 디지털 접근을 안내합니다." },
+  { number: "05", title: "지역 자원과의 연계 활동", desc: "정신건강·가정 상담 기관, 교회·비영리기관, 카운티·시청 서비스로 연결합니다." },
 ];
 
 const steps = [
@@ -64,6 +63,9 @@ export default function HomePage() {
                   기관 의뢰 <span aria-hidden="true">→</span>
                 </Link>
               </div>
+              <p className="cta-microcopy">
+                상담 무료 · 한국어 상담 · 가족 대리요청 가능 · 방문예약 권장
+              </p>
               <div className="hero-trust">
                 <span>한국어 중심 안내</span>
                 <span>오렌지카운티 지역 연계</span>
@@ -71,10 +73,36 @@ export default function HomePage() {
               </div>
               <div className="hero-links">
                 <Link href="/ko/leadership">리더십·조직 보기 →</Link>
-                <a href="https://www.hyosarangusa.org/" target="_blank" rel="noreferrer">
-                  효사랑 선교회 →
-                </a>
               </div>
+              <a
+                className="partner-link"
+                href="https://www.hyosarangusa.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
+                <span>
+                  효사랑 선교회
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="sr-only"> (새 창에서 열림)</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="help-now" aria-labelledby="help-now-title">
+          <div className="shell">
+            <p className="section-kicker light">GET HELP RIGHT NOW</p>
+            <h2 id="help-now-title">지금 바로 도움 받기</h2>
+            <p>전화 또는 온라인 중 편하신 방법으로 연락해 주세요.</p>
+            <div className="help-now-actions">
+              <a className="button button-call" href="tel:+16572390226">
+                전화 상담: (657) 239-0226
+              </a>
+              <Link className="button button-outline" href="/ko/request">
+                온라인 상담 요청
+              </Link>
             </div>
           </div>
         </section>
@@ -274,8 +302,8 @@ export default function HomePage() {
               <p style={{ fontSize: 14, marginTop: 24 }}>운영시간: 평일 오전 9시 – 오후 5시 (사전 예약 권장)</p>
             </div>
             <div className="contact-actions">
-              <a className="button button-white" href="tel:+17147882002">
-                714-788-2002 전화하기
+              <a className="button button-white" href="tel:+16572390226">
+                (657) 239-0226 전화하기
               </a>
               <a
                 className="address-link"

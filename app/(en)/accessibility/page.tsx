@@ -46,7 +46,7 @@ export default function AccessibilityPageEn() {
             <h2>4. Reporting an Issue</h2>
             <p>
               If you encounter an accessibility problem while using this website, please let us know
-              at <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or 714-788-2002. We'll
+              at <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or (657) 239-0226. We'll
               review and address it promptly.
             </p>
           </div>

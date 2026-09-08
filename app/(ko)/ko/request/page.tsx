@@ -3,7 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm from "@/components/FormspreeForm";
+import FormspreeForm, { RequiredCheckGroup } from "@/components/FormspreeForm";
+import { emergencyWarning } from "@/components/EmergencyContacts";
 import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
@@ -31,7 +32,11 @@ export default function RequestPage() {
                 action={FORMSPREE_ENDPOINT}
                 redirectTo="/ko/thank-you?form=request"
                 subject="[KSLC] 상담 요청"
-                errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+                lang="ko"
+                submitLabel="상담 요청 보내기"
+                requiredGroups={[
+                  { name: "도움 영역", message: "도움받고 싶은 영역을 한 가지 이상 선택해 주세요." },
+                ]}
               >
                 <div className="form-grid">
                   <div className="field">
@@ -73,17 +78,11 @@ export default function RequestPage() {
                       ))}
                     </div>
                   </fieldset>
-                  <fieldset className="field full">
-                    <legend>도움받고 싶은 영역 *</legend>
-                    <div className="check-grid">
-                      {helpAreas.map((a) => (
-                        <label className="check-item" key={a}>
-                          <input type="checkbox" name="도움 영역" value={a} />
-                          {a}
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
+                  <RequiredCheckGroup
+                    name="도움 영역"
+                    legend="도움받고 싶은 영역 *"
+                    options={helpAreas}
+                  />
                   <div className="field full">
                     <label htmlFor="notes">
                       전하고 싶은 내용 <span className="hint">(선택)</span>
@@ -97,10 +96,10 @@ export default function RequestPage() {
                     </label>
                   </div>
                 </div>
-                <div className="form-actions">
-                  <button type="submit" className="button button-gold">
-                    상담 요청 보내기
-                  </button>
+                <div className="notice emergency-warning" role="note">
+                  <strong>위급한 상황이라면 이 양식을 사용하지 마십시오.</strong>
+                  <br />
+                  {emergencyWarning.ko}
                 </div>
                 <p className="form-consent">
                   이 양식에는 의료기록, 주민번호, 보험번호, 진단서 등 민감한 개인정보를 입력하지 마십시오.
@@ -119,8 +118,8 @@ export default function RequestPage() {
               <div className="card">
                 <h3>바로 전화하고 싶으신가요?</h3>
                 <p>
-                  <a href="tel:+17147882002" style={{ color: "var(--navy)", fontWeight: 700 }}>
-                    714-788-2002
+                  <a href="tel:+16572390226" style={{ color: "var(--navy)", fontWeight: 700 }}>
+                    (657) 239-0226
                   </a>
                 </p>
                 <p>평일 오전 9시 – 오후 5시</p>

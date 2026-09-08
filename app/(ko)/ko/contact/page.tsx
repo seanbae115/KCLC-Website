@@ -25,7 +25,7 @@ export default function ContactPage() {
                 <ul>
                   <li>주소: 7342 Orangethorpe Ave, #B-109, Buena Park, CA 90621</li>
                   <li>
-                    대표전화: <a href="tel:+17147882002">714-788-2002</a>
+                    대표전화: <a href="tel:+16572390226">(657) 239-0226</a>
                   </li>
                   <li>
                     이메일: <a href="mailto:info@kslcampus.org">info@kslcampus.org</a>
@@ -58,7 +58,9 @@ export default function ContactPage() {
                   action={FORMSPREE_ENDPOINT}
                   redirectTo="/ko/thank-you?form=contact"
                   subject="[KSLC] 일반 문의"
-                  errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+                  lang="ko"
+                  submitLabel="문의 보내기"
+                  submitVariant="button-navy"
                 >
                   <div className="form-grid">
                     <div className="field">
@@ -79,11 +81,6 @@ export default function ContactPage() {
                       <label htmlFor="message">문의 내용 *</label>
                       <textarea id="message" name="문의 내용" required />
                     </div>
-                  </div>
-                  <div className="form-actions">
-                    <button type="submit" className="button button-navy">
-                      문의 보내기
-                    </button>
                   </div>
                 </FormspreeForm>
               </div>

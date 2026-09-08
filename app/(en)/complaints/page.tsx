@@ -21,7 +21,7 @@ export default function ComplaintsPageEn() {
             <h2>1. General Inquiries</h2>
             <p>
               General questions about KSLC services can be submitted through the inquiry form on our{" "}
-              <a href="/contact">Contact &amp; Directions</a> page, by phone at 714-788-2002, or by
+              <a href="/contact">Contact &amp; Directions</a> page, by phone at (657) 239-0226, or by
               email at <a href="mailto:info@kslcampus.org">info@kslcampus.org</a>.
             </p>
 

@@ -29,7 +29,8 @@ export default function ReferralPage() {
                 action={FORMSPREE_ENDPOINT}
                 redirectTo="/ko/thank-you?form=referral"
                 subject="[KSLC] 기관 의뢰 문의"
-                errorMessage="제출 중 문제가 발생했습니다. 잠시 후 다시 시도하시거나 전화로 문의해 주세요."
+                lang="ko"
+                submitLabel="기관 의뢰 문의 보내기"
               >
                 <div className="form-grid">
                   <div className="field full">
@@ -63,11 +64,6 @@ export default function ReferralPage() {
                     <label htmlFor="notes">일반적인 문의내용 *</label>
                     <textarea id="notes" name="문의내용" required />
                   </div>
-                </div>
-                <div className="form-actions">
-                  <button type="submit" className="button button-gold">
-                    기관 의뢰 문의 보내기
-                  </button>
                 </div>
               </FormspreeForm>
             </div>

@@ -25,7 +25,7 @@ export default function ContactPageEn() {
                 <ul>
                   <li>Address: 7342 Orangethorpe Ave, #B-109, Buena Park, CA 90621</li>
                   <li>
-                    Phone: <a href="tel:+17147882002">714-788-2002</a>
+                    Phone: <a href="tel:+16572390226">(657) 239-0226</a>
                   </li>
                   <li>
                     Email: <a href="mailto:info@kslcampus.org">info@kslcampus.org</a>
@@ -58,7 +58,9 @@ export default function ContactPageEn() {
                   action={FORMSPREE_ENDPOINT}
                   redirectTo="/thank-you?form=contact"
                   subject="[KSLC] General Inquiry"
-                  errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+                  lang="en"
+                  submitLabel="Send Message"
+                  submitVariant="button-navy"
                 >
                   <div className="form-grid">
                     <div className="field">
@@ -79,11 +81,6 @@ export default function ContactPageEn() {
                       <label htmlFor="message">Message *</label>
                       <textarea id="message" name="Message" required />
                     </div>
-                  </div>
-                  <div className="form-actions">
-                    <button type="submit" className="button button-navy">
-                      Send Message
-                    </button>
                   </div>
                 </FormspreeForm>
               </div>

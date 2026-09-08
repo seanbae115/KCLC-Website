@@ -32,7 +32,7 @@ export default function NondiscriminationPageEn() {
             <h2>Reporting a Concern</h2>
             <p>
               If you feel you have experienced discrimination while using KSLC's services, please let
-              us know at <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or 714-788-2002.
+              us know at <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or (657) 239-0226.
               Every report is carefully reviewed.
             </p>
           </div>

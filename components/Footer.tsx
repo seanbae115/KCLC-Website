@@ -12,7 +12,14 @@ export default function Footer({ lang }: { lang: Lang }) {
     <footer>
       <div className="shell footer-grid">
         <div>
-          <img src="/kslc-logo.png" alt={info.name} />
+          <img
+            src="/kslc-logo.png"
+            alt={
+              lang === "ko"
+                ? "KSLC Korean Senior Life Campus 공식 로고"
+                : "KSLC Korean Senior Life Campus official logo"
+            }
+          />
           <p>{info.missionShort}</p>
           <p className="footer-emergency">
             {lang === "ko" ? (
@@ -60,6 +67,13 @@ export default function Footer({ lang }: { lang: Lang }) {
       <div className="shell footer-bottom">
         <span>© 2026 {info.name}. All rights reserved.</span>
         <span>A Community Before a Campus.</span>
+      </div>
+
+      {/* Mobile-only fixed call button. Hidden on desktop and while a form field has focus. */}
+      <div className="mobile-call-bar">
+        <a href={info.phoneHref}>
+          {lang === "ko" ? `전화 상담 ${info.phone}` : `Call us ${info.phone}`}
+        </a>
       </div>
     </footer>
   );

@@ -19,7 +19,18 @@ export default function Header({ lang, currentPath }: { lang: Lang; currentPath:
       <header className="site-header">
         <div className="shell nav-wrap">
           <Link className="brand" href={logoHref} aria-label={`${info.name} home`}>
-            <img src="/kslc-logo.png" alt={info.name} />
+            {/* Primary lockup on wide screens, approved compact mark on narrow mobile. */}
+            <picture>
+              <source media="(max-width: 600px)" srcSet="/kslc-logo-compact.png" />
+              <img
+                src="/kslc-logo.png"
+                alt={
+                  lang === "ko"
+                    ? "KSLC Korean Senior Life Campus 공식 로고"
+                    : "KSLC Korean Senior Life Campus official logo"
+                }
+              />
+            </picture>
           </Link>
           <div className="nav-actions">
             <Link className="nav-text-action" href={cta.referral.href}>

@@ -31,7 +31,7 @@ export default function NondiscriminationPage() {
             <h2>차별 신고</h2>
             <p>
               KSLC의 서비스 이용 중 차별을 경험하셨다고 느끼신다면{" "}
-              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는 714-788-2002로
+              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는 (657) 239-0226로
               알려 주십시오. 모든 신고는 신중하게 검토됩니다.
             </p>
           </div>

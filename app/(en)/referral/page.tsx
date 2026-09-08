@@ -29,7 +29,8 @@ export default function ReferralPageEn() {
                 action={FORMSPREE_ENDPOINT}
                 redirectTo="/thank-you?form=referral"
                 subject="[KSLC] Institutional Referral Inquiry"
-                errorMessage="Something went wrong submitting this. Please try again shortly, or call us instead."
+                lang="en"
+                submitLabel="Send Referral Inquiry"
               >
                 <div className="form-grid">
                   <div className="field full">
@@ -63,11 +64,6 @@ export default function ReferralPageEn() {
                     <label htmlFor="notes">General Inquiry *</label>
                     <textarea id="notes" name="Inquiry" required />
                   </div>
-                </div>
-                <div className="form-actions">
-                  <button type="submit" className="button button-gold">
-                    Send Referral Inquiry
-                  </button>
                 </div>
               </FormspreeForm>
             </div>

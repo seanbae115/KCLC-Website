@@ -57,7 +57,7 @@ export default function TermsPage() {
             <h2>7. 문의</h2>
             <p>
               이용약관에 관한 문의는 <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는{" "}
-              714-788-2002로 연락해 주십시오.
+              (657) 239-0226로 연락해 주십시오.
             </p>
           </div>
         </section>

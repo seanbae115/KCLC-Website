@@ -60,7 +60,7 @@ export default function TermsPageEn() {
             <h2>7. Contact</h2>
             <p>
               For questions about these terms, contact us at{" "}
-              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or 714-788-2002.
+              <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> or (657) 239-0226.
             </p>
           </div>
         </section>

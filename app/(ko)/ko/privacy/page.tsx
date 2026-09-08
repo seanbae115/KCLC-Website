@@ -71,7 +71,7 @@ export default function PrivacyPage() {
             <h2>7. 문의</h2>
             <p>
               개인정보 처리에 관한 문의는 <a href="mailto:info@kslcampus.org">info@kslcampus.org</a> 또는{" "}
-              714-788-2002로 연락해 주십시오.
+              (657) 239-0226로 연락해 주십시오.
             </p>
           </div>
         </section>

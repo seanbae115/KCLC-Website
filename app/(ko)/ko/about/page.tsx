@@ -179,7 +179,7 @@ export default function AboutPage() {
               <ul>
                 <li>공식 명칭: Korean Senior Life Campus (KSLC)</li>
                 <li>주소: 7342 Orangethorpe Ave, #B-109, Buena Park, CA 90621</li>
-                <li>전화: 714-788-2002</li>
+                <li>전화: (657) 239-0226</li>
                 <li>이메일: info@kslcampus.org</li>
                 <li>서비스지역: Orange County, California</li>
               </ul>

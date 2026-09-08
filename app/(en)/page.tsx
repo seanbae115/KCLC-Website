@@ -10,12 +10,11 @@ const audiences = [
 ];
 
 const services = [
-  { number: "01", title: "Health & Medical Navigation", desc: "Connecting to primary/specialty care, hospital scheduling, post-discharge support, and medical transportation." },
-  { number: "02", title: "Insurance & Public Benefits", desc: "Guidance on Medi-Cal, Medicare, SSI/SSA, and CalFresh applications and renewals." },
-  { number: "03", title: "IHSS & Family Caregiving", desc: "IHSS information, family caregiver support, adult day care, and in-home services." },
-  { number: "04", title: "Housing Navigation", desc: "Senior apartments, affordable housing, eviction prevention, and housing stability resources." },
-  { number: "05", title: "Transportation & Daily Living", desc: "Medical transportation, meal support, preventing social isolation, and digital access." },
-  { number: "06", title: "Legal & Community Resources", desc: "Legal aid organizations, citizenship/immigration information, and church/nonprofit connections." },
+  { number: "01", title: "Insurance & Public Benefits", desc: "Guidance on Medi-Cal, Medicare, SSI/SSA, and CalFresh applications and renewals." },
+  { number: "02", title: "IHSS & Family Caregiving", desc: "IHSS information, family caregiver support, adult day care, and in-home services." },
+  { number: "03", title: "Housing Navigation", desc: "Senior apartments, affordable housing, eviction prevention, and housing stability resources." },
+  { number: "04", title: "Transportation & Daily Living", desc: "Medical transportation, meal support, preventing social isolation, and digital access." },
+  { number: "05", title: "Connecting with Local Resources", desc: "Connections to mental health and family counseling, churches and nonprofits, and county and city services." },
 ];
 
 const steps = [
@@ -65,6 +64,10 @@ export default function HomePageEn() {
                   Institutional Referral <span aria-hidden="true">→</span>
                 </Link>
               </div>
+              <p className="cta-microcopy">
+                Free consultation · Korean-language support · Family may request on your behalf ·
+                Appointments recommended
+              </p>
               <div className="hero-trust">
                 <span>Korean-first guidance</span>
                 <span>Orange County local network</span>
@@ -72,10 +75,36 @@ export default function HomePageEn() {
               </div>
               <div className="hero-links">
                 <Link href="/leadership">View Leadership →</Link>
-                <a href="https://www.hyosarangusa.org/" target="_blank" rel="noreferrer">
-                  Hyo Sarang Mission →
-                </a>
               </div>
+              <a
+                className="partner-link"
+                href="https://www.hyosarangusa.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
+                <span>
+                  Hyo Sarang Mission
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="sr-only"> (opens in a new window)</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="help-now" aria-labelledby="help-now-title">
+          <div className="shell">
+            <p className="section-kicker light">GET HELP RIGHT NOW</p>
+            <h2 id="help-now-title">Get help right now</h2>
+            <p>Call us, or send a request online — whichever is easier for you.</p>
+            <div className="help-now-actions">
+              <a className="button button-call" href="tel:+16572390226">
+                Call us: (657) 239-0226
+              </a>
+              <Link className="button button-outline" href="/request">
+                Request a consultation online
+              </Link>
             </div>
           </div>
         </section>
@@ -278,8 +307,8 @@ export default function HomePageEn() {
               <p style={{ fontSize: 14, marginTop: 24 }}>Hours: Weekdays 9:00 AM – 5:00 PM (appointments recommended)</p>
             </div>
             <div className="contact-actions">
-              <a className="button button-white" href="tel:+17147882002">
-                Call 714-788-2002
+              <a className="button button-white" href="tel:+16572390226">
+                Call (657) 239-0226
               </a>
               <a
                 className="address-link"

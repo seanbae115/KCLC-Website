@@ -21,7 +21,7 @@ export default function ComplaintsPage() {
             <h2>1. 문의 방법</h2>
             <p>
               KSLC 서비스에 대한 일반 문의는 <a href="/ko/contact">문의·오시는 길</a> 페이지의
-              문의폼, 전화 714-788-2002, 또는 이메일{" "}
+              문의폼, 전화 (657) 239-0226, 또는 이메일{" "}
               <a href="mailto:info@kslcampus.org">info@kslcampus.org</a>로 접수하실 수 있습니다.
             </p>
 
