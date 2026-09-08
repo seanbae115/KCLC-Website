@@ -14,7 +14,7 @@
   --footer-muted: #6e7275;
 }
 * { box-sizing: border-box; }
-html { scroll-padding-top: 150px; }
+html { scroll-padding-top: 150px; overflow-x: hidden; }
 body {
   margin: 0;
   background: var(--warm);
@@ -35,6 +35,12 @@ h1, h2, h3, h4 { font-family: var(--font-body), "Malgun Gothic", Arial, sans-ser
   background: var(--navy); color: white; padding: 14px 20px; font-weight: 700;
 }
 .skip-link:focus { left: 12px; top: 12px; }
+
+/* Visible keyboard focus on all interactive elements */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--gold-deep);
+  outline-offset: 2px;
+}
 
 /* Topbar + header */
 .topbar { background: var(--navy); color: rgba(255,255,255,.84); font-size: 13px; letter-spacing: .02em; }
@@ -57,7 +63,8 @@ h1, h2, h3, h4 { font-family: var(--font-body), "Malgun Gothic", Arial, sans-ser
 .mobile-nav { display: none; position: relative; }
 .mobile-nav summary { display: inline-flex; align-items: center; min-height: 48px; list-style: none; color: var(--navy); font-weight: 800; cursor: pointer; border: 1px solid #cad1d7; padding: 12px 16px; font-size: 15px; }
 .mobile-nav summary::-webkit-details-marker { display: none; }
-.mobile-menu { position: absolute; right: 0; top: 52px; width: 240px; display: grid; background: white; box-shadow: 0 18px 50px rgba(14,42,71,.18); padding: 12px; }
+.mobile-menu { display: none; position: absolute; right: 0; top: 52px; width: 240px; background: white; box-shadow: 0 18px 50px rgba(14,42,71,.18); padding: 12px; }
+.mobile-nav[open] .mobile-menu { display: grid; }
 .mobile-menu a { padding: 14px 12px; color: var(--navy); font-weight: 700; font-size: 16px; }
 
 /* Buttons */
@@ -70,8 +77,9 @@ h1, h2, h3, h4 { font-family: var(--font-body), "Malgun Gothic", Arial, sans-ser
 .button-outline:hover { background: var(--navy); color: white; }
 .button-block { width: 100%; }
 .text-link { color: white; font-weight: 700; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.4); }
-.text-link span { margin-left: 8px; color: var(--gold); }
+.text-link span { margin-left: 8px; color: var(--gold-light); }
 .text-link.dark { color: var(--navy); border-color: #b5bdc6; }
+.text-link.dark span { color: var(--gold-deep); }
 
 /* Hero (home) */
 .hero { position: relative; overflow: hidden; min-height: 620px; color: var(--navy); background: var(--warm); }
@@ -251,10 +259,10 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
 .field textarea { min-height: 140px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid var(--gold-light); outline-offset: 1px; border-color: var(--navy); }
 .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 20px; }
-.check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--charcoal); }
+.check-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 15px; color: var(--charcoal); }
 .check-item input { margin-top: 5px; width: 18px; height: 18px; flex-shrink: 0; }
 .radio-row { display: flex; flex-wrap: wrap; gap: 10px 24px; }
-.radio-item { display: flex; align-items: center; gap: 8px; font-size: 15px; }
+.radio-item { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 15px; }
 .radio-item input { width: 18px; height: 18px; }
 .form-actions { margin-top: 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .form-consent { font-size: 13px; color: var(--ink-softer); line-height: 1.7; margin-top: 18px; }
@@ -309,7 +317,7 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   .shell { width: min(100% - 28px, 1180px); }
   .topbar-contact { display: none; }
   .nav-wrap { min-height: 72px; }
-  .brand img { height: 44px; }
+  .brand img { height: 36px; }
   .hero h1 { font-size: 36px; } .hero-lead { font-size: 18px; }
   .hero-actions { align-items: stretch; flex-direction: column; gap: 12px; }
   .text-link { text-align: center; }
