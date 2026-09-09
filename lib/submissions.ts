@@ -26,6 +26,27 @@ const asText = (v: string | string[] | undefined): string =>
   Array.isArray(v) ? v.join(", ") : (v ?? "");
 
 /**
+ * Receipt time in the campus's own timezone, with the zone spelled out.
+ * Recording UTC here would disagree with the date inside the case number
+ * and leave staff reading two different days for the same submission.
+ */
+function receiptTimestamp(d = new Date()): string {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+    timeZoneName: "short",
+  }).formatToParts(d);
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")} ${get("hour")}:${get("minute")}:${get("second")} ${get("timeZoneName")}`;
+}
+
+/**
  * Append the submission to the Google Sheet through a small Apps Script web app.
  * This runs BEFORE any email: if mail delivery later fails, the record still exists.
  */
@@ -51,7 +72,7 @@ export async function saveRecord(row: {
       body: JSON.stringify({
         secret,
         case_id: row.caseId,
-        submitted_at: new Date().toISOString(),
+        submitted_at: receiptTimestamp(),
         form_type: row.formType,
         lang: row.lang,
         source_page: row.sourcePage,
