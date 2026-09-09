@@ -1,7 +1,0 @@
-RewriteEngine On
-
-# Redirect www.kslcampus.org -> kslcampus.org (canonical domain)
-RewriteCond %{HTTP_HOST} ^www\.kslcampus\.org$ [NC]
-RewriteRule ^(.*)$ https://kslcampus.org/$1 [L,R=301]
-
-ErrorDocument 404 /404.html
