@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm from "@/components/FormspreeForm";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
+import ConsultationForm from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
   title: "병원·기관 의뢰 안내",
@@ -25,47 +24,45 @@ export default function ReferralPage() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <FormspreeForm
-                action={FORMSPREE_ENDPOINT}
-                redirectTo="/ko/thank-you?form=referral"
-                subject="[KSLC] 기관 의뢰 문의"
+              <ConsultationForm
+                formType="referral"
                 lang="ko"
                 submitLabel="기관 의뢰 문의 보내기"
               >
                 <div className="form-grid">
                   <div className="field full">
                     <label htmlFor="org">기관명 *</label>
-                    <input type="text" id="org" name="기관명" required />
+                    <input type="text" id="org" name="organization" required />
                   </div>
                   <div className="field">
                     <label htmlFor="contactName">담당자 이름 *</label>
-                    <input type="text" id="contactName" name="담당자 이름" required />
+                    <input type="text" id="contactName" name="contactName" required />
                   </div>
                   <div className="field">
                     <label htmlFor="phone">전화번호 *</label>
-                    <input type="tel" id="phone" name="전화번호" required />
+                    <input type="tel" id="phone" name="phone" required />
                   </div>
                   <div className="field">
                     <label htmlFor="email">이메일 *</label>
-                    <input type="email" id="email" name="이메일" required />
+                    <input type="email" id="email" name="email" required />
                   </div>
                   <div className="field">
                     <label htmlFor="contactMethod">선호 연락방법</label>
-                    <select id="contactMethod" name="선호 연락방법" defaultValue="전화">
+                    <select id="contactMethod" name="preferredContact" defaultValue="전화">
                       <option value="전화">전화</option>
                       <option value="이메일">이메일</option>
                     </select>
                   </div>
                   <div className="field full">
                     <label htmlFor="area">의뢰 분야 *</label>
-                    <input type="text" id="area" name="의뢰 분야" placeholder="예: 퇴원 후 지원, 주거, 공공혜택 등" required />
+                    <input type="text" id="area" name="referralArea" placeholder="예: 퇴원 후 지원, 주거, 공공혜택 등" required />
                   </div>
                   <div className="field full">
                     <label htmlFor="notes">일반적인 문의내용 *</label>
-                    <textarea id="notes" name="문의내용" required />
+                    <textarea id="notes" name="inquiry" required />
                   </div>
                 </div>
-              </FormspreeForm>
+              </ConsultationForm>
             </div>
             <div className="form-side">
               <Notice>

@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm from "@/components/FormspreeForm";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
+import ConsultationForm from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
   title: "Institutional Referral",
@@ -25,47 +24,45 @@ export default function ReferralPageEn() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <FormspreeForm
-                action={FORMSPREE_ENDPOINT}
-                redirectTo="/thank-you?form=referral"
-                subject="[KSLC] Institutional Referral Inquiry"
+              <ConsultationForm
+                formType="referral"
                 lang="en"
                 submitLabel="Send Referral Inquiry"
               >
                 <div className="form-grid">
                   <div className="field full">
                     <label htmlFor="org">Organization Name *</label>
-                    <input type="text" id="org" name="Organization" required />
+                    <input type="text" id="org" name="organization" required />
                   </div>
                   <div className="field">
                     <label htmlFor="contactName">Contact Name *</label>
-                    <input type="text" id="contactName" name="Contact Name" required />
+                    <input type="text" id="contactName" name="contactName" required />
                   </div>
                   <div className="field">
                     <label htmlFor="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="Phone" required />
+                    <input type="tel" id="phone" name="phone" required />
                   </div>
                   <div className="field">
                     <label htmlFor="email">Email *</label>
-                    <input type="email" id="email" name="Email" required />
+                    <input type="email" id="email" name="email" required />
                   </div>
                   <div className="field">
                     <label htmlFor="contactMethod">Preferred Contact Method</label>
-                    <select id="contactMethod" name="Preferred Contact" defaultValue="Phone">
+                    <select id="contactMethod" name="preferredContact" defaultValue="Phone">
                       <option value="Phone">Phone</option>
                       <option value="Email">Email</option>
                     </select>
                   </div>
                   <div className="field full">
                     <label htmlFor="area">Referral Area *</label>
-                    <input type="text" id="area" name="Referral Area" placeholder="e.g. post-discharge support, housing, public benefits" required />
+                    <input type="text" id="area" name="referralArea" placeholder="e.g. post-discharge support, housing, public benefits" required />
                   </div>
                   <div className="field full">
                     <label htmlFor="notes">General Inquiry *</label>
-                    <textarea id="notes" name="Inquiry" required />
+                    <textarea id="notes" name="inquiry" required />
                   </div>
                 </div>
-              </FormspreeForm>
+              </ConsultationForm>
             </div>
             <div className="form-side">
               <Notice>

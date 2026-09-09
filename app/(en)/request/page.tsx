@@ -3,9 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm, { RequiredCheckGroup } from "@/components/FormspreeForm";
+import ConsultationForm, { RequiredCheckGroup } from "@/components/ConsultationForm";
 import { emergencyWarning } from "@/components/EmergencyContacts";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
   title: "Request a Consultation",
@@ -28,34 +27,29 @@ export default function RequestPageEn() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <FormspreeForm
-                action={FORMSPREE_ENDPOINT}
-                redirectTo="/thank-you?form=request"
-                subject="[KSLC] Consultation Request"
+              <ConsultationForm
+                formType="request"
                 lang="en"
                 submitLabel="Send Consultation Request"
-                requiredGroups={[
-                  { name: "Help Areas", message: "Please select at least one area you would like help with." },
-                ]}
               >
                 <div className="form-grid">
                   <div className="field">
                     <label htmlFor="name">Name *</label>
-                    <input type="text" id="name" name="Name" required />
+                    <input type="text" id="name" name="name" required />
                   </div>
                   <div className="field">
                     <label htmlFor="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="Phone" required />
+                    <input type="tel" id="phone" name="phone" required />
                   </div>
                   <div className="field">
                     <label htmlFor="email">
                       Email <span className="hint">(optional)</span>
                     </label>
-                    <input type="email" id="email" name="Email" />
+                    <input type="email" id="email" name="email" />
                   </div>
                   <div className="field">
                     <label htmlFor="lang">Preferred Language *</label>
-                    <select id="lang" name="Preferred Language" required defaultValue="">
+                    <select id="lang" name="preferredLanguage" required defaultValue="">
                       <option value="" disabled>
                         Please select
                       </option>
@@ -65,21 +59,21 @@ export default function RequestPageEn() {
                   </div>
                   <div className="field full">
                     <label htmlFor="time">Safe Time to Contact You</label>
-                    <input type="text" id="time" name="Best Time" placeholder="e.g. weekday mornings, weekday afternoons" />
+                    <input type="text" id="time" name="contactTime" placeholder="e.g. weekday mornings, weekday afternoons" />
                   </div>
                   <fieldset className="field full">
                     <legend>Are You the Senior, a Family Member, or an Agency? *</legend>
                     <div className="radio-row">
                       {["Myself", "Family member", "Agency staff"].map((r) => (
                         <label className="radio-item" key={r}>
-                          <input type="radio" name="Relationship" value={r} required />
+                          <input type="radio" name="relationship" value={r} required />
                           {r}
                         </label>
                       ))}
                     </div>
                   </fieldset>
                   <RequiredCheckGroup
-                    name="Help Areas"
+                    name="helpAreas"
                     legend="What Areas Do You Need Help With? *"
                     options={helpAreas}
                   />
@@ -87,11 +81,11 @@ export default function RequestPageEn() {
                     <label htmlFor="notes">
                       Anything Else You&apos;d Like to Share <span className="hint">(optional)</span>
                     </label>
-                    <textarea id="notes" name="Notes" />
+                    <textarea id="notes" name="notes" />
                   </div>
                   <div className="field full">
                     <label className="check-item">
-                      <input type="checkbox" name="Consent" value="Agreed" required />
+                      <input type="checkbox" name="consent" value="Agreed" required />
                       I agree that KSLC may contact me at the information above. *
                     </label>
                   </div>
@@ -107,7 +101,7 @@ export default function RequestPageEn() {
                   only to connect you with services, in accordance with our{" "}
                   <a href="/privacy">Privacy Policy</a>.
                 </p>
-              </FormspreeForm>
+              </ConsultationForm>
             </div>
             <div className="form-side">
               <Notice>

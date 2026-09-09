@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
-import FormspreeForm from "@/components/FormspreeForm";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
+import ConsultationForm from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
   title: "Contact & Directions",
@@ -54,10 +53,8 @@ export default function ContactPageEn() {
               />
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>General Inquiry</h3>
-                <FormspreeForm
-                  action={FORMSPREE_ENDPOINT}
-                  redirectTo="/thank-you?form=contact"
-                  subject="[KSLC] General Inquiry"
+                <ConsultationForm
+                formType="contact"
                   lang="en"
                   submitLabel="Send Message"
                   submitVariant="button-navy"
@@ -65,24 +62,24 @@ export default function ContactPageEn() {
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">Name *</label>
-                      <input type="text" id="name" name="Name" required />
+                      <input type="text" id="name" name="name" required />
                     </div>
                     <div className="field">
                       <label htmlFor="email">Email *</label>
-                      <input type="email" id="email" name="Email" required />
+                      <input type="email" id="email" name="email" required />
                     </div>
                     <div className="field full">
                       <label htmlFor="phone">
                         Phone Number <span className="hint">(optional)</span>
                       </label>
-                      <input type="tel" id="phone" name="Phone" />
+                      <input type="tel" id="phone" name="phone" />
                     </div>
                     <div className="field full">
                       <label htmlFor="message">Message *</label>
-                      <textarea id="message" name="Message" required />
+                      <textarea id="message" name="message" required />
                     </div>
                   </div>
-                </FormspreeForm>
+                </ConsultationForm>
               </div>
             </div>
           </div>

@@ -3,9 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Notice from "@/components/Notice";
-import FormspreeForm, { RequiredCheckGroup } from "@/components/FormspreeForm";
+import ConsultationForm, { RequiredCheckGroup } from "@/components/ConsultationForm";
 import { emergencyWarning } from "@/components/EmergencyContacts";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
 
 export const metadata: Metadata = {
   title: "상담 요청",
@@ -28,34 +27,29 @@ export default function RequestPage() {
         <section className="section">
           <div className="shell split-form">
             <div className="form-card">
-              <FormspreeForm
-                action={FORMSPREE_ENDPOINT}
-                redirectTo="/ko/thank-you?form=request"
-                subject="[KSLC] 상담 요청"
+              <ConsultationForm
+                formType="request"
                 lang="ko"
                 submitLabel="상담 요청 보내기"
-                requiredGroups={[
-                  { name: "도움 영역", message: "도움받고 싶은 영역을 한 가지 이상 선택해 주세요." },
-                ]}
               >
                 <div className="form-grid">
                   <div className="field">
                     <label htmlFor="name">이름 *</label>
-                    <input type="text" id="name" name="이름" required />
+                    <input type="text" id="name" name="name" required />
                   </div>
                   <div className="field">
                     <label htmlFor="phone">전화번호 *</label>
-                    <input type="tel" id="phone" name="전화번호" required />
+                    <input type="tel" id="phone" name="phone" required />
                   </div>
                   <div className="field">
                     <label htmlFor="email">
                       이메일 <span className="hint">(선택)</span>
                     </label>
-                    <input type="email" id="email" name="이메일" />
+                    <input type="email" id="email" name="email" />
                   </div>
                   <div className="field">
                     <label htmlFor="lang">선호 언어 *</label>
-                    <select id="lang" name="선호 언어" required defaultValue="">
+                    <select id="lang" name="preferredLanguage" required defaultValue="">
                       <option value="" disabled>
                         선택해 주세요
                       </option>
@@ -65,21 +59,21 @@ export default function RequestPage() {
                   </div>
                   <div className="field full">
                     <label htmlFor="time">안전하게 연락할 수 있는 시간</label>
-                    <input type="text" id="time" name="연락 가능 시간" placeholder="예: 평일 오전, 평일 오후 등" />
+                    <input type="text" id="time" name="contactTime" placeholder="예: 평일 오전, 평일 오후 등" />
                   </div>
                   <fieldset className="field full">
                     <legend>본인·가족·기관 여부 *</legend>
                     <div className="radio-row">
                       {["본인", "가족", "기관 담당자"].map((r) => (
                         <label className="radio-item" key={r}>
-                          <input type="radio" name="관계" value={r} required />
+                          <input type="radio" name="relationship" value={r} required />
                           {r}
                         </label>
                       ))}
                     </div>
                   </fieldset>
                   <RequiredCheckGroup
-                    name="도움 영역"
+                    name="helpAreas"
                     legend="도움받고 싶은 영역 *"
                     options={helpAreas}
                   />
@@ -87,11 +81,11 @@ export default function RequestPage() {
                     <label htmlFor="notes">
                       전하고 싶은 내용 <span className="hint">(선택)</span>
                     </label>
-                    <textarea id="notes" name="내용" />
+                    <textarea id="notes" name="notes" />
                   </div>
                   <div className="field full">
                     <label className="check-item">
-                      <input type="checkbox" name="연락 동의" value="동의함" required />
+                      <input type="checkbox" name="consent" value="동의함" required />
                       KSLC가 위 연락처로 연락하는 것에 동의합니다. *
                     </label>
                   </div>
@@ -106,7 +100,7 @@ export default function RequestPage() {
                   제출하신 정보는 상담 연결 목적으로만 사용되며{" "}
                   <a href="/ko/privacy">개인정보처리방침</a>에 따라 관리됩니다.
                 </p>
-              </FormspreeForm>
+              </ConsultationForm>
             </div>
             <div className="form-side">
               <Notice>

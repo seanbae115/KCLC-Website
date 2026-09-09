@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
-import FormspreeForm from "@/components/FormspreeForm";
-import { FORMSPREE_ENDPOINT } from "@/lib/forms";
+import ConsultationForm from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
   title: "문의·오시는 길",
@@ -54,10 +53,8 @@ export default function ContactPage() {
               />
               <div className="form-card" style={{ marginTop: 30 }}>
                 <h3 style={{ color: "var(--navy)", marginTop: 0 }}>일반 문의</h3>
-                <FormspreeForm
-                  action={FORMSPREE_ENDPOINT}
-                  redirectTo="/ko/thank-you?form=contact"
-                  subject="[KSLC] 일반 문의"
+                <ConsultationForm
+                formType="contact"
                   lang="ko"
                   submitLabel="문의 보내기"
                   submitVariant="button-navy"
@@ -65,24 +62,24 @@ export default function ContactPage() {
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">이름 *</label>
-                      <input type="text" id="name" name="이름" required />
+                      <input type="text" id="name" name="name" required />
                     </div>
                     <div className="field">
                       <label htmlFor="email">이메일 *</label>
-                      <input type="email" id="email" name="이메일" required />
+                      <input type="email" id="email" name="email" required />
                     </div>
                     <div className="field full">
                       <label htmlFor="phone">
                         전화번호 <span className="hint">(선택)</span>
                       </label>
-                      <input type="tel" id="phone" name="전화번호" />
+                      <input type="tel" id="phone" name="phone" />
                     </div>
                     <div className="field full">
                       <label htmlFor="message">문의 내용 *</label>
-                      <textarea id="message" name="문의 내용" required />
+                      <textarea id="message" name="message" required />
                     </div>
                   </div>
-                </FormspreeForm>
+                </ConsultationForm>
               </div>
             </div>
           </div>
