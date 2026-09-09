@@ -6,3 +6,7 @@ out
 
 # build artifacts
 *.tsbuildinfo
+
+# never commit a filled-in copy of the Apps Script (it carries the shared secret)
+docs/apps-script.ready.gs
+*.ready.gs
