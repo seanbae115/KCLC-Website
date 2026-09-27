@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import BoardRecruitment from "@/components/BoardRecruitment";
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -29,6 +30,8 @@ export default function PartnershipPageEn() {
           title="Get Involved"
           lead="Hospitals, city government, foundations, churches, and nonprofits each keep their own expertise while we build a senior-centered connection system together."
         />
+
+        <BoardRecruitment lang="en" />
 
         <section className="section" id="institutions">
           <div className="shell">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import BoardRecruitment from "@/components/BoardRecruitment";
 
 export const metadata: Metadata = {
   title: "참여·협력",
@@ -29,6 +30,8 @@ export default function PartnershipPage() {
           title="참여·협력"
           lead="병원, 시정부, 재단, 교회와 비영리단체가 각자의 전문성을 유지하면서 시니어 중심의 연결 체계를 함께 만들어 갑니다."
         />
+
+        <BoardRecruitment lang="ko" />
 
         <section className="section" id="institutions">
           <div className="shell">

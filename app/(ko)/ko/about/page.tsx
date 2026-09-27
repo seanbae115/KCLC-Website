@@ -3,6 +3,8 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import ChairGreeting from "@/components/ChairGreeting";
+import LaunchPhoto from "@/components/LaunchPhoto";
 
 export const metadata: Metadata = {
   title: "KSLC 소개",
@@ -45,6 +47,16 @@ export default function AboutPage() {
           title="KSLC 소개"
           lead="우리는 건물을 먼저 짓지 않습니다. 먼저 한 사람의 이야기를 듣고, 신뢰를 세우고, 흩어진 서비스를 연결하고, 서로 돌보는 공동체를 만듭니다."
         />
+
+        <section className="section">
+          <ChairGreeting lang="ko" />
+        </section>
+
+        <section className="section-tight" style={{ paddingTop: 0 }}>
+          <div className="shell">
+            <LaunchPhoto lang="ko" />
+          </div>
+        </section>
 
         <section className="purpose">
           <div className="shell purpose-grid">

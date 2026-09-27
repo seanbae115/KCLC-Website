@@ -3,6 +3,8 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import ChairGreeting from "@/components/ChairGreeting";
+import LaunchPhoto from "@/components/LaunchPhoto";
 
 export const metadata: Metadata = {
   title: "About KSLC",
@@ -45,6 +47,16 @@ export default function AboutPageEn() {
           title="About KSLC"
           lead="We don't build the building first. We listen to one person's story, build trust, connect scattered services, and build a community that cares for one another."
         />
+
+        <section className="section">
+          <ChairGreeting lang="en" />
+        </section>
+
+        <section className="section-tight" style={{ paddingTop: 0 }}>
+          <div className="shell">
+            <LaunchPhoto lang="en" />
+          </div>
+        </section>
 
         <section className="purpose">
           <div className="shell purpose-grid">
