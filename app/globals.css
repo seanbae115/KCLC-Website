@@ -102,9 +102,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 34px; }
 .hero-trust { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 40px; color: var(--ink-softer); font-size: 13px; }
 .hero-trust span::before { content: "◆"; margin-right: 8px; color: var(--gold); font-size: 7px; }
-.hero-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px; }
-.hero-links a { color: var(--navy); font-weight: 700; font-size: 14px; border-bottom: 1px solid rgba(14,42,71,.25); padding-bottom: 2px; }
-.hero-links a:hover { border-color: var(--gold-deep); }
+.hero-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px;
+  margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(14,42,71,.14);
+}
+.hero-links a {
+  display: inline-flex; align-items: center; gap: 9px; min-height: 44px;
+  color: var(--navy); font-weight: 700; font-size: 16px;
+}
+.hero-links a:hover { color: var(--gold-deep); }
+.hero-links-sep { width: 1px; height: 18px; background: rgba(14,42,71,.22); }
+.hero-partner img { width: 26px; height: 26px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
 .hero-mark { min-height: 440px; position: relative; display: flex; align-items: center; justify-content: center; }
 .mark-card { width: 330px; height: 390px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(255,255,255,.97); box-shadow: 0 28px 70px rgba(0,0,0,.3); border-top: 5px solid var(--gold); transform: rotate(2deg); }
 .mark-card img { width: 100%; aspect-ratio: 1; object-fit: contain; mix-blend-mode: multiply; }
@@ -379,15 +387,10 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
 .form-status { margin-top: 18px; color: var(--ink-soft); font-size: 16px; font-weight: 700; }
 .button[aria-disabled="true"] { opacity: .6; cursor: progress; }
 
-/* Hyo Sarang partner link */
-.partner-link { display: inline-flex; align-items: center; gap: 14px; padding: 10px 18px 10px 10px; background: white; border: 1px solid var(--rule); min-height: 56px; }
-.partner-link:hover { border-color: var(--gold-deep); }
-.partner-link img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
-.partner-link span { color: var(--navy); font-weight: 700; font-size: 16px; }
 
 /* Senior-readability minimums (spec: no body text below 16px) */
 .step p, .notice, .check-item, .radio-item, .field label, .field legend,
-.download-item p, .team-card p, .address-link, .form-error, .hero-links a { font-size: 16px; }
+.download-item p, .team-card p, .address-link, .form-error { font-size: 16px; }
 .service-card li, .desktop-nav, .mobile-nav summary, .form-consent, .field .hint,
 .service-boundary, .footer-links a, .footer-quick a { font-size: 16px; }
 
@@ -431,6 +434,8 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
   .hero h1 { font-size: 36px; } .hero-lead { font-size: 18px; }
   .hero-actions { align-items: stretch; flex-direction: column; gap: 12px; }
   .text-link { text-align: center; }
+  .hero-links-sep { display: none; }
+  .hero-links { gap: 2px 20px; }
   .purpose, .section { padding: 64px 0; }
   .page-hero { padding: 48px 0; }
   .purpose-grid { gap: 30px; } .purpose-copy .purpose-lead { font-size: 18px; }

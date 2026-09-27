@@ -73,20 +73,19 @@ export default function HomePage() {
               </div>
               <div className="hero-links">
                 <Link href="/ko/leadership">리더십·조직 보기 →</Link>
-              </div>
-              <a
-                className="partner-link"
-                href="https://www.hyosarangusa.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
-                <span>
+                <span className="hero-links-sep" aria-hidden="true" />
+                <a
+                  className="hero-partner"
+                  href="https://www.hyosarangusa.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
                   효사랑 선교회
                   <span aria-hidden="true"> ↗</span>
                   <span className="sr-only"> (새 창에서 열림)</span>
-                </span>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </section>

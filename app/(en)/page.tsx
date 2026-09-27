@@ -75,20 +75,19 @@ export default function HomePageEn() {
               </div>
               <div className="hero-links">
                 <Link href="/leadership">View Leadership →</Link>
-              </div>
-              <a
-                className="partner-link"
-                href="https://www.hyosarangusa.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
-                <span>
+                <span className="hero-links-sep" aria-hidden="true" />
+                <a
+                  className="hero-partner"
+                  href="https://www.hyosarangusa.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="/hyosarang-logo.jpg" alt="효사랑 공식 로고" />
                   Hyo Sarang Mission
                   <span aria-hidden="true"> ↗</span>
                   <span className="sr-only"> (opens in a new window)</span>
-                </span>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </section>
