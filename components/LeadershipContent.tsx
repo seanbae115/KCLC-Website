@@ -3,22 +3,32 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import LaunchPhoto from "@/components/LaunchPhoto";
+import RoleIcon from "@/components/RoleIcon";
 import { board, staff, type Person } from "@/lib/leadership";
 import { langHref, type Lang } from "@/lib/nav";
 
-function Roster({ people, lang }: { people: Person[]; lang: Lang }) {
+function People({ people, lang }: { people: Person[]; lang: Lang }) {
+  const ko = lang === "ko";
   return (
-    <div className="roster">
+    <div className="team-grid">
       {people.map((p) => (
-        <div className="roster-row" key={p.nameKo}>
-          <span className="roster-name">
+        <div className="team-card" key={p.nameKo}>
+          {p.photo ? (
+            <img src={p.photo} alt={ko ? `${p.nameKo} ${p.title.ko}` : `${p.nameEn ?? p.nameKo}, ${p.title.en}`} />
+          ) : (
+            /* Portrait not supplied yet. Drop a file into /public/team and set photo. */
+            <div className="team-placeholder">
+              {p.roleIcon && <RoleIcon role={p.roleIcon} />}
+            </div>
+          )}
+          <h3>
             {p.nameKo}
             {p.nameEn && <small>{p.nameEn}</small>}
-          </span>
-          <span className="roster-title">
+          </h3>
+          <p>
             {p.title[lang]}
             {p.officer && <span className="roster-officer">{p.officer[lang]}</span>}
-          </span>
+          </p>
         </div>
       ))}
     </div>
@@ -61,7 +71,7 @@ export default function LeadershipContent({ lang }: { lang: Lang }) {
                   : "The officers and directors elected at the launch."}
               </p>
             </div>
-            <Roster people={board} lang={lang} />
+            <People people={board} lang={lang} />
 
             <div className="section-heading" style={{ marginTop: 56 }}>
               <div>
@@ -74,7 +84,7 @@ export default function LeadershipContent({ lang }: { lang: Lang }) {
                   : "They meet with seniors directly and handle consultations and referrals."}
               </p>
             </div>
-            <Roster people={staff} lang={lang} />
+            <People people={staff} lang={lang} />
           </div>
         </section>
 

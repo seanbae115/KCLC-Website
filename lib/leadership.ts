@@ -1,4 +1,5 @@
 import type { Lang } from "./nav";
+import type { RoleKey } from "@/components/RoleIcon";
 
 export type Person = {
   nameKo: string;
@@ -8,6 +9,8 @@ export type Person = {
   title: Record<Lang, string>;
   /** Officer role decided at the 2026-09-24 launch, where one applies. */
   officer?: Record<Lang, string>;
+  /** Symbol shown in place of a portrait until a photo is supplied. */
+  roleIcon?: RoleKey;
 };
 
 /** Seven of the eleven who gathered at the launch form the board. */
@@ -54,15 +57,16 @@ export const board: Person[] = [
   {
     nameKo: "박미애",
     title: { ko: "봉사담당 이사", en: "Director of Volunteer Services" },
+    roleIcon: "volunteer",
   },
 ];
 
 /** The rest of the launch team, working directly with seniors. */
 export const staff: Person[] = [
-  { nameKo: "이윤정", title: { ko: "케이스 매니저", en: "Case Manager" } },
-  { nameKo: "백성심", title: { ko: "케이스 매니저", en: "Case Manager" } },
-  { nameKo: "배혜정", title: { ko: "상담 코디네이터", en: "Consultation Coordinator" } },
-  { nameKo: "박하영", title: { ko: "협력사업 매니저", en: "Partnership Manager" } },
+  { nameKo: "이윤정", title: { ko: "케이스 매니저", en: "Case Manager" }, roleIcon: "case" },
+  { nameKo: "백성심", title: { ko: "케이스 매니저", en: "Case Manager" }, roleIcon: "case" },
+  { nameKo: "배혜정", title: { ko: "상담 코디네이터", en: "Consultation Coordinator" }, roleIcon: "consult" },
+  { nameKo: "박하영", title: { ko: "협력사업 매니저", en: "Partnership Manager" }, roleIcon: "partnership" },
 ];
 
 /** Caption order is left to right as the launch photo was taken. */

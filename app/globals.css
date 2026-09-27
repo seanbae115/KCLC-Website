@@ -459,20 +459,20 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
 
 /* Time-limited announcement bar (2026-10-10 board information session) */
 .announce { background: var(--gold); color: var(--deep-navy); }
-.announce-inner { display: flex; align-items: center; gap: 14px; padding: 12px 0; flex-wrap: wrap; }
+.announce-inner { display: flex; align-items: center; gap: 18px; padding: 20px 0; flex-wrap: wrap; }
 .announce-tag {
-  flex-shrink: 0; padding: 4px 10px; background: var(--deep-navy); color: var(--gold-light);
-  font: 800 12px var(--font-accent), Arial, sans-serif; letter-spacing: .12em;
+  flex-shrink: 0; padding: 7px 14px; background: var(--deep-navy); color: var(--gold-light);
+  font: 800 14px var(--font-accent), Arial, sans-serif; letter-spacing: .12em;
 }
-.announce p { margin: 0; flex: 1 1 320px; font-size: 16px; line-height: 1.6; }
+.announce p { margin: 0; flex: 1 1 340px; font-size: 19px; line-height: 1.55; }
 .announce strong { font-weight: 800; }
 .announce a {
-  flex-shrink: 0; display: inline-flex; align-items: center; min-height: 44px;
-  color: var(--deep-navy); font-weight: 800; font-size: 16px; border-bottom: 2px solid var(--deep-navy);
+  flex-shrink: 0; display: inline-flex; align-items: center; min-height: 48px;
+  color: var(--deep-navy); font-weight: 800; font-size: 18px; border-bottom: 2px solid var(--deep-navy);
 }
 @media (max-width: 600px) {
-  .announce-inner { gap: 8px 12px; padding: 12px 0 14px; }
-  .announce p { flex-basis: 100%; font-size: 15px; }
+  .announce-inner { gap: 10px 12px; padding: 16px 0 18px; }
+  .announce p { flex-basis: 100%; font-size: 17px; }
 }
 
 /* Launch photograph */
@@ -543,3 +543,13 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
   .board-session { padding: 26px 22px; }
   .board-session dl > div { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* Portrait placeholder until a photo is supplied */
+.team-placeholder {
+  width: 100%; aspect-ratio: 1; margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy); color: var(--gold-light);
+}
+.role-icon { width: 38%; height: 38%; opacity: .85; }
+.team-card h3 small { display: block; margin-top: 2px; color: var(--ink-softer); font-weight: 400; font-size: 14px; }
+.team-card p .roster-officer { margin-left: 8px; }
