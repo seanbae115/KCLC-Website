@@ -1,10 +1,5 @@
 import type { Lang } from "./nav";
 
-export type Block =
-  | { type: "p"; text: Record<Lang, string> }
-  | { type: "quote"; text: Record<Lang, string>; by: Record<Lang, string> }
-  | { type: "h"; text: Record<Lang, string> };
-
 export type NewsItem = {
   slug: string;
   /** Sort key. */
@@ -13,23 +8,54 @@ export type NewsItem = {
   kind: Record<Lang, string>;
   title: Record<Lang, string>;
   lead: Record<Lang, string>;
-  body?: Block[];
-  external?: { href: string; source: Record<Lang, string> };
+  /** Publication and reporter. */
+  source: Record<Lang, string>;
+  /** Scan of the printed page, cropped to this article. */
+  clipping?: { src: string; alt: Record<Lang, string> };
+  /** Where the piece can be read online, when it is published there. */
+  href?: string;
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
 
 export const newsItems: NewsItem[] = [
   {
-    slug: "koreadaily-2026-09-25",
+    slug: "hankook-2026-09-28",
+    date: "2026-09-28",
+    dateLabel: L("2026년 9월 28일", "September 28, 2026"),
+    kind: L("언론 보도", "In the news"),
+    title: L("부에나팍 한인 시니어 위한 기관 문열어", "A center for Korean seniors opens in Buena Park"),
+    lead: L(
+      "KSLC, 복지·건강·주거·교통 한국어로 안내 무료 서비스",
+      "KSLC guides seniors through benefits, health, housing and transportation in Korean — free of charge.",
+    ),
+    source: L("한국일보 풀러튼 A12 · 문태기 기자", "The Korea Times, Fullerton A12 · Taegi Moon"),
+    clipping: {
+      src: "/press/hankook-2026-09-28.jpg",
+      alt: L(
+        "2026년 9월 28일자 한국일보 풀러튼면 지면. KSLC 발대식 기사와 단체사진이 실려 있다.",
+        "The Korea Times Fullerton section of September 28, 2026, carrying the KSLC launch story and group photograph.",
+      ),
+    },
+  },
+  {
+    slug: "joongang-2026-09-28",
     date: "2026-09-25",
-    dateLabel: L("2026년 9월 25일", "September 25, 2026"),
+    dateLabel: L("2026년 9월 25일 · 지면 9월 28일", "September 25, 2026 · in print September 28"),
     kind: L("언론 보도", "In the news"),
     title: L("시니어 생활정보 서비스 한국어 제공", "Senior life information services, offered in Korean"),
     lead: L(
-      "중앙일보가 KSLC 발대식과 활동 내용을 보도했습니다.",
-      "The Korea Daily reported on the KSLC launch and the services it offers.",
+      "한인시니어라이프캠퍼스 발족 · 부에나파크 사무실서 무료봉사 · 배상도 회장 등 11명으로 시작",
+      "Korean Senior Life Campus launches with eleven people, serving free of charge from its Buena Park office.",
     ),
-    external: { href: "https://www.koreadaily.com/article/20260925200005814", source: L("중앙일보 · 임상환 기자", "The Korea Daily · Sanghwan Lim") },
+    source: L("중앙일보 오렌지카운티 12면 · 임상환 기자", "The Korea Daily, Orange County p.12 · Sanghwan Lim"),
+    clipping: {
+      src: "/press/joongang-2026-09-28.jpg",
+      alt: L(
+        "2026년 9월 28일자 중앙일보 오렌지카운티면 지면. KSLC 발대식 기사와 단체사진이 실려 있다.",
+        "The Korea Daily Orange County section of September 28, 2026, carrying the KSLC launch story and group photograph.",
+      ),
+    },
+    href: "https://www.koreadaily.com/article/20260925200005814",
   },
 ];
