@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/nav";
 
-const DISMISS_KEY = "kslc-board-session-2026-10-10";
+/** Dismissal is tracked per language, so switching languages shows it once more. */
+const dismissKey = (lang: Lang) => `kslc-board-session-2026-10-10-${lang}`;
 /** Midnight PT on October 11 — the morning after the session. */
 const SHOW_UNTIL = Date.UTC(2026, 9, 11, 7, 0, 0);
 
@@ -15,13 +16,13 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
 
   const close = useCallback(() => {
     try {
-      localStorage.setItem(DISMISS_KEY, "1");
+      localStorage.setItem(dismissKey(lang), "1");
     } catch {
       /* private browsing — it will simply show again next visit */
     }
     setOpen(false);
     (restoreFocus.current as HTMLElement | null)?.focus?.();
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     // Nothing to announce once the session has passed.
@@ -30,7 +31,7 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
     if (currentPath === "/partnership") return;
     let dismissed = false;
     try {
-      dismissed = localStorage.getItem(DISMISS_KEY) === "1";
+      dismissed = localStorage.getItem(dismissKey(lang)) === "1";
     } catch {
       dismissed = false;
     }
@@ -40,7 +41,7 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
       setOpen(true);
     }, 700);
     return () => clearTimeout(t);
-  }, [currentPath]);
+  }, [currentPath, lang]);
 
   useEffect(() => {
     if (!open) return;
