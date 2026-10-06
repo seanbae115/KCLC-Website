@@ -29,13 +29,17 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
     if (Date.now() > SHOW_UNTIL) return;
     // They are already reading the recruitment page.
     if (currentPath === "/partnership") return;
-    let dismissed = false;
-    try {
-      dismissed = localStorage.getItem(dismissKey(lang)) === "1";
-    } catch {
-      dismissed = false;
+    // The home page shows it on every visit while the session is still ahead;
+    // elsewhere, closing it once is respected.
+    if (currentPath !== "/") {
+      let dismissed = false;
+      try {
+        dismissed = localStorage.getItem(dismissKey(lang)) === "1";
+      } catch {
+        dismissed = false;
+      }
+      if (dismissed) return;
     }
-    if (dismissed) return;
     const t = setTimeout(() => {
       restoreFocus.current = document.activeElement;
       setOpen(true);
