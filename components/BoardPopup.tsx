@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { siteInfo, type Lang } from "@/lib/nav";
+import type { Lang } from "@/lib/nav";
 
 const DISMISS_KEY = "kslc-board-session-2026-10-10";
 /** Midnight PT on October 11 — the morning after the session. */
@@ -12,7 +12,6 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
   const closeRef = useRef<HTMLButtonElement>(null);
   const restoreFocus = useRef<Element | null>(null);
   const ko = lang === "ko";
-  const info = siteInfo[lang];
 
   const close = useCallback(() => {
     try {
@@ -61,7 +60,11 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
         className="popup"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="popup-title"
+        aria-label={
+          ko
+            ? "KSLC 이사·전문위원 모집 안내"
+            : "KSLC board member and advisor recruitment notice"
+        }
         onClick={(e) => e.stopPropagation()}
       >
         <button ref={closeRef} type="button" className="popup-close" onClick={close}>
@@ -69,44 +72,20 @@ export default function BoardPopup({ lang, currentPath }: { lang: Lang; currentP
           <span className="sr-only">{ko ? "안내 닫기" : "Close this notice"}</span>
         </button>
 
+        {/* The poster carries the whole message, so its alt text has to as well. */}
         <img
           className="popup-poster"
-          src="/board-recruitment-poster.jpg"
+          src={ko ? "/board-recruitment-poster.jpg" : "/board-recruitment-poster-en.jpg"}
           alt={
             ko
-              ? "KSLC 이사·전문위원 모집 안내 포스터. 모집 설명회는 10월 10일 토요일 오전 11시 KSLC 사무실에서 열립니다."
-              : "KSLC board and advisor recruitment poster. The information session is Saturday, October 10 at 11:00 AM at the KSLC office."
+              ? "KSLC 이사·전문위원 모집 안내. 모집 설명회는 10월 10일 토요일 오전 11시, KSLC 사무실(7342 Orangethorpe Ave. #B-109, Buena Park, CA 90621)에서 열립니다. 참석 여부는 10월 8일 목요일까지 알려주시기 바랍니다. 문의 (657) 239-0226."
+              : "KSLC is recruiting board members and advisors. The information session is Saturday, October 10 at 11:00 AM at the KSLC office, 7342 Orangethorpe Ave. #B-109, Buena Park, CA 90621. Please tell us you are coming by Thursday, October 8. Call (657) 239-0226."
           }
         />
 
-        <div className="popup-body">
-          <h2 id="popup-title">
-            {ko ? "이사·전문위원을 모집합니다" : "We are recruiting board members and advisors"}
-          </h2>
-          <dl className="popup-facts">
-            <div>
-              <dt>{ko ? "설명회" : "Session"}</dt>
-              <dd>{ko ? "10월 10일(토) 오전 11시" : "Saturday, October 10, 11:00 AM"}</dd>
-            </div>
-            <div>
-              <dt>{ko ? "장소" : "Place"}</dt>
-              <dd>{info.address}</dd>
-            </div>
-            <div>
-              <dt>{ko ? "참석 신청" : "RSVP by"}</dt>
-              <dd>{ko ? "10월 8일(목)까지" : "Thursday, October 8"}</dd>
-            </div>
-          </dl>
-
-          <div className="popup-actions">
-            <a className="button button-gold" href={info.phoneHref}>
-              {ko ? `전화 신청 ${info.phone}` : `Call ${info.phone}`}
-            </a>
-            <a className="popup-more" href={`${ko ? "/ko" : ""}/partnership/#board`} onClick={close}>
-              {ko ? "모집 안내 자세히 보기 →" : "See the full details →"}
-            </a>
-          </div>
-        </div>
+        <a className="popup-more" href={`${ko ? "/ko" : ""}/partnership/#board`} onClick={close}>
+          {ko ? "모집 안내 자세히 보기 →" : "See the full details →"}
+        </a>
       </div>
     </div>
   );
