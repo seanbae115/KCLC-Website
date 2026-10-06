@@ -20,6 +20,44 @@ const L = (ko: string, en: string) => ({ ko, en });
 
 export const newsItems: NewsItem[] = [
   {
+    slug: "hankook-2026-10-05",
+    date: "2026-10-05",
+    dateLabel: L("2026년 10월 5일", "October 5, 2026"),
+    kind: L("언론 보도", "In the news"),
+    title: L("“이사 및 전문 위원 모집해요”", "“We are recruiting directors and advisors”"),
+    lead: L(
+      "한인 시니어 삶터, 10일 설명회 부에나팍",
+      "KSLC holds an information session in Buena Park on October 10.",
+    ),
+    source: L("한국일보 A12 · 2026년 10월 5일", "The Korea Times A12 · October 5, 2026"),
+    clipping: {
+      src: "/press/hankook-2026-10-05.jpg",
+      alt: L(
+        "2026년 10월 5일자 한국일보 지면. KSLC 이사·전문위원 모집 설명회 기사.",
+        "The Korea Times of October 5, 2026, reporting the KSLC board and advisor information session.",
+      ),
+    },
+  },
+  {
+    slug: "joongang-2026-10-05",
+    date: "2026-10-05",
+    dateLabel: L("2026년 10월 5일", "October 5, 2026"),
+    kind: L("언론 보도", "In the news"),
+    title: L("어르신 도울 이사·전문위원 모집", "Recruiting directors and advisors to help seniors"),
+    lead: L(
+      "한인 시니어 라이프 캠퍼스, 10일 부에나파크서 설명회",
+      "Korean Senior Life Campus holds an information session in Buena Park on October 10.",
+    ),
+    source: L("중앙일보 오렌지카운티 12면 · 2026년 10월 5일", "The Korea Daily, Orange County p.12 · October 5, 2026"),
+    clipping: {
+      src: "/press/joongang-2026-10-05.jpg",
+      alt: L(
+        "2026년 10월 5일자 중앙일보 지면. KSLC 이사·전문위원 모집 설명회 기사.",
+        "The Korea Daily of October 5, 2026, reporting the KSLC board and advisor information session.",
+      ),
+    },
+  },
+  {
     slug: "hankook-2026-09-28",
     date: "2026-09-28",
     dateLabel: L("2026년 9월 28일", "September 28, 2026"),

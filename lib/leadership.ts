@@ -56,25 +56,26 @@ export const board: Person[] = [
   },
   {
     nameKo: "박미애",
+    nameEn: "Miae Park",
+    photo: "/team/miae-park.jpg",
     title: { ko: "봉사담당 이사", en: "Director of Volunteer Services" },
-    roleIcon: "volunteer",
   },
 ];
 
 /** The rest of the launch team, working directly with seniors. */
 export const staff: Person[] = [
-  { nameKo: "이윤정", title: { ko: "케이스 매니저", en: "Case Manager" }, roleIcon: "case" },
-  { nameKo: "백성심", title: { ko: "케이스 매니저", en: "Case Manager" }, roleIcon: "case" },
-  { nameKo: "배혜정", title: { ko: "상담 코디네이터", en: "Consultation Coordinator" }, roleIcon: "consult" },
+  { nameKo: "김윤정", nameEn: "Yoonjung Kim", photo: "/team/yoonjung-kim.jpg", title: { ko: "케이스 매니저", en: "Case Manager" } },
+  { nameKo: "백성심", nameEn: "Sungsim Baek", photo: "/team/sungsim-baek.jpg", title: { ko: "케이스 매니저", en: "Case Manager" } },
+  { nameKo: "배혜정", nameEn: "Hyejung Bae", photo: "/team/hyejung-bae.jpg", title: { ko: "상담 코디네이터", en: "Consultation Coordinator" } },
   { nameKo: "박하영", title: { ko: "협력사업 매니저", en: "Partnership Manager" }, roleIcon: "partnership" },
 ];
 
-/** Caption order is left to right as the launch photo was taken. */
-export const launchPhotoOrder = [
+/** Left to right as the launch photograph was taken. */
+const photoOrderKo = [
   "데이비드 김",
   "박미애",
   "피터 리",
-  "이윤정",
+  "김윤정",
   "문진성",
   "배혜정",
   "박하영",
@@ -83,5 +84,15 @@ export const launchPhotoOrder = [
   "이선희",
   "박현숙",
 ];
+
+/** Caption names in photograph order, in the language being read. */
+export function launchPhotoNames(lang: Lang): string[] {
+  const all = [...board, ...staff];
+  return photoOrderKo.map((ko) => {
+    const p = all.find((x) => x.nameKo === ko);
+    if (!p) return ko;
+    return lang === "en" ? (p.nameEn ?? p.nameKo) : p.nameKo;
+  });
+}
 
 export const LAUNCH_DATE = { ko: "2026년 9월 24일", en: "September 24, 2026" };

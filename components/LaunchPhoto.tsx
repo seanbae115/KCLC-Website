@@ -1,4 +1,4 @@
-import { LAUNCH_DATE, launchPhotoOrder } from "@/lib/leadership";
+import { LAUNCH_DATE, launchPhotoNames } from "@/lib/leadership";
 import type { Lang } from "@/lib/nav";
 
 /** The 2026-09-24 launch photograph, with its caption naming everyone left to right. */
@@ -24,7 +24,7 @@ export default function LaunchPhoto({ lang, showNames = true }: { lang: Lang; sh
         {showNames && (
           <span className="launch-names">
             {ko ? "왼쪽부터: " : "From left: "}
-            {launchPhotoOrder.join(" · ")}
+            {launchPhotoNames(lang).join(" · ")}
           </span>
         )}
       </figcaption>
