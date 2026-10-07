@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import LaunchPhoto from "@/components/LaunchPhoto";
-import { newsItems } from "@/lib/news";
+import { newsItems, videoItems } from "@/lib/news";
 import type { Lang } from "@/lib/nav";
 
 export default function NewsContent({ lang }: { lang: Lang }) {
@@ -25,6 +25,54 @@ export default function NewsContent({ lang }: { lang: Lang }) {
         <section className="section">
           <div className="shell">
             <LaunchPhoto lang={lang} />
+          </div>
+        </section>
+
+        <section className="section" style={{ background: "var(--warm)", paddingBottom: 0 }}>
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="section-kicker">ON AIR</p>
+                <h2>{ko ? "영상으로 보는 KSLC" : "KSLC on air"}</h2>
+              </div>
+            </div>
+
+            <div className="video-list">
+              {videoItems.map((v) => (
+                <article className="video-item" key={v.slug}>
+                  <div className="video-embed">
+                    {/* nocookie host: the visitor is not tracked until they press play. */}
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                      title={v.title[lang]}
+                      loading="lazy"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="video-meta">
+                    <span className="download-tag">{v.dateLabel[lang]}</span>
+                    <h3>{v.title[lang]}</h3>
+                    <p>{v.lead[lang]}</p>
+                    <p className="news-source">{v.source[lang]}</p>
+                    <a
+                      className="text-link"
+                      href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {ko ? "유튜브에서 보기" : "Watch on YouTube"}
+                      <span aria-hidden="true"> ↗</span>
+                      <span className="sr-only">
+                        {" "}
+                        ({ko ? "새 창에서 열림" : "opens in a new window"})
+                      </span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -97,3 +97,34 @@ export const newsItems: NewsItem[] = [
     href: "https://www.koreadaily.com/article/20260925200005814",
   },
 ];
+
+export type VideoItem = {
+  slug: string;
+  /** Sort key. */
+  date: string;
+  dateLabel: Record<Lang, string>;
+  /** The eleven-character YouTube id, not a full watch URL. */
+  youtubeId: string;
+  title: Record<Lang, string>;
+  lead: Record<Lang, string>;
+  /** Broadcaster or channel that produced the piece. */
+  source: Record<Lang, string>;
+};
+
+export const videoItems: VideoItem[] = [
+  {
+    slug: "gbc-interview-2026-10",
+    date: "2026-10-06",
+    dateLabel: L("2026년 10월", "October 2026"),
+    youtubeId: "dxTYinfUj_Q",
+    title: L(
+      "KSLC 소개 및 이사·전문위원 모집 — 배상도 회장 인터뷰",
+      "Introducing KSLC and the call for directors and advisors — an interview with Chair Sang Do Bae",
+    ),
+    lead: L(
+      "KSLC가 어떤 일을 하는 곳인지, 그리고 이사·전문위원을 왜 모집하는지 배상도 회장이 직접 설명합니다.",
+      "Chair Sang Do Bae explains what KSLC does, and why the campus is looking for directors and advisors.",
+    ),
+    source: L("GBC 미주복음방송", "GBC Gospel Broadcasting"),
+  },
+];
