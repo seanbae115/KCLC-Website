@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AnnouncementBar from "./AnnouncementBar";
 import BoardPopup from "./BoardPopup";
 import { ctaNav, langHref, primaryNav, siteInfo, type Lang } from "@/lib/nav";
 
@@ -13,7 +12,6 @@ export default function Header({ lang, currentPath }: { lang: Lang; currentPath:
   return (
     <>
       <BoardPopup lang={lang} currentPath={currentPath} />
-      <AnnouncementBar lang={lang} />
       <div className="topbar">
         <div className="shell topbar-inner">
           <span>{info.tagline}</span>
