@@ -37,6 +37,12 @@ const SECRET = 'PASTE_THE_SAME_SECRET_AS_VERCEL';
 // 점검에 실패했을 때 경고를 받을 주소. 쉼표로 여러 명 가능.
 const ALERT_TO = 'info@kslcampus.org';
 
+// 상담 신청 알림을 받는 메일함 (Vercel 의 NOTIFY_TO 와 같은 주소).
+// 4번 점검(메일이 실제로 도착했는지)은 이 메일함을 들여다봅니다. 그래서 이 스크립트는
+// 반드시 이 주소의 계정으로 설치·실행되어야 합니다. 다른 계정으로 설치하면 남의
+// 메일함을 뒤지는 셈이 되어 늘 '못 찾았다'가 나오므로, 그때는 4번을 건너뜁니다.
+const NOTIFY_MAILBOX = 'info@kslcampus.org';
+
 const SITE = 'https://www.kslcampus.org';
 
 /** 한 번만 실행하세요. 매주 월요일 오전 9시 자동 실행을 걸어줍니다. */
@@ -54,6 +60,7 @@ function setup() {
 
 function kslcWatchman() {
   const problems = [];
+  const notes = []; // 고장은 아니지만 사람이 알아야 할 것
   let caseId = '';
   let siteAnswered = false;
   let sheetOk = false;
@@ -90,24 +97,38 @@ function kslcWatchman() {
   }
 
   // 2) 점검 메일이 메일함에 실제로 도착했는지 확인 — 가장 중요한 단계
+  let inboxChecked = false;
   if (caseId && mailSentOk) {
-    Utilities.sleep(45000); // 배달될 시간을 줍니다
-    try {
-      const threads = GmailApp.search('subject:"' + caseId + '" newer_than:1d');
-      mailArrived = threads.length > 0;
-      if (!mailArrived) {
-        problems.push(
-          '메일 서버는 보냈다고 했지만 ' + ALERT_TO + ' 메일함에서 찾을 수 없습니다. ' +
-          '받는 메일함이 꽉 찼거나 정지되었을 수 있습니다 — 상담 신청 알림도 같이 사라집니다.'
-        );
+    const me = (Session.getEffectiveUser().getEmail() || '').toLowerCase();
+    if (me !== NOTIFY_MAILBOX.toLowerCase()) {
+      // 알림을 받는 계정이 아니면 메일함을 볼 수 없습니다. 모르는 것을 고장이라고
+      // 보고하면 매주 헛경고가 가고, 그러면 진짜 경고도 무시하게 됩니다.
+      notes.push(
+        '메일 도착 확인 건너뜀: 이 스크립트가 ' + (me || '(알 수 없음)') + ' 계정으로 ' +
+        '실행되고 있어 ' + NOTIFY_MAILBOX + ' 메일함을 볼 수 없습니다. ' +
+        '가장 중요한 점검이므로, 스프레드시트를 ' + NOTIFY_MAILBOX + ' 계정으로 옮기거나 ' +
+        '그 계정에서 다시 설치하는 것을 권합니다.'
+      );
+    } else {
+      inboxChecked = true;
+      Utilities.sleep(45000); // 배달될 시간을 줍니다
+      try {
+        const threads = GmailApp.search('subject:"' + caseId + '" newer_than:1d');
+        mailArrived = threads.length > 0;
+        if (!mailArrived) {
+          problems.push(
+            '메일 서버는 보냈다고 했지만 ' + NOTIFY_MAILBOX + ' 메일함에서 찾을 수 없습니다. ' +
+            '받는 메일함이 꽉 찼거나 정지되었을 수 있습니다 — 상담 신청 알림도 같이 사라집니다.'
+          );
+        }
+      } catch (err) {
+        problems.push('메일함 확인 실패: ' + err);
       }
-    } catch (err) {
-      problems.push('메일함 확인 실패: ' + err);
     }
   }
 
-  const ok = siteAnswered && sheetOk && mailSentOk && mailArrived;
-  log_(ok, caseId, siteAnswered, sheetOk, mailSentOk, mailArrived, problems);
+  const ok = siteAnswered && sheetOk && mailSentOk && (mailArrived || !inboxChecked);
+  log_(ok, caseId, siteAnswered, sheetOk, mailSentOk, inboxChecked ? mailArrived : null, problems.concat(notes));
   if (!ok) alert_(caseId, problems);
   return ok;
 }
@@ -123,7 +144,7 @@ function log_(ok, caseId, siteAnswered, sheetOk, mailSentOk, mailArrived, proble
       .setFontWeight('bold').setBackground('#0e2a47').setFontColor('#ffffff');
     sheet.setFrozenRows(1);
   }
-  const yn = function (b) { return b ? '정상' : '실패'; };
+  const yn = function (b) { return b === null ? '확인불가' : (b ? '정상' : '실패'); };
   sheet.appendRow([
     Utilities.formatDate(new Date(), 'America/Los_Angeles', 'yyyy-MM-dd HH:mm:ss'),
     ok ? '정상' : '실패',
