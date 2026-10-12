@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>KSLC 홈페이지 첫 수정 안내</title>
+<style>
+  :root { --navy:#0e2a47; --gold:#9a7422; --ink:#1b2440; --soft:#4d5768; --rule:#cfd5dd; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; padding: 32px 28px 60px; max-width: 760px;
+    font-family: "Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    font-size: 16px; line-height: 1.75; color: var(--ink);
+    background: #fff; word-break: keep-all; overflow-wrap: break-word;
+  }
+  h1 { font-size: 27px; color: var(--navy); margin: 0 0 6px; line-height: 1.3; }
+  .sub { color: var(--soft); margin: 0 0 22px; font-size: 15px; }
+  h2 {
+    font-size: 20px; color: var(--navy); margin: 30px 0 10px;
+    padding: 8px 0 8px 14px; border-left: 5px solid var(--gold); background: #fbf8f1;
+  }
+  .lead { background:#fbf8f1; border:1px solid #e4d9bf; padding:14px 18px; border-radius:6px; }
+  .lead strong { color: var(--navy); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 6px; font-size: 15px; }
+  th, td { border: 1px solid var(--rule); padding: 9px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--navy); color: #fff; font-weight: 700; }
+  code, .url {
+    font-family: Consolas,"Courier New",monospace; font-size: 14.5px;
+    background: #f1f4f7; border: 1px solid var(--rule); padding: 2px 6px; border-radius: 4px;
+  }
+  .say {
+    margin: 12px 0; padding: 12px 16px; border-left: 4px solid var(--navy);
+    background: #f3f6f9; font-size: 16px;
+  }
+  .say b { color: var(--navy); }
+  ul.check { list-style: none; padding-left: 0; }
+  ul.check li { margin: 7px 0; padding-left: 30px; position: relative; }
+  ul.check li::before {
+    content: ""; position: absolute; left: 0; top: 4px;
+    width: 17px; height: 17px; border: 2px solid var(--navy); border-radius: 3px;
+  }
+  .warn th { background: #8a2b2b; }
+  .note { color: var(--soft); font-size: 14.5px; }
+  .fill { border-bottom: 1px solid var(--ink); display: inline-block; min-width: 230px; }
+  .foot { margin-top: 34px; padding-top: 14px; border-top: 2px solid var(--navy); font-size: 14px; color: var(--soft); }
+  @media print {
+    body { font-size: 12.5pt; padding: 0; max-width: none; }
+    h1 { font-size: 20pt; } h2 { font-size: 14pt; }
+    h2, table, .lead, .say { page-break-inside: avoid; }
+    .noprint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1>KSLC 홈페이지 — AI로 처음 수정해보기</h1>
+<p class="sub">연습용 안내 · 2026년 10월</p>
+
+<p class="lead">
+  <strong>이번은 연습입니다. 실제 홈페이지는 바뀌지 않습니다.</strong><br>
+  잘못 눌러도 괜찮습니다 — 마지막 단계(실제로 올리기)를 하지 않기 때문입니다.
+</p>
+
+<h2>준비물</h2>
+<table>
+  <tr><th style="width:30%">무엇</th><th>내용</th></tr>
+  <tr><td>ChatGPT</td><td>저장소(GitHub)에 연결할 수 있는 유료 플랜</td></tr>
+  <tr><td>저장소 주소</td><td><span class="url">github.com/seanbae115/KCLC-Website</span></td></tr>
+  <tr><td>시작 지시문</td><td><code>docs/AI-시작지시문.txt</code> 파일의 내용 전체</td></tr>
+</table>
+
+<h2>1단계 · 지시문을 붙여넣기</h2>
+<p>
+  <code>AI-시작지시문.txt</code> 를 열어 <b>선 안쪽 전체를 복사</b>해서 ChatGPT에 붙여넣고 보냅니다.
+</p>
+<p class="note">길어도 괜찮습니다. 통째로 넣는 것이 중요합니다 — 홈페이지의 규칙이 모두 들어 있습니다.</p>
+
+<h2>2단계 · 저장소를 연결하라고 하면</h2>
+<p>화면 안내를 따라가세요. <b>모르는 화면이 나오면 ChatGPT에게 그대로 물어보세요.</b></p>
+<div class="say"><b>이렇게 물어보세요 →</b> &ldquo;지금 화면에 ○○ 라고 나오는데 어디를 눌러야 하나요?&rdquo;</div>
+<p class="note">AI는 자기 화면을 잘 안내합니다. 혼자 추측해서 누르지 마세요.</p>
+
+<h2>3단계 · 미리보기 주소를 열어 눈으로 확인 — 가장 중요</h2>
+<p>작업이 끝나면 AI가 이런 주소를 줍니다.</p>
+<p><span class="url">https://kclc-website-git-○○○-kclc.vercel.app</span></p>
+<p>그 주소를 직접 열어 아래를 확인하세요.</p>
+<ul class="check">
+  <li>화면 <b>맨 위에 공지 띠</b>가 보이는가</li>
+  <li>글씨가 깨지거나 겹치지 않는가</li>
+  <li>오른쪽 위 <b>English</b> 를 눌러 <b>영어 쪽도</b> 제대로 나오는가</li>
+  <li>휴대폰으로도 열어보기 (글자가 화면 밖으로 넘지 않는지)</li>
+</ul>
+<p class="note">미리보기는 <b>연습용 복사본</b>입니다. 여기가 아무리 이상해도 실제 홈페이지는 멀쩡합니다.</p>
+
+<h2>4단계 · 이번에는 합치지 않고 끝냅니다</h2>
+<div class="say"><b>이렇게 말하세요 →</b> &ldquo;확인했습니다. 이번 건은 실제 사이트에 올리지 말고 취소해 주세요.&rdquo;</div>
+<p>끝입니다. 실제 홈페이지는 처음과 똑같습니다.</p>
+<p class="note">
+  나중에 진짜로 올리고 싶을 때만 &ldquo;실제 사이트에 올려 주세요&rdquo;라고 하면 됩니다.
+  그때는 <b>미리보기에서 반드시 눈으로 확인한 뒤에</b> 말씀하세요.
+</p>
+
+<h2>이런 말이 나오면 믿지 마세요</h2>
+<table class="warn">
+  <tr><th style="width:45%">AI가 이렇게 하면</th><th>이렇게 하세요</th></tr>
+  <tr><td>미리보기 주소 없이 &ldquo;다 됐습니다&rdquo;</td><td><b>&ldquo;미리보기 주소를 알려주세요&rdquo;</b> 라고 요구</td></tr>
+  <tr><td>코드를 어디에 붙여넣으라고 함</td><td><b>하지 마세요.</b> 붙여넣기는 필요 없습니다</td></tr>
+  <tr><td>비밀번호·환경변수 값을 물어봄</td><td><b>절대 알려주지 마세요.</b> 필요 없는 작업입니다</td></tr>
+  <tr><td>&ldquo;master 에 바로 올렸습니다&rdquo;</td><td>규칙 위반입니다. 담당자에게 알려주세요</td></tr>
+  <tr><td>상담 요청 양식을 고쳤다고 함</td><td>손대면 안 되는 곳입니다. 담당자에게 알려주세요</td></tr>
+</table>
+<p>
+  <b>AI는 &ldquo;다 됐습니다&rdquo;라고 말하면서 틀릴 수 있습니다.</b>
+  미리보기를 직접 보기 전까지 믿지 않는 것이 이 방식의 핵심입니다.
+  의심하는 것은 실례가 아니라 정상적인 절차입니다.
+</p>
+
+<h2>안심하셔도 되는 이유</h2>
+<table>
+  <tr><td style="width:34%"><b>깨진 사이트는 못 올라갑니다</b></td>
+      <td>코드가 잘못되면 배포 자체가 실패하고 기존 홈페이지가 그대로 유지됩니다</td></tr>
+  <tr><td><b>공지는 스스로 사라집니다</b></td>
+      <td>끝나는 날짜가 지나면 자동으로 내려갑니다. 잊어버려도 괜찮습니다</td></tr>
+  <tr><td><b>고장나면 알려줍니다</b></td>
+      <td>상담 접수가 안 되면 매주 자동 점검이 경고 메일을 보냅니다</td></tr>
+</table>
+
+<h2>막히면 연락</h2>
+<table>
+  <tr><td style="width:34%">홈페이지 담당자</td><td><span class="fill"></span></td></tr>
+  <tr><td>기술 담당</td><td><span class="fill"></span></td></tr>
+</table>
+<p class="note">10분 이상 막히면 혼자 해결하려 하지 말고 연락하세요. 그게 가장 빠릅니다.</p>
+
+<p class="foot">
+  Korean Senior Life Campus · www.kslcampus.org<br>
+  자세한 운영 설명은 <code>docs/운영안내서.md</code> 에 있습니다.
+</p>
+
+</body>
+</html>
