@@ -10,3 +10,8 @@ out
 # never commit a filled-in copy of the Apps Script (it carries the shared secret)
 docs/apps-script.ready.gs
 *.ready.gs
+
+# 비밀값이 든 로컬 환경변수 파일은 절대 커밋하지 않습니다 (저장소가 공개입니다)
+.env
+.env.*
+!.env.example

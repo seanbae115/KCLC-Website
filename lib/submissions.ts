@@ -184,3 +184,106 @@ export async function sendNotifications(args: {
 
   return { admin, ack, reason };
 }
+
+export type SelfTestResult = {
+  ok: boolean;
+  caseId: string;
+  at: string;
+  checks: {
+    /** 스프레드시트에 한 줄이 실제로 기록되었는가. */
+    sheet: boolean;
+    /** 메일 서버에 로그인이 되는가 (비밀번호 만료·계정 정지를 잡아냅니다). */
+    smtpLogin: boolean;
+    /** 점검 메일이 실제로 발송되었는가. */
+    mailSent: boolean;
+  };
+  /** 실패한 항목의 사유. 사람이 읽고 바로 조치할 수 있게 적습니다. */
+  problems: string[];
+};
+
+/**
+ * 상담 신청이 실제로 접수되는지 스스로 점검합니다.
+ *
+ * 실제 신청과 **똑같은 길**(같은 환경변수, 같은 시트 웹훅, 같은 메일 서버)을
+ * 지나가므로, 길 중간이 끊기면 여기서 걸립니다.
+ *
+ * 이 점검이 필요한 이유: 2026년 9월에 받는 메일함이 죽어 있었는데 사이트는
+ * 완벽히 정상으로 보였습니다. 신청만 조용히 사라지고 아무도 몰랐습니다.
+ * 사람 눈에 보이지 않는 고장이라, 기계가 정기적으로 확인해야 합니다.
+ */
+export async function runSelfTest(): Promise<SelfTestResult> {
+  const caseId = makeCaseId();
+  const at = receiptTimestamp();
+  const problems: string[] = [];
+  const checks = { sheet: false, smtpLogin: false, mailSent: false };
+
+  // 1) 시트 기록 — 'self-test' 탭에 따로 쌓이므로 실제 상담 기록과 섞이지 않습니다.
+  const url = process.env.SHEETS_WEBHOOK_URL;
+  const secret = process.env.SHEETS_WEBHOOK_SECRET;
+  if (!url || !secret) {
+    problems.push("SHEETS_WEBHOOK_URL 또는 SHEETS_WEBHOOK_SECRET 환경변수가 없습니다.");
+  } else {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret,
+          case_id: caseId,
+          submitted_at: at,
+          form_type: "self-test",
+          lang: "ko",
+          source_page: "/api/self-test",
+          note: "자동 점검 (실제 상담 신청이 아닙니다)",
+          status: "self-test",
+          assigned_to: "",
+          contact_attempts: "",
+        }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (res.ok) checks.sheet = true;
+      else problems.push(`시트 기록 실패: 응답 ${res.status}`);
+    } catch (e) {
+      problems.push(`시트 기록 실패: ${e instanceof Error ? e.message : "원인 불명"}`);
+    }
+  }
+
+  // 2) 메일 서버 로그인 + 3) 점검 메일 발송
+  const t = transport();
+  if (!t) {
+    problems.push("SMTP_USER 또는 SMTP_PASS 환경변수가 없습니다.");
+  } else {
+    try {
+      await t.verify();
+      checks.smtpLogin = true;
+    } catch (e) {
+      problems.push(`메일 서버 로그인 실패: ${e instanceof Error ? e.message : "원인 불명"}`);
+    }
+
+    if (checks.smtpLogin) {
+      const to = process.env.NOTIFY_TO || process.env.SMTP_USER!;
+      try {
+        await t.sendMail({
+          from: `"KSLC 자동 점검" <${process.env.SMTP_USER}>`,
+          to,
+          subject: `[KSLC 자동점검] 정상 — ${caseId}`,
+          text: [
+            "KSLC 홈페이지 자동 점검입니다. 이 메일은 사람이 보낸 것이 아닙니다.",
+            "",
+            `점검 시각: ${at}`,
+            `점검 번호: ${caseId}`,
+            "",
+            "이 메일이 도착했다는 것은 상담 신청 알림이 정상으로 전달된다는 뜻입니다.",
+            "조치할 일은 없습니다. 이 메일이 오지 않는 주가 있으면 홈페이지 담당자에게 알려주세요.",
+          ].join("\n"),
+        });
+        checks.mailSent = true;
+      } catch (e) {
+        problems.push(`점검 메일 발송 실패: ${e instanceof Error ? e.message : "원인 불명"}`);
+      }
+    }
+  }
+
+  const ok = checks.sheet && checks.smtpLogin && checks.mailSent;
+  return { ok, caseId, at, checks, problems };
+}

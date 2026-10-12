@@ -1,6 +1,8 @@
 import Link from "next/link";
 import BoardPopup from "./BoardPopup";
+import NoticeBar from "./NoticeBar";
 import { ctaNav, langHref, primaryNav, siteInfo, type Lang } from "@/lib/nav";
+import { isStillRunning, notices } from "@/lib/notices";
 
 export default function Header({ lang, currentPath }: { lang: Lang; currentPath: string }) {
   const info = siteInfo[lang];
@@ -12,6 +14,10 @@ export default function Header({ lang, currentPath }: { lang: Lang; currentPath:
   return (
     <>
       <BoardPopup lang={lang} currentPath={currentPath} />
+      {/* 날짜가 지난 공지는 빌드할 때 빠지고, 빌드 뒤에 지난 것은 NoticeBar 가 감춥니다. */}
+      {notices.filter((n) => isStillRunning(n)).map((n) => (
+        <NoticeBar key={n.id} notice={n} lang={lang} />
+      ))}
       <div className="topbar">
         <div className="shell topbar-inner">
           <span>{info.tagline}</span>
