@@ -44,7 +44,19 @@ export type Notice = {
  *     linkLabel: { ko: "자세히 보기 →", en: "Learn more →" },
  *   },
  */
-export const notices: Notice[] = [];
+export const notices: Notice[] = [
+  {
+    id: "free-consult-notice",
+    showUntil: "2026-10-31",
+    tag: { ko: "안내", en: "NOTE" },
+    text: {
+      ko: "KSLC 상담은 **무료**입니다. 전화 **(657) 239-0226**",
+      en: "KSLC consultations are **free**. Call **(657) 239-0226**",
+    },
+    href: "/request",
+    linkLabel: { ko: "상담 요청 →", en: "Request consultation →" },
+  },
+];
 
 /** 캘리포니아 기준 '오늘'(YYYY-MM-DD). 날짜 비교를 전부 이 기준으로 맞춥니다. */
 export function todayInCalifornia(now = new Date()): string {
