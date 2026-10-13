@@ -25,6 +25,16 @@ export const metadata: Metadata = {
     "KSLC Navigation Center는 한인 시니어와 가족을 위해 건강, 공공혜택, 주거, 돌봄, 지역사회 서비스를 연결합니다.",
   alternates: { languages: { ko: "/ko", en: "/" } },
   icons: { icon: "/favicon.svg" },
+  openGraph: {
+    type: "website",
+    siteName: "KSLC 한인 시니어 삶터",
+    locale: "ko_KR",
+    images: [{ url: "/kslc-share-logo-v1.png", width: 1200, height: 630, alt: "KSLC 한인 시니어 삶터 공식 로고" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/kslc-share-logo-v1.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
