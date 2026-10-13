@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import LaunchPhoto from "@/components/LaunchPhoto";
-import { newsItems, videoItems } from "@/lib/news";
+import { eventItems, newsItems, videoItems } from "@/lib/news";
 import type { Lang } from "@/lib/nav";
 
 export default function NewsContent({ lang }: { lang: Lang }) {
@@ -17,10 +17,35 @@ export default function NewsContent({ lang }: { lang: Lang }) {
           title={ko ? "소식" : "News"}
           lead={
             ko
-              ? "KSLC의 발대 소식과 언론 보도를 모았습니다."
-              : "KSLC's launch and the press coverage that followed."
+              ? "KSLC의 행사 소식과 영상, 언론 보도를 모았습니다."
+              : "Events, videos, and press coverage from KSLC."
           }
         />
+
+        <section className="section" aria-labelledby="event-news-title">
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="section-kicker">KSLC EVENTS</p>
+                <h2 id="event-news-title">{ko ? "행사 소식" : "Event News"}</h2>
+              </div>
+            </div>
+            <div className="clipping-list">
+              {eventItems.map((event) => (
+                <article className="clipping" key={event.slug}>
+                  <div className="clipping-meta">
+                    <time className="download-tag" dateTime={event.date}>{event.dateLabel[lang]}</time>
+                    <h3>{event.title[lang]}</h3>
+                    <p>{event.lead[lang]}</p>
+                  </div>
+                  <figure className="clipping-figure">
+                    <img src={event.photo.src} alt={event.photo.alt[lang]} width={1600} height={895} loading="lazy" />
+                  </figure>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="section">
           <div className="shell">
