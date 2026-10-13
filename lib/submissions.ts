@@ -91,8 +91,11 @@ export async function saveRecord(row: {
 }
 
 function transport() {
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
+  const user = process.env.SMTP_USER?.trim();
+  // 구글은 앱 비밀번호를 'abcd efgh ijkl mnop' 처럼 네 글자씩 끊어서 보여줍니다.
+  // 보이는 대로 붙여넣는 것이 자연스러우므로 공백은 여기서 지웁니다.
+  // 이 한 줄이 없으면 비밀번호를 제대로 받고도 로그인에 실패합니다.
+  const pass = process.env.SMTP_PASS?.replace(/\s+/g, "");
   if (!user || !pass) return null;
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST ?? "smtp.gmail.com",
