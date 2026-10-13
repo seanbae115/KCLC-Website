@@ -49,6 +49,29 @@ export default function AboutPage() {
         />
 
         <section className="section">
+          <div className="shell info-grid">
+            <div>
+              <p className="section-kicker">MISSION &amp; VISION</p>
+              <h2>비전과 미션</h2>
+            </div>
+            <div className="purpose-copy">
+              <p className="purpose-lead">Mission</p>
+              <p>
+                KSLC는 한인 시니어가 건강하고 존엄하며 의미 있는 삶을 살아가도록, 한국어로 이해할 수
+                있는 Navigation과 건강·공공혜택·주거·돌봄·교육·사회참여 서비스를 지역사회와
+                연결합니다.
+              </p>
+              <p className="purpose-lead">Vision</p>
+              <p>
+                한인 시니어라면 가장 먼저 찾는 곳 — Orange County에서 시작하여 북미 한인사회를
+                대표하는 통합 Senior Life Campus가 됩니다.
+              </p>
+              <blockquote>건강을 잇고, 공동체를 세우며, 다음 세대에 희망을 남깁니다.</blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <ChairGreeting lang="ko" />
         </section>
 
@@ -98,29 +121,6 @@ export default function AboutPage() {
                   <p style={{ marginTop: 14, color: "var(--navy)", fontWeight: 700 }}>→ {p.answer}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="shell info-grid">
-            <div>
-              <p className="section-kicker">MISSION &amp; VISION</p>
-              <h2>비전과 미션</h2>
-            </div>
-            <div className="purpose-copy">
-              <p className="purpose-lead">Mission</p>
-              <p>
-                KSLC는 한인 시니어가 건강하고 존엄하며 의미 있는 삶을 살아가도록, 한국어로 이해할 수
-                있는 Navigation과 건강·공공혜택·주거·돌봄·교육·사회참여 서비스를 지역사회와
-                연결합니다.
-              </p>
-              <p className="purpose-lead">Vision</p>
-              <p>
-                한인 시니어라면 가장 먼저 찾는 곳 — Orange County에서 시작하여 북미 한인사회를
-                대표하는 통합 Senior Life Campus가 됩니다.
-              </p>
-              <blockquote>건강을 잇고, 공동체를 세우며, 다음 세대에 희망을 남깁니다.</blockquote>
             </div>
           </div>
         </section>
