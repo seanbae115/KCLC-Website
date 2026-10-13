@@ -171,7 +171,7 @@ export type MailRequest = {
   ack: { to: string; subject: string; text: string } | null;
 };
 
-export function buildMail(args: Submission): MailRequest {
+export function buildMail(args: Submission, storageFailed = false): MailRequest {
   const info = siteInfo[args.lang];
   const schema = formSchemas[args.formType];
   const rows = answersHtml(args.formType, args.lang, args.answers);
@@ -182,8 +182,17 @@ export function buildMail(args: Submission): MailRequest {
     admin: {
       to: process.env.NOTIFY_TO || process.env.SMTP_USER || "",
       replyTo: visitor || undefined,
-      subject: `${schema.subject[args.lang]} — ${args.caseId}`,
+      subject: `${storageFailed ? "[기록실패] " : ""}${schema.subject[args.lang]} — ${args.caseId}`,
       html: `<div style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif;max-width:640px">
+        ${
+          storageFailed
+            ? `<div style="margin:0 0 18px;padding:14px 16px;border:2px solid #8a2b2b;background:#fdf3f3;color:#8a2b2b;line-height:1.6">
+          <strong>⚠ 이 신청은 스프레드시트에 기록되지 못했습니다.</strong><br>
+          아래 내용이 유일한 기록입니다. <strong>이 메일을 지우지 마시고</strong>, 스프레드시트에 직접 옮겨 적어 주세요.<br>
+          그리고 홈페이지 담당자에게 알려 주세요 — 접수 기록 연결이 끊겨 있습니다.
+        </div>`
+            : ""
+        }
         <p style="margin:0 0 4px;color:#8a6d3b;font-weight:700;letter-spacing:.08em;font-size:12px">NEW SUBMISSION</p>
         <h2 style="margin:0 0 6px;color:#0e2a47">${esc(schema.subject[args.lang])}</h2>
         <p style="margin:0 0 18px;color:#5b6470;font-size:14px">접수번호 / Case ID: <strong style="color:#0e2a47">${esc(args.caseId)}</strong><br>
@@ -216,13 +225,14 @@ export function buildMail(args: Submission): MailRequest {
 export async function sendNotifications(
   args: Submission,
   want: { admin: boolean; ack: boolean } = { admin: true, ack: true },
+  storageFailed = false,
 ): Promise<{ admin: boolean; ack: boolean; reason?: string }> {
   if (!want.admin && !want.ack) return { admin: true, ack: true };
 
   const t = transport();
   if (!t) return { admin: false, ack: false, reason: "SMTP_USER/SMTP_PASS not configured" };
 
-  const mail = buildMail(args);
+  const mail = buildMail(args, storageFailed);
   const from = `"KSLC" <${process.env.SMTP_USER}>`;
 
   let admin = !want.admin;

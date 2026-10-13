@@ -61,6 +61,24 @@ export async function POST(req: Request) {
   const stored = await saveRecord(submission, buildMail(submission));
   if (!stored.ok) {
     console.error(`[submit] STORAGE FAILED case=${caseId} form=${formType}: ${stored.reason}`);
+
+    // The sheet is unreachable, but mail may still work. Email the submission to
+    // staff — flagged so they know to write it down — before giving up on the
+    // visitor. Turning someone away who already typed everything out is the
+    // worst outcome; a senior who is told "failed" usually does not come back.
+    const rescue = await sendNotifications(
+      { ...submission },
+      { admin: true, ack: true },
+      true,
+    );
+    if (rescue.admin) {
+      console.error(
+        `[submit] RESCUED BY EMAIL case=${caseId} form=${formType} — NOT in the sheet, staff must copy it from the email`,
+      );
+      return NextResponse.json({ ok: true, caseId, notified: true, degraded: true });
+    }
+
+    console.error(`[submit] LOST case=${caseId} form=${formType} — storage and mail both failed`);
     return NextResponse.json({ ok: false, error: "storage" }, { status: 502 });
   }
 
