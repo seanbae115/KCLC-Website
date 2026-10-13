@@ -49,6 +49,30 @@ export default function AboutPageEn() {
         />
 
         <section className="section">
+          <div className="shell info-grid">
+            <div>
+              <p className="section-kicker">MISSION &amp; VISION</p>
+              <h2>Vision &amp; Mission</h2>
+            </div>
+            <div className="purpose-copy">
+              <p className="purpose-lead">Mission</p>
+              <p>
+                KSLC connects Korean seniors to Korean-language navigation and to health, public
+                benefits, housing, caregiving, education, and social participation services, so they
+                can live healthy, dignified, and meaningful lives.
+              </p>
+              <p className="purpose-lead">Vision</p>
+              <p>
+                To be the first place Korean seniors turn to — starting in Orange County and growing
+                into a comprehensive Senior Life Campus representing the Korean community across
+                North America.
+              </p>
+              <blockquote>Connecting health, building community, and leaving a legacy of hope for future generations.</blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <ChairGreeting lang="en" />
         </section>
 
@@ -99,30 +123,6 @@ export default function AboutPageEn() {
                   <p style={{ marginTop: 14, color: "var(--navy)", fontWeight: 700 }}>→ {p.answer}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="shell info-grid">
-            <div>
-              <p className="section-kicker">MISSION &amp; VISION</p>
-              <h2>Vision &amp; Mission</h2>
-            </div>
-            <div className="purpose-copy">
-              <p className="purpose-lead">Mission</p>
-              <p>
-                KSLC connects Korean seniors to Korean-language navigation and to health, public
-                benefits, housing, caregiving, education, and social participation services, so they
-                can live healthy, dignified, and meaningful lives.
-              </p>
-              <p className="purpose-lead">Vision</p>
-              <p>
-                To be the first place Korean seniors turn to — starting in Orange County and growing
-                into a comprehensive Senior Life Campus representing the Korean community across
-                North America.
-              </p>
-              <blockquote>Connecting health, building community, and leaving a legacy of hope for future generations.</blockquote>
             </div>
           </div>
         </section>
