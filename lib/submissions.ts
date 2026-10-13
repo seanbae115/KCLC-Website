@@ -101,10 +101,22 @@ export async function saveRecord(
     });
     if (!res.ok) return { ok: false, reason: `sheet responded ${res.status}` };
 
+    // Apps Script answers 200 even when it refuses the request, so the HTTP
+    // status alone proves nothing. A wrong shared secret would otherwise look
+    // like a successful save while no row was ever written — the visitor would
+    // be thanked for a submission that does not exist anywhere.
+    const body = (await res.json().catch(() => ({}))) as {
+      ok?: boolean;
+      error?: string;
+      mail?: MailOutcome;
+    };
+    if (body.ok === false) {
+      return { ok: false, reason: `sheet refused the record: ${body.error ?? "unknown"}` };
+    }
+
     // An older copy of the Apps Script knows nothing about `mail` and simply
     // ignores it. Then `mail` comes back undefined and the caller falls back to
     // SMTP, so the site keeps working while the script is being updated.
-    const body = (await res.json().catch(() => ({}))) as { mail?: MailOutcome };
     return { ok: true, mail: body.mail };
   } catch (e) {
     return { ok: false, reason: e instanceof Error ? e.message : "unknown error" };
@@ -320,9 +332,24 @@ export async function runSelfTest(): Promise<SelfTestResult> {
         signal: AbortSignal.timeout(25_000),
       });
       if (res.ok) {
-        checks.sheet = true;
-        const body = (await res.json().catch(() => ({}))) as { mail?: MailOutcome };
-        if (!body.mail) {
+        const body = (await res.json().catch(() => ({}))) as {
+          ok?: boolean;
+          error?: string;
+          mail?: MailOutcome;
+        };
+        // 200 with ok:false means the script rejected us — almost always a
+        // mismatched secret. Nothing was written, so this is not a pass.
+        if (body.ok === false) {
+          problems.push(
+            `시트가 기록을 거부했습니다 (${body.error ?? "원인 불명"}). ` +
+              "Apps Script 의 SECRET 과 Vercel 의 SHEETS_WEBHOOK_SECRET 이 다른지 확인하세요.",
+          );
+        } else {
+          checks.sheet = true;
+        }
+        if (!checks.sheet) {
+          // 기록도 안 됐으면 메일 여부를 따질 단계가 아닙니다.
+        } else if (!body.mail) {
           problems.push(
             "구글 쪽 Apps Script 가 아직 옛 버전입니다. 메일을 보내지 못합니다 " +
               "(docs/apps-script.gs 를 붙여넣고 '새 버전'으로 다시 배포해야 합니다).",
