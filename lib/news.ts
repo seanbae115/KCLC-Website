@@ -18,6 +18,30 @@ export type NewsItem = {
 
 const L = (ko: string, en: string) => ({ ko, en });
 
+/** 행사 소식. 인명 영문 표기는 확인된 표기만 사용합니다. */
+export const eventItems = [
+  {
+    slug: "councilmember-remarks-2026-10-10",
+    date: "2026-10-10",
+    dateLabel: L("2026년 10월 10일", "October 10, 2026"),
+    title: L(
+      "KSLC 이사·전문위원 모집 설명회 — 조이스 안 시의원 격려사",
+      "KSLC Board and Advisor Information Session — Remarks by Buena Park City Council Member Joyce Ahn",
+    ),
+    lead: L(
+      "2026년 10월 10일 열린 KSLC 이사·전문위원 모집 설명회에서 조이스 안 부에나팍 시의원이 KSLC의 발전을 기원하며 격려의 말씀을 전했습니다.",
+      "At the KSLC board and advisor recruitment information session on October 10, 2026, Buena Park City Council Member Joyce Ahn offered words of encouragement and wishes for KSLC’s continued growth.",
+    ),
+    photo: {
+      src: "/events/councilmember-remarks-2026-10-10.webp",
+      alt: L(
+        "KSLC 이사·전문위원 모집 설명회에서 참석자들에게 격려사를 전하는 조이스 안 부에나팍 시의원",
+        "Buena Park City Council Member Joyce Ahn addressing attendees at the KSLC board and advisor information session",
+      ),
+    },
+  },
+];
+
 export const newsItems: NewsItem[] = [
   {
     slug: "hankook-2026-10-05",
