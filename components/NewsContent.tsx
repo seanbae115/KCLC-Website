@@ -41,6 +41,14 @@ export default function NewsContent({ lang }: { lang: Lang }) {
                   <figure className="clipping-figure">
                     <img src={event.photo.src} alt={event.photo.alt[lang]} width={event.photo.width} height={event.photo.height} loading="lazy" />
                   </figure>
+                  {"body" in event && event.body && (
+                    <details style={{ gridColumn: "1 / -1", lineHeight: 1.8 }}>
+                      <summary style={{ cursor: "pointer", color: "var(--navy)", fontWeight: 700 }}>
+                        {ko ? "보도자료 전문 읽기" : "Read the full press release"}
+                      </summary>
+                      {event.body.map((paragraph, index) => <p key={index}>{paragraph[lang]}</p>)}
+                    </details>
+                  )}
                 </article>
               ))}
             </div>
