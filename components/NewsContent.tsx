@@ -39,7 +39,7 @@ export default function NewsContent({ lang }: { lang: Lang }) {
                     <p>{event.lead[lang]}</p>
                   </div>
                   <figure className="clipping-figure">
-                    <img src={event.photo.src} alt={event.photo.alt[lang]} width={1600} height={895} loading="lazy" />
+                    <img src={event.photo.src} alt={event.photo.alt[lang]} width={event.photo.width} height={event.photo.height} loading="lazy" />
                   </figure>
                 </article>
               ))}
