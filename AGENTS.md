@@ -41,6 +41,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 | `app/api/`, `lib/submissions.ts`, `lib/formSchema.ts`, `components/ConsultationForm.tsx` | 상담 접수 경로. 고장이 **눈에 보이지 않습니다** |
 | `components/ConsultationForm.tsx` 의 `inFlight` ref | React 상태는 비동기라 상태값으로 이중 제출을 막을 수 없습니다. 실제로 중복 접수가 발생한 적이 있습니다. ref 를 상태로 바꾸지 마십시오 |
 | `lib/submissions.ts` 의 저장→메일 순서 | **기록을 먼저 저장하고 그 다음 메일을 보냅니다.** 순서를 바꾸지 마십시오. 메일 실패를 방문자에게 "다시 제출하세요"로 알려서는 안 됩니다 |
+| 메일 경로가 두 개입니다 | 평소에는 **구글(Apps Script)** 이 보내고, 실패한 것만 **SMTP** 가 다시 보냅니다. 한쪽을 지우지 마십시오. 2026-10 에 앱 비밀번호가 조용히 폐기되어 몇 주 동안 알림이 끊긴 적이 있습니다 |
 
 ## 내용만 바꾸는 작업이라면 (대부분의 요청)
 
@@ -70,7 +71,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## 자동 점검
 
-`app/api/self-test/` 가 상담 접수 경로를 스스로 점검합니다. 호출은 사이트 바깥(구글
+`app/api/self-test/` 가 상담 접수 경로를 스스로 점검합니다. 시트 기록, 구글 메일 발송,
+예비 SMTP 로그인 세 가지를 모두 확인합니다 — 감시하지 않는 예비 경로는 예비가 아닙니다. 호출은 사이트 바깥(구글
 Apps Script, `docs/apps-script-watchman.gs`)에서 매주 들어옵니다. 사이트 안에 감시 장치를
 두면 사이트가 죽을 때 감시 장치도 같이 죽기 때문입니다. 이 구조를 사이트 내부 cron 으로
 옮기지 마십시오.

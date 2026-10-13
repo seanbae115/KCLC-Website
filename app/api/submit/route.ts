@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { Lang } from "@/lib/nav";
 import { HONEYPOT, errorFor, formSchemas, type FormType } from "@/lib/formSchema";
-import { makeCaseId, saveRecord, sendNotifications, type Answers } from "@/lib/submissions";
+import { buildMail, makeCaseId, saveRecord, sendNotifications, type Answers } from "@/lib/submissions";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -53,22 +53,58 @@ export async function POST(req: Request) {
   const caseId = makeCaseId();
   const sourcePage = typeof body.sourcePage === "string" ? body.sourcePage.slice(0, 300) : "";
 
-  // Record first. If this fails the submission genuinely did not go through,
-  // so tell the visitor honestly rather than showing a fake success.
-  const stored = await saveRecord({ caseId, formType, lang, answers, sourcePage });
+  const submission = { caseId, formType, lang, answers, sourcePage };
+
+  // Record first, with the notification mail riding along. If this fails the
+  // submission genuinely did not go through, so tell the visitor honestly
+  // rather than showing a fake success.
+  const stored = await saveRecord(submission, buildMail(submission));
   if (!stored.ok) {
     console.error(`[submit] STORAGE FAILED case=${caseId} form=${formType}: ${stored.reason}`);
+
+    // The sheet is unreachable, but mail may still work. Email the submission to
+    // staff — flagged so they know to write it down — before giving up on the
+    // visitor. Turning someone away who already typed everything out is the
+    // worst outcome; a senior who is told "failed" usually does not come back.
+    const rescue = await sendNotifications(
+      { ...submission },
+      { admin: true, ack: true },
+      true,
+    );
+    if (rescue.admin) {
+      console.error(
+        `[submit] RESCUED BY EMAIL case=${caseId} form=${formType} — NOT in the sheet, staff must copy it from the email`,
+      );
+      return NextResponse.json({ ok: true, caseId, notified: true, degraded: true });
+    }
+
+    console.error(`[submit] LOST case=${caseId} form=${formType} — storage and mail both failed`);
     return NextResponse.json({ ok: false, error: "storage" }, { status: 502 });
   }
 
   // The record is safe from here on. A mail failure must not tell the visitor
   // to submit again — it gets logged loudly for staff instead.
-  const mail = await sendNotifications({ caseId, formType, lang, answers, sourcePage });
-  if (!mail.admin || !mail.ack) {
-    console.error(
-      `[submit] NOTIFY FAILED case=${caseId} admin=${mail.admin} ack=${mail.ack} reason=${mail.reason ?? "unknown"} — record IS saved, staff must check the sheet`,
-    );
+  let admin = stored.mail?.admin ?? false;
+  let ack = stored.mail?.ack ?? false;
+
+  // Whatever Google did not deliver, try again over SMTP. Asking only for the
+  // missing half keeps anyone from receiving the same message twice.
+  if (!admin || !ack) {
+    const retry = await sendNotifications(submission, { admin: !admin, ack: !ack });
+    admin = admin || retry.admin;
+    ack = ack || retry.ack;
+    if (!admin || !ack) {
+      console.error(
+        `[submit] NOTIFY FAILED case=${caseId} admin=${admin} ack=${ack} google=${stored.mail?.error ?? "no reply"} smtp=${retry.reason ?? "unknown"} — record IS saved, staff must check the sheet`,
+      );
+    }
   }
 
-  return NextResponse.json({ ok: true, caseId, notified: mail.admin });
+  // Which path actually delivered. Without this the switch from SMTP to Google
+  // is invisible, and a half-finished migration looks exactly like a working one.
+  console.log(
+    `[submit] OK case=${caseId} form=${formType} via=${stored.mail?.admin ? "google" : "smtp"} admin=${admin} ack=${ack}`,
+  );
+
+  return NextResponse.json({ ok: true, caseId, notified: admin });
 }
