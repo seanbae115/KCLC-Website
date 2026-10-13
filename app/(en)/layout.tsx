@@ -25,6 +25,16 @@ export const metadata: Metadata = {
     "KSLC Navigation Center connects Korean seniors and their families to health, benefits, housing, care, and community services.",
   alternates: { languages: { en: "/", ko: "/ko" } },
   icons: { icon: "/favicon.svg" },
+  openGraph: {
+    type: "website",
+    siteName: "Korean Senior Life Campus (KSLC)",
+    locale: "en_US",
+    images: [{ url: "/kslc-share-logo-v1.png", width: 1200, height: 630, alt: "Korean Senior Life Campus (KSLC) official logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/kslc-share-logo-v1.png"],
+  },
 };
 
 export default function EnglishRootLayout({ children }: { children: React.ReactNode }) {
