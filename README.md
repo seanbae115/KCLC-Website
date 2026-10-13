@@ -1,162 +1,56 @@
-# KSLC Website
+# KSLC 홈페이지 개발·배포
 
-The Phase 1 official website for Korean Senior Life Campus (KSLC) — a bilingual
-(Korean/English), 12-page, senior-friendly site built with Next.js and exported
-as plain static HTML/CSS so it can be hosted anywhere.
+한인 시니어를 위한 한국어·영어 홈페이지입니다. 상담 접수는 Next.js 서버 라우트에서 처리하며, 스프레드시트 저장 후 메일을 발송합니다.
 
-## Requirements
+- 저장소: https://github.com/seanbae115/KCLC-Website
+- 운영 안내서: [docs/운영안내서.md](docs/운영안내서.md)
+- 에이전트 작업 규칙: [AGENTS.md](AGENTS.md)
 
-- [Node.js](https://nodejs.org) 20 or later (Node is already installed on this
-  machine at `C:\Program Files\nodejs`; if `npm` isn't recognized in a new
-  terminal, close and reopen VS Code's terminal so it picks up the updated PATH).
+## 로컬 개발
 
-## Getting started in VS Code
+저장소 루트에서 실행합니다. Node.js와 npm이 필요합니다. 이 작업 환경에서는 Node.js 24를 확인했습니다.
 
-```bash
-cd website
-npm install
+```powershell
+npm ci
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser. Edit any file under `app/` and the
-page reloads automatically.
+영어 페이지는 http://localhost:3000/ , 한국어 페이지는 http://localhost:3000/ko/ 에서 확인합니다.
 
-## Project structure
-
-```
-app/
-  (en)/            English pages — the default language, served at "/"
-  (ko)/ko/         Korean pages — served at "/ko/..."
-  global-not-found.tsx   Custom 404 (required since there are two root layouts)
-components/        Shared Header, Footer, PageHero, Notice
-lib/nav.ts         Menu labels, contact info, and EN<->KO link mapping
-lib/forms.ts        Formspree endpoint (see "Set up the forms" below)
-public/            Logo, hero photo, board photos, downloadable presentations
-```
-
-English is the default language, served unprefixed at `/`. Every English page
-under `app/(en)/` has a matching Korean page at the same path prefixed with
-`/ko`, under `app/(ko)/ko/`. For example `app/(en)/services/page.tsx` pairs
-with `app/(ko)/ko/services/page.tsx`, served at `/services` and `/ko/services`
-respectively. The language switcher in the header always links to the
-matching page in the other language — this is driven by `lib/nav.ts`, so
-individual pages never hardcode the `/ko` prefix themselves.
-
-## Set up the forms (required before launch)
-
-The consultation request, institutional referral, and general contact forms
-all submit to one [Formspree](https://formspree.io) endpoint — a free service
-that emails you form submissions with no backend required. Each form sends
-its own `_subject` field (e.g. "[KSLC] 상담 요청" vs "[KSLC] 일반 문의"), so
-even sharing one endpoint, submissions stay clearly labeled in the inbox.
-
-1. Go to https://formspree.io and sign up **using kslcampus.org@gmail.com**
-   as the account email — Formspree sends notifications to the account owner's
-   email by default, so this is the simplest way to get everything landing
-   in that inbox.
-2. Create one form (any name works, e.g. "KSLC Website").
-3. Copy its endpoint ID (the part after `/f/` in the URL Formspree shows you,
-   e.g. `mzzabc123`) and open `lib/forms.ts`:
-
-```ts
-export const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-```
-
-Replace `YOUR_FORM_ID` with the real ID. That's the only thing that needs to
-change — all three forms already point at this one constant.
-
-4. Formspree's free tier requires confirming your first submission by email
-   before the form goes fully live — submit a test consultation request once
-   this is wired up and confirm it from kslcampus.org@gmail.com.
-
-The forms submit via JavaScript (`components/FormspreeForm.tsx`) and redirect
-to a "thank you" page on the KSLC site after a successful submission
-(`/thank-you` for English, `/ko/thank-you` for Korean), with the exact
-confirmation wording from the build proposal (e.g. "상담 요청이
-접수되었습니다..."). This redirect is client-side, so it works the same on
-localhost, a preview deploy, or the live domain.
-
-## Build and deploy
-
-```bash
+```powershell
 npm run build
+npm run start
 ```
 
-This produces a fully static site in `out/` — plain HTML, CSS, JS, and images,
-with no server required.
+이 Codex 환경에서는 기본 PATH에 npm이 없으므로 설치 후 다음 명령도 사용할 수 있습니다.
 
-To preview the production build locally before deploying:
-
-```bash
-npm run build
-npx serve out
+```powershell
+node node_modules/next/dist/bin/next dev --hostname 127.0.0.1
+node node_modules/next/dist/bin/next build
+node node_modules/next/dist/bin/next start --hostname 127.0.0.1
 ```
 
-## Going live on kslcampus.org (cPanel)
+빌드 후 로컬 확인도 Next.js 서버로 실행합니다. `out/` 업로드나 `output: "export"` 방식은 상담 서버 라우트를 실행할 수 없으므로 사용하지 않습니다.
 
-The canonical domain is `kslcampus.org` (no `www`) — that's baked into every
-form's confirmation redirect and into the page metadata already.
-`www.kslcampus.org` will redirect to it via the included `.htaccess`.
+환경변수 이름은 `.env.example`에 있습니다. 일반 화면 확인에는 실제 상담 비밀값을 입력하지 않습니다. 실제 상담 기능 검증은 AGENTS.md의 시험 승인·결과 확인 절차를 따릅니다. 실제 비밀값은 채팅, 문서, Git에 남기지 않습니다.
 
-1. **Point the domain at your hosting.** In your domain registrar's DNS
-   settings, set the A record for `kslcampus.org` (and `www`) to your cPanel
-   host's IP address — your hosting provider's welcome email or cPanel's
-   "Domains" page will have the exact IP/nameservers to use. If the domain is
-   registered somewhere other than the host, this is usually an A record
-   change, not a full nameserver change.
-2. **Upload the site.** Run `npm run build`, then upload everything *inside*
-   `out/` (not the `out` folder itself) to `public_html/` via cPanel's File
-   Manager or FTP. This includes the `.htaccess` file — make sure your FTP
-   client is set to show hidden files, or it'll skip it silently.
-3. **Enable SSL.** In cPanel, go to SSL/TLS Status (or "AutoSSL") and issue a
-   free Let's Encrypt certificate for `kslcampus.org` and `www.kslcampus.org`.
-   This usually only works once DNS is already pointed at the host. Then turn
-   on "Force HTTPS Redirect" for the domain.
-4. **Verify the www redirect.** Visit `http://www.kslcampus.org` and confirm
-   it lands on `https://kslcampus.org`. The redirect rule is already in
-   `public/.htaccess`.
-5. **Re-check the forms.** Submit a test consultation request and confirm it
-   (a) emails you via Formspree and (b) redirects to
-   `https://kslcampus.org/thank-you?form=request` with the right message.
-   This won't work correctly until both Formspree is configured (see above)
-   *and* the domain is live, since the redirect URL is hardcoded to the real
-   domain.
+## 수정과 배포
 
-## Content to confirm before going live
+1. 현재 변경사항과 원격 최신 상태를 확인하고 `master`에서 작업 브랜치를 만듭니다. 기존 작업을 덮어쓰지 않습니다.
+2. 요청한 변경을 적용하고 빌드, 한국어·영어 화면, 모바일 폭 390px을 확인합니다. 상담 관련 변경은 별도 접수 검증도 필요합니다.
+3. 브랜치를 GitHub에 올리고 Draft PR을 만듭니다.
+4. 기존 Vercel Git 연동이 생성한 미리보기의 배포 성공과 실제 화면을 확인합니다. 주소를 추측하지 않습니다.
+5. 사용자의 해당 변경 운영 반영 승인 후 `master`에 합치고 운영 배포와 화면을 확인합니다.
 
-This site was built from the KSLC Phase 1 build proposal and the official
-brand/vision documents, but a few things are placeholders you should review:
+새 Vercel 프로젝트나 도메인 설정을 임의로 만들지 않습니다. GitHub 플러그인 연결과 로컬 Git push 인증은 각각 확인해야 합니다. Git 작성자 정보가 없으면 사용자에게 확인하며 임의의 이름이나 이메일을 지정하지 않습니다.
 
-- **Operating hours** ("평일 오전 9시 – 오후 5시") appear on the home, contact,
-  and request pages — confirm the real hours.
-- **Board member photos** in `public/team/` are large source files (up to
-  2.4MB each); compress them (e.g. with [Squoosh](https://squoosh.app)) before
-  launch so pages load quickly on mobile.
-- **Board bios**: only name and title are shown for each director, since no
-  100–150자 bio text was available. Add bios in `app/(en)/leadership/page.tsx`
-  and `app/(ko)/ko/leadership/page.tsx` if you'd like them.
-- **Resources page** currently only links the two official presentation
-  files. Add the brochure, checklist, and policy briefs mentioned in the
-  build proposal as they're finalized.
-- **Legal pages** (privacy, terms, accessibility, etc.) are drafted to match
-  the build proposal's requirements but are not a substitute for legal
-  review — especially before collecting any consultation request data.
-- **501(c)(3) / tax-deductibility language** has intentionally been left off
-  every page, per the build proposal's instruction not to use it until
-  nonprofit status is confirmed. Add it once approved.
-- Google Analytics / Search Console aren't wired in yet — add your
-  measurement ID when ready (ask to have this added, or paste your tracking
-  snippet into `app/(ko)/layout.tsx` and `app/(en)/layout.tsx`).
+## 주요 경로
 
-## Design system
+- `app/(en)/`: 영어 페이지
+- `app/(ko)/ko/`: 한국어 페이지
+- `app/api/`: 상담 접수·자동 점검 서버 라우트
+- `components/`: 공통 화면과 상담 양식
+- `lib/news.ts`, `lib/leadership.ts`, `lib/notices.ts`: 소식·인물·공지
+- `public/`: 사진과 자료 파일
 
-Colors, type, and spacing follow the official KSLC brand guide:
-
-- KSLC Navy `#0E2A47`, KSLC Gold `#C8A44D`, Warm White `#F8F8F5`
-- Korean type in Noto Sans KR, English headings/labels in Montserrat
-- 18px body text on desktop (16px minimum on mobile), 48px+ buttons, and no
-  autoplay video or heavy animation, per the senior-friendly and WCAG 2.2 AA
-  goals in the build proposal.
-
-All shared styling lives in `app/globals.css`.
-# KCLC-Website
+운영 안내서의 과거 제약 설명은 현재 계정 설정을 검증한 결과와 구분합니다. 배포 계정, 환경변수, 미리보기 권한, 상담 전달 상태는 실제 접근하여 확인하기 전까지 확인 완료로 보고하지 않습니다.

@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:submissions": "node tests/submission-dependencies.cjs"
   },
   "dependencies": {
-    "next": "^16.3.1",
-    "nodemailer": "^10.0.1",
+    "next": "^16.4.0",
+    "nodemailer": "^10.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
