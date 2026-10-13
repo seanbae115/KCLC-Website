@@ -21,6 +21,25 @@ const L = (ko: string, en: string) => ({ ko, en });
 /** 행사 소식. 인명 영문 표기는 확인된 표기만 사용합니다. */
 export const eventItems = [
   {
+    slug: "board-advisor-session-2026-10-10",
+    date: "2026-10-10",
+    dateLabel: L("2026년 10월 10일", "October 10, 2026"),
+    title: L("KSLC 이사·전문위원 모집 설명회", "KSLC Board and Advisor Recruitment Information Session"),
+    lead: L(
+      "2026년 10월 10일 열린 KSLC 이사·전문위원 모집 설명회 현장입니다.",
+      "A scene from the KSLC board and advisor recruitment information session held on October 10, 2026.",
+    ),
+    photo: {
+      src: "/events/board-advisor-session-2026-10-10.webp",
+      width: 1600,
+      height: 900,
+      alt: L(
+        "KSLC 이사·전문위원 모집 설명회에서 발표를 듣고 있는 참석자들",
+        "Attendees listening to a presentation at the KSLC board and advisor recruitment information session",
+      ),
+    },
+  },
+  {
     slug: "councilmember-remarks-2026-10-10",
     date: "2026-10-10",
     dateLabel: L("2026년 10월 10일", "October 10, 2026"),
@@ -34,6 +53,8 @@ export const eventItems = [
     ),
     photo: {
       src: "/events/councilmember-remarks-2026-10-10.webp",
+      width: 1600,
+      height: 895,
       alt: L(
         "KSLC 이사·전문위원 모집 설명회에서 참석자들에게 격려사를 전하는 조이스 안 부에나팍 시의원",
         "Buena Park City Council Member Joyce Ahn addressing attendees at the KSLC board and advisor information session",
