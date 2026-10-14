@@ -9,6 +9,7 @@ const base = "https://www.kslcampus.org";
 const slugs = [
   "",
   "about",
+  "gallery",
   "leadership",
   "navigation-center",
   "services",
