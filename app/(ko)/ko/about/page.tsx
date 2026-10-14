@@ -51,21 +51,14 @@ export default function AboutPage() {
         <section className="section">
           <div className="shell info-grid">
             <div>
-              <p className="section-kicker">MISSION &amp; VISION</p>
+              <p className="section-kicker">비전과 미션</p>
               <h2>비전과 미션</h2>
             </div>
             <div className="purpose-copy">
-              <p className="purpose-lead">Mission</p>
-              <p>
-                KSLC는 한인 시니어가 건강하고 존엄하며 의미 있는 삶을 살아가도록, 한국어로 이해할 수
-                있는 Navigation과 건강·공공혜택·주거·돌봄·교육·사회참여 서비스를 지역사회와
-                연결합니다.
-              </p>
-              <p className="purpose-lead">Vision</p>
-              <p>
-                한인 시니어라면 가장 먼저 찾는 곳 — Orange County에서 시작하여 북미 한인사회를
-                대표하는 통합 Senior Life Campus가 됩니다.
-              </p>
+              <p className="purpose-lead">비전</p>
+              <p>오렌지카운티의 모든 한인 어르신이 언어와 복잡한 제도의 장벽을 넘어 필요한 도움을 받고, 자신의 선택을 존중받으며, 지역사회의 소중한 구성원으로 연결되어 살아가는 미래.</p>
+              <p className="purpose-lead">미션</p>
+              <p>코리안 시니어 라이프 캠퍼스는 오렌지카운티 한인 어르신과 가족의 이야기를 경청하고, 그들의 필요와 선택을 중심으로 한국어 상담과 맞춤형 자원 연계를 제공합니다. 건강, 공공혜택, 주거, 돌봄 및 사회참여 자원을 연결하고 실제 이용까지 후속 지원하여, 어르신이 존엄성과 자율성을 지키며 지역사회 안에서 살아가도록 함께합니다.</p>
               <blockquote>건강을 잇고, 공동체를 세우며, 다음 세대에 희망을 남깁니다.</blockquote>
             </div>
           </div>

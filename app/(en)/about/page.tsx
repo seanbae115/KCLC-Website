@@ -55,18 +55,10 @@ export default function AboutPageEn() {
               <h2>Vision &amp; Mission</h2>
             </div>
             <div className="purpose-copy">
-              <p className="purpose-lead">Mission</p>
-              <p>
-                KSLC connects Korean seniors to Korean-language navigation and to health, public
-                benefits, housing, caregiving, education, and social participation services, so they
-                can live healthy, dignified, and meaningful lives.
-              </p>
               <p className="purpose-lead">Vision</p>
-              <p>
-                To be the first place Korean seniors turn to — starting in Orange County and growing
-                into a comprehensive Senior Life Campus representing the Korean community across
-                North America.
-              </p>
+              <p>An Orange County where every Korean older adult can access the support they need, have their choices respected, and live with dignity and belonging, free from barriers of language and complex systems.</p>
+              <p className="purpose-lead">Mission</p>
+              <p>Korean Senior Life Campus listens to Korean older adults and their families in Orange County and provides Korean-language guidance and personalized resource navigation shaped by their needs and choices. We connect older adults with health, public benefits, housing, caregiving, and social participation resources, and follow through to help them access services—supporting dignity, self-determination, and connection to community.</p>
               <blockquote>Connecting health, building community, and leaving a legacy of hope for future generations.</blockquote>
             </div>
           </div>
