@@ -64,6 +64,25 @@ export default function AboutPageEn() {
           </div>
         </section>
 
+        <section className="section" style={{ background: "var(--warm)" }}>
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="section-kicker">CORE VALUES</p>
+                <h2>Core Values</h2>
+              </div>
+            </div>
+            <div className="card-grid cols-3">
+              {values.map((v) => (
+                <div className="card" key={v.title}>
+                  <h3>{v.title}</h3>
+                  <p>{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="section">
           <ChairGreeting lang="en" />
         </section>
@@ -119,24 +138,7 @@ export default function AboutPageEn() {
           </div>
         </section>
 
-        <section className="section" style={{ background: "var(--warm)" }}>
-          <div className="shell">
-            <div className="section-heading">
-              <div>
-                <p className="section-kicker">CORE VALUES</p>
-                <h2>Core Values</h2>
-              </div>
-            </div>
-            <div className="card-grid cols-3">
-              {values.map((v) => (
-                <div className="card" key={v.title}>
-                  <h3>{v.title}</h3>
-                  <p>{v.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
 
         <section className="section">
           <div className="shell">
