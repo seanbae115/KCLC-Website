@@ -1,5 +1,74 @@
 // 사진 추가: 앨범별로 사진 경로와 한국어·영어 설명을 함께 입력합니다.
 export const albums = [{
+  "id": "grace-information-2026-10-14",
+  "date": "2026-10-14",
+  "title": {
+    "ko": "은혜평생교육대학 설명회",
+    "en": "Grace Lifelong Education College Information Session"
+  },
+  "description": {
+    "ko": "2026년 10월 14일 오후 12:30에 열린 은혜평생교육대학 설명회 현장입니다.",
+    "en": "Scenes from the Grace Lifelong Education College information session held on October 14, 2026 at 12:30 PM."
+  },
+  "photos": [
+    {
+      "src": "/gallery/grace-2026-10-14/01.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 1",
+        "en": "Grace Lifelong Education College Information Session, photo 1"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/02.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 2",
+        "en": "Grace Lifelong Education College Information Session, photo 2"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/03.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 3",
+        "en": "Grace Lifelong Education College Information Session, photo 3"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/04.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 4",
+        "en": "Grace Lifelong Education College Information Session, photo 4"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/05.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 5",
+        "en": "Grace Lifelong Education College Information Session, photo 5"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/06.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 6",
+        "en": "Grace Lifelong Education College Information Session, photo 6"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/07.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 7",
+        "en": "Grace Lifelong Education College Information Session, photo 7"
+      }
+    },
+    {
+      "src": "/gallery/grace-2026-10-14/08.webp",
+      "alt": {
+        "ko": "은혜평생교육대학 설명회 현장 사진 8",
+        "en": "Grace Lifelong Education College Information Session, photo 8"
+      }
+    }
+  ]
+},{
   "id": "board-information-2026",
   "date": "2026-10-10",
   "title": {
