@@ -21,6 +21,38 @@ const L = (ko: string, en: string) => ({ ko, en });
 /** 행사 소식. 인명 영문 표기는 확인된 표기만 사용합니다. */
 export const eventItems = [
   {
+    slug: "clippers-community-tickets-2026-11-04",
+    date: "2026-11-04",
+    dateLabel: L("2026년 11월 4일 · 오후 7:30", "November 4, 2026 · 7:30 PM"),
+    title: L("함께 즐기는 NBA의 밤 — LA 클리퍼스 vs 마이애미 히트", "An NBA Night Together — LA Clippers vs Miami Heat"),
+    lead: L(
+      "KSLC 커뮤니티를 위한 선착순 관람 초대입니다. 티켓 수령 방법과 자세한 사항은 KSLC (657) 239-0226으로 문의해 주세요.",
+      "First-come, first-served community ticket invitation. Contact KSLC at (657) 239-0226 for ticket pickup and details.",
+    ),
+    photo: {
+      src: "/events/clippers-community-tickets-2026-11-04.png",
+      width: 1024,
+      height: 1536,
+      alt: L("KSLC NBA 커뮤니티 초대 포스터: LA 클리퍼스 vs 마이애미 히트, 2026년 11월 4일 오후 7:30, 선착순", "KSLC NBA community invitation poster: LA Clippers vs Miami Heat, November 4, 2026 at 7:30 PM, first-come, first-served"),
+    },
+  },
+  {
+    slug: "ducks-flames-community-tickets-nov-15",
+    date: "2026-11-15",
+    dateLabel: L("11월 15일 · 오후 5시", "November 15 · 5:00 PM"),
+    title: L("아이스하키 경기 관람 티켓 무료 배포 — 애너하임 덕스 vs 캘거리 플레임스", "Free Ice Hockey Tickets — Anaheim Ducks vs Calgary Flames"),
+    lead: L(
+      "Honda Center, Anaheim에서 함께 즐기는 NHL 아이스하키! 티켓 수령 방법과 자세한 사항은 KSLC (657) 239-0226으로 문의해 주세요.",
+      "Enjoy NHL ice hockey together at Honda Center, Anaheim. Contact KSLC at (657) 239-0226 for ticket pickup and details.",
+    ),
+    photo: {
+      src: "/events/ducks-flames-community-tickets-nov-15.png",
+      width: 1024,
+      height: 1536,
+      alt: L("KSLC 아이스하키 무료 관람 티켓 포스터: 애너하임 덕스 vs 캘거리 플레임스, 11월 15일 오후 5시, Honda Center, Anaheim. 문의 657-239-0226", "KSLC free ice hockey ticket poster: Anaheim Ducks vs Calgary Flames, November 15 at 5 PM, Honda Center, Anaheim. Inquiries: 657-239-0226"),
+    },
+  },
+  {
     slug: "board-advisor-session-2026-10-10",
     date: "2026-10-10",
     dateLabel: L("2026년 10월 10일", "October 10, 2026"),
