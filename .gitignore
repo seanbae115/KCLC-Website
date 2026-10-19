@@ -15,3 +15,6 @@ docs/apps-script.ready.gs
 .env
 .env.*
 !.env.example
+
+# Claude Code 개인 설정(승인한 명령 규칙이 저장됨) — 공개 저장소에 올리지 않습니다
+.claude/settings.local.json
