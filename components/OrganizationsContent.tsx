@@ -11,9 +11,9 @@ export default function OrganizationsContent({ lang }: { lang: Lang }) {
     <section className="section"><div className="shell">
       <div className="organization-grid">
         {organizations.map(org => <article className="organization-card" key={org.id}>
-          <a className="organization-logo" href={org.url} target="_blank" rel="noopener noreferrer" aria-label={`${org.name} — ${ko ? "공식 홈페이지 (새 창)" : "official website (opens in a new tab)"}`}><img src={org.logo} alt={org.name} width="165" height="64" /></a>
+          <a className="organization-logo" href={org.url} target="_blank" rel="noopener noreferrer" aria-label={`${org.name[lang]} — ${ko ? "공식 홈페이지 (새 창)" : "official website (opens in a new tab)"}`}><img src={org.logo} alt={org.name[lang]} width="165" height="64" /></a>
           <p className="section-kicker">{org.category[lang]}</p>
-          <h2>{org.name}</h2><p>{org.description[lang]}</p>
+          <h2>{org.name[lang]}</h2><p>{org.description[lang]}</p>
           <a className="button button-gold" href={org.url} target="_blank" rel="noopener noreferrer">{ko ? "공식 홈페이지 방문 ↗" : "Visit official website ↗"}<span className="sr-only">{ko ? " (새 창)" : " (opens in a new tab)"}</span></a>
         </article>)}
       </div>
