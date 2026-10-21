@@ -683,3 +683,11 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
 @media (max-width: 600px) {
   .gallery-photos { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 10px; }
 }
+
+.organization-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px; }
+.organization-card { border: 1px solid var(--line, #deded8); border-radius: 16px; padding: clamp(24px, 4vw, 40px); background: #fff; max-width: 560px; }
+.organization-logo { display: flex; align-items: center; min-height: 120px; margin-bottom: 24px; }
+.organization-logo img { width: 220px; max-width: 100%; height: auto; object-fit: contain; }
+.organization-card h2 { font-size: 1.8rem; }
+.organization-card > p { line-height: 1.8; }
+.organization-card .button { margin-top: 20px; }

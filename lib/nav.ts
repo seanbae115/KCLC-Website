@@ -40,6 +40,7 @@ export const primaryNav: Record<Lang, NavItem[]> = {
     { label: "News", href: "/news" },
     { label: "Photo Gallery", href: "/gallery" },
     { label: "Resources", href: "/resources" },
+    { label: "Organizations", href: "/organizations" },
     { label: "Get Involved", href: "/partnership" },
     { label: "Contact", href: "/contact" },
   ],
@@ -51,6 +52,7 @@ export const primaryNav: Record<Lang, NavItem[]> = {
     { label: "소식", href: "/ko/news" },
     { label: "사진 갤러리", href: "/ko/gallery" },
     { label: "자료실", href: "/ko/resources" },
+    { label: "관련 단체", href: "/ko/organizations" },
     { label: "참여·협력", href: "/ko/partnership" },
     { label: "문의", href: "/ko/contact" },
   ],
@@ -101,6 +103,7 @@ export const footerQuickLinks: Record<Lang, NavItem[]> = {
     { label: "News", href: "/news" },
     { label: "Photo Gallery", href: "/gallery" },
     { label: "Resources", href: "/resources" },
+    { label: "Organizations", href: "/organizations" },
     { label: "Get Involved", href: "/partnership" },
   ],
   ko: [
@@ -111,6 +114,7 @@ export const footerQuickLinks: Record<Lang, NavItem[]> = {
     { label: "소식", href: "/ko/news" },
     { label: "사진 갤러리", href: "/ko/gallery" },
     { label: "자료실", href: "/ko/resources" },
+    { label: "관련 단체", href: "/ko/organizations" },
     { label: "참여·협력", href: "/ko/partnership" },
   ],
 };
@@ -121,3 +125,4 @@ export function langHref(path: string, lang: Lang): string {
   if (lang === "en") return path;
   return path === "/" ? "/ko" : `/ko${path}`;
 }
+
