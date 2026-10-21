@@ -113,6 +113,7 @@ export const eventItems = [
 export const newsItems: NewsItem[] = [
   {
     slug: "hankook-board-session-2026-10-19",
+    beforeEvent: "councilmember-remarks-2026-10-10",
     date: "2026-10-19",
     dateLabel: L("2026년 10월 19일 보도 · 10월 10일 행사", "Published October 19, 2026 · Event: October 10"),
     kind: L("언론 보도", "In the news"),
