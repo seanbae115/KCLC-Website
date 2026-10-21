@@ -16,6 +16,7 @@ const slugs = [
   "process",
   "consultation-prep",
   "resources",
+  "organizations",
   "partnership",
   "referral",
   "request",
@@ -40,3 +41,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   return entries;
 }
+
