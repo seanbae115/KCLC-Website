@@ -26,8 +26,8 @@ export const eventItems = [
     dateLabel: L("2026년 11월 4일 · 오후 7:30", "November 4, 2026 · 7:30 PM"),
     title: L("함께 즐기는 NBA의 밤 — LA 클리퍼스 vs 마이애미 히트", "An NBA Night Together — LA Clippers vs Miami Heat"),
     lead: L(
-      "KSLC 커뮤니티를 위한 선착순 관람 초대입니다. 티켓 수령 방법과 자세한 사항은 KSLC (657) 239-0226으로 문의해 주세요.",
-      "First-come, first-served community ticket invitation. Contact KSLC at (657) 239-0226 for ticket pickup and details.",
+      "시니어를 위한 무료 관람 초대입니다. 10월 28일(수)부터 KSLC 부에나파크 사무실(7342 Orangethorpe Ave, #B-109)에서 선착순 100장을 배포하며, 1인당 최대 2장까지 받을 수 있습니다. 경기는 잉글우드 Intuit Dome(3930 W. Century Blvd)에서 열립니다. 문의: (657) 239-0226.",
+      "Free game tickets for seniors: 100 tickets will be distributed first come, first served beginning Wednesday, October 28 at the KSLC Buena Park office (7342 Orangethorpe Ave, #B-109), with a limit of two per person. The game takes place at Intuit Dome in Inglewood (3930 W. Century Blvd). Inquiries: (657) 239-0226.",
     ),
     photo: {
       src: "/events/clippers-community-tickets-2026-11-04.png",
@@ -109,6 +109,40 @@ export const eventItems = [
 ];
 
 export const newsItems: NewsItem[] = [
+  {
+    slug: "hankook-board-session-2026-10-19",
+    date: "2026-10-19",
+    dateLabel: L("2026년 10월 19일 보도 · 10월 10일 행사", "Published October 19, 2026 · Event: October 10"),
+    kind: L("언론 보도", "In the news"),
+    title: L("이사 및 전문위원 모집 설명회 — 지역사회 인사 50여 명 참석", "Board and Advisor Recruitment Session Draws About 50 Community Members"),
+    lead: L(
+      "KSLC는 10월 10일 부에나파크 사무실에서 이사·전문위원 후보 모집 설명회를 열고 설립 취지, 상담 운영, 역할과 참여 절차를 소개했습니다. 지역사회 인사 50여 명이 참석했으며, 조이스 안 부에나파크 시의원은 시니어 존중과 가정 회복, 지역사회 성장을 위한 협력을 당부했습니다. KSLC는 한국어로 주거·공공혜택·건강·의료·교통·돌봄 정보를 안내하고 필요한 전문기관에 연결합니다. 문의: (657) 239-0226.",
+      "KSLC held a recruitment information session for prospective board members and advisors at its Buena Park office on October 10. About 50 community members learned about its mission, consultation services, roles, and participation process. Buena Park City Council Member Joyce Ahn encouraged cooperation to support seniors, families, and community growth. KSLC provides Korean-language guidance on housing, public benefits, health care, transportation, and caregiving, connecting seniors with appropriate agencies. Inquiries: (657) 239-0226.",
+    ),
+    source: L("미주 한국일보 · 2026년 10월 19일", "The Korea Times · October 19, 2026"),
+    clipping: {
+      src: "/press/hankook-board-session-2026-10.jpg",
+      alt: L("한국일보 ‘이사 및 전문위원 모집 설명회’ 기사 지면과 설명회 참석자 사진", "Korea Times clipping about the board and advisor recruitment session, including a photograph of attendees"),
+    },
+    href: "https://www1.koreatimes.com/article/20261018/1634366",
+  },
+  {
+    slug: "joongang-clippers-2026-10-16",
+    date: "2026-10-16",
+    dateLabel: L("2026년 10월 16일 보도 · 11월 4일 경기", "Published October 16, 2026 · Game: November 4"),
+    kind: L("언론 보도", "In the news"),
+    title: L("클리퍼스 농구 티켓 무료 배포 — 10월 28일부터 선착순 100장", "Free Clippers Tickets — 100 Available Beginning October 28"),
+    lead: L(
+      "KSLC가 시니어를 위해 LA 클리퍼스와 마이애미 히트 경기 티켓을 무료로 배포합니다. 경기는 11월 4일(수) 오후 7시 30분 잉글우드 Intuit Dome(3930 W. Century Blvd)에서 열립니다. 티켓은 10월 28일(수)부터 KSLC 부에나파크 사무실(7342 Orangethorpe Ave, #B-109)에서 선착순 100장, 1인당 최대 2장까지 받을 수 있습니다. 클리퍼스의 OC 시니어 커뮤니티 아웃리치 지원으로 마련됐습니다. 문의: (657) 239-0226.",
+      "KSLC is distributing free LA Clippers vs Miami Heat tickets to seniors. The game is Wednesday, November 4 at 7:30 PM at Intuit Dome in Inglewood (3930 W. Century Blvd). Beginning Wednesday, October 28, 100 tickets will be available first come, first served at the KSLC Buena Park office (7342 Orangethorpe Ave, #B-109), with a limit of two per person. The Clippers provided the tickets through their Orange County senior community outreach. Inquiries: (657) 239-0226.",
+    ),
+    source: L("미주중앙일보 · 2026년 10월 16일", "The Korea Daily · October 16, 2026"),
+    clipping: {
+      src: "/press/joongang-clippers-2026-10.jpg",
+      alt: L("중앙일보 ‘클리퍼스 농구 티켓 무료 배포’ 기사 지면. 11월 4일 경기, 10월 28일부터 선착순 100장, 1인 최대 2장 안내", "Korea Daily clipping announcing free Clippers tickets: November 4 game, distribution beginning October 28, 100 tickets, maximum two per person"),
+    },
+    href: "https://www.koreadaily.com/article/20261016200002460",
+  },
   {
     slug: "hankook-2026-10-05",
     date: "2026-10-05",
