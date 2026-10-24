@@ -65,7 +65,7 @@ export const board: Person[] = [
 /** The rest of the launch team, working directly with seniors. */
 export const staff: Person[] = [
   { nameKo: "김윤정", nameEn: "Yoonjung Kim", photo: "/team/yoonjung-kim.jpg", title: { ko: "케이스 매니저", en: "Case Manager" } },
-  { nameKo: "백성심", nameEn: "Sungsim Baek", photo: "/team/sungsim-baek.jpg", title: { ko: "케이스 매니저", en: "Case Manager" } },
+  { nameKo: "백성심", nameEn: "Sungsim Paek", photo: "/team/sungsim-baek.jpg", title: { ko: "케이스 매니저", en: "Case Manager" } },
   { nameKo: "배혜정", nameEn: "Hyejung Bae", photo: "/team/hyejung-bae.jpg", title: { ko: "상담 코디네이터", en: "Consultation Coordinator" } },
   { nameKo: "박하영", nameEn: "Hayoung Park", title: { ko: "협력사업 매니저", en: "Partnership Manager" }, roleIcon: "partnership" },
 ];
