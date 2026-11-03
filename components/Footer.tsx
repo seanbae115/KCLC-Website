@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerLinks, footerQuickLinks, langHref, siteInfo, type Lang } from "@/lib/nav";
+import MobileCallBar from "./MobileCallBar";
 
 export default function Footer({ lang }: { lang: Lang }) {
   const info = siteInfo[lang];
@@ -69,12 +70,10 @@ export default function Footer({ lang }: { lang: Lang }) {
         <span>A Community Before a Campus.</span>
       </div>
 
-      {/* Mobile-only fixed call button. Hidden on desktop and while a form field has focus. */}
-      <div className="mobile-call-bar">
-        <a href={info.phoneHref}>
-          {lang === "ko" ? `전화 상담 ${info.phone}` : `Call us ${info.phone}`}
-        </a>
-      </div>
+      <MobileCallBar
+        href={info.phoneHref}
+        label={lang === "ko" ? `전화 상담 ${info.phone}` : `Call us ${info.phone}`}
+      />
     </footer>
   );
 }

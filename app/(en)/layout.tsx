@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR, Montserrat } from "next/font/google";
 import "../globals.css";
 
+// No weight list: the variable font covers 400-900 with one set of
+// @font-face rules; four static weights quadrupled the render-blocking CSS.
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
   variable: "--font-body",
   display: "swap",
 });
@@ -18,7 +19,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kslcampus.org"),
   title: {
-    default: "Korean Senior Life Campus (KSLC) | A Community Before a Campus",
+    default: "Korean Senior Life Campus (KSLC), Buena Park | A Community Before a Campus",
     template: "%s | KSLC",
   },
   description:
