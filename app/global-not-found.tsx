@@ -7,9 +7,9 @@ import { Noto_Sans_KR, Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+// Variable font, no weight list (see app/(en)/layout.tsx).
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
   variable: "--font-body",
   display: "swap",
 });

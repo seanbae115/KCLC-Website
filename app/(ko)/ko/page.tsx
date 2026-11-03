@@ -92,7 +92,7 @@ export default function HomePage() {
 
         <section className="help-now" aria-labelledby="help-now-title">
           <div className="shell">
-            <p className="section-kicker light">GET HELP RIGHT NOW</p>
+            <p className="section-kicker light">바로 연락하기</p>
             <h2 id="help-now-title">지금 바로 도움 받기</h2>
             <p>전화 또는 온라인 중 편하신 방법으로 연락해 주세요.</p>
             <div className="help-now-actions">
@@ -109,7 +109,7 @@ export default function HomePage() {
         <section className="purpose" id="about">
           <div className="shell purpose-grid">
             <div>
-              <p className="section-kicker">WHY KSLC</p>
+              <p className="section-kicker">왜 KSLC인가</p>
               <h2>
                 정보보다 먼저,
                 <br />
@@ -134,7 +134,7 @@ export default function HomePage() {
           <div className="shell">
             <div className="section-heading">
               <div>
-                <p className="section-kicker">WHO WE HELP</p>
+                <p className="section-kicker">도움 대상</p>
                 <h2>이런 분들을 돕습니다</h2>
               </div>
               <p>한 가지 이유가 아니어도 괜찮습니다. 지금 상황을 말씀해 주시면 함께 정리해 드립니다.</p>
@@ -154,7 +154,7 @@ export default function HomePage() {
           <div className="shell">
             <div className="section-heading">
               <div>
-                <p className="section-kicker">WHAT WE DO</p>
+                <p className="section-kicker">하는 일</p>
                 <h2>한 문에서 시작하는 통합 Navigation</h2>
               </div>
               <p>한 가지 문제로 찾아오셔도 삶 전체에 필요한 서비스를 함께 살펴봅니다.</p>
@@ -183,7 +183,7 @@ export default function HomePage() {
         <section className="process section" id="process">
           <div className="shell process-grid">
             <div className="process-intro">
-              <p className="section-kicker light">HOW IT WORKS</p>
+              <p className="section-kicker light">이용 방법</p>
               <h2>
                 처음 연락부터
                 <br />
@@ -209,7 +209,7 @@ export default function HomePage() {
           <div className="shell">
             <div className="section-heading">
               <div>
-                <p className="section-kicker">WHY IT&apos;S DIFFERENT</p>
+                <p className="section-kicker">우리의 방식</p>
                 <h2>KSLC의 차이점</h2>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
               <div className="connection c4">지역사회</div>
             </div>
             <div>
-              <p className="section-kicker">COMMUNITY PARTNERSHIP</p>
+              <p className="section-kicker">지역사회 협력</p>
               <h2>
                 지역사회와 함께 만드는
                 <br />
@@ -254,7 +254,7 @@ export default function HomePage() {
         <section className="resources section" id="resources">
           <div className="shell resource-card">
             <div>
-              <p className="section-kicker">OFFICIAL RESOURCE</p>
+              <p className="section-kicker">공식 자료</p>
               <h2>KSLC 공식 소개자료</h2>
               <p>
                 KSLC의 비전, 미션, 핵심가치와 Navigation Center 서비스를 담은 공식 발표자료를 자료실에서
@@ -274,7 +274,7 @@ export default function HomePage() {
         <section className="section-tight">
           <div className="shell contact-card" style={{ background: "var(--warm)", color: "var(--charcoal)", boxShadow: "none", border: "1px solid var(--rule)" }}>
             <div>
-              <p className="section-kicker">SUPPORT KSLC</p>
+              <p className="section-kicker">후원·참여</p>
               <h2 style={{ color: "var(--navy)" }}>후원과 자원봉사로 함께해 주세요</h2>
               <p style={{ color: "var(--ink-soft)" }}>
                 창립후원, 정기후원, 프로그램 후원과 상담지원·통역·행정·디지털 교육 자원봉사까지 다양한
@@ -295,7 +295,7 @@ export default function HomePage() {
         <section className="contact section" id="contact">
           <div className="shell contact-card">
             <div>
-              <p className="section-kicker light">START HERE</p>
+              <p className="section-kicker light">시작하기</p>
               <h2>어디서부터 시작할지 모르셔도 괜찮습니다.</h2>
               <p>지금 가장 걱정되는 한 가지를 말씀해 주세요. 함께 다음 길을 찾겠습니다.</p>
               <p style={{ fontSize: 14, marginTop: 24 }}>운영시간: 평일 오전 9시 – 오후 5시 (사전 예약 권장)</p>

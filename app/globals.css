@@ -371,6 +371,8 @@ fieldset.field { border: none; margin: 0; padding: 0; min-width: 0; }
   body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   /* Never cover an input or the submit button while the keyboard is open */
   body:has(input:focus, textarea:focus, select:focus) .mobile-call-bar { display: none; }
+  /* Hidden while the home page's own call buttons are on screen (MobileCallBar). */
+  .mobile-call-bar.is-hidden { display: none; }
 }
 
 /* Case number on the success screen */
@@ -393,6 +395,25 @@ fieldset.field[data-invalid="true"] { padding: 12px 14px; border-left: 3px solid
 .download-item p, .team-card p, .address-link, .form-error { font-size: 16px; }
 .service-card li, .desktop-nav, .mobile-nav summary, .form-consent, .field .hint,
 .service-boundary, .footer-links a, .footer-quick a { font-size: 16px; }
+/* Small print and labels: nothing below 14px (UI/UX audit 2026-11-02). */
+.topbar, .nav-text-action, .nav-lang, .hero-trust, .footer-emergency,
+.footer-legal { font-size: 15px !important; }
+.eyebrow, .section-kicker, .service-note span, .resource-action small,
+.footer-bottom { font-size: 14px; }
+:lang(ko) .eyebrow, :lang(ko) .section-kicker { letter-spacing: .08em; }
+
+/* One menu row (English wrapped onto two rows between 1000px and 1230px).
+   English labels need about 850px, so they spread across the row with at
+   least 16px between them, and the header switches to the menu button
+   below 1060px. */
+.desktop-nav { flex-wrap: nowrap; }
+.desktop-nav > a { white-space: nowrap; }
+:lang(en) .desktop-nav { justify-content: space-between; gap: 16px; }
+@media (max-width: 1060px) {
+  .desktop-nav, .nav-actions, .nav-secondary { display: none; }
+  .mobile-controls { display: flex; flex-shrink: 0; }
+  .mobile-nav { display: block; }
+}
 
 @media (max-width: 1000px) {
   .desktop-nav { gap: 20px; font-size: 16px; }

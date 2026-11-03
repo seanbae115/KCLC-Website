@@ -27,11 +27,11 @@ export default function Header({ lang, currentPath }: { lang: Lang; currentPath:
       <header className="site-header">
         <div className="shell nav-wrap">
           <Link className="brand" href={logoHref} aria-label={`${info.name} home`}>
-            {/* Primary lockup on wide screens, approved compact mark on narrow mobile. */}
+            {/* Approved compact mark on every screen: the primary lockup's tagline
+                is unreadable at header size (UI/UX audit 2026-11-02). */}
             <picture>
-              <source media="(max-width: 600px)" srcSet="/kslc-logo-compact.png" />
               <img
-                src="/kslc-logo.png"
+                src="/kslc-logo-compact.png"
                 alt={
                   lang === "ko"
                     ? "KSLC Korean Senior Life Campus 공식 로고"
