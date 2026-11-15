@@ -23,6 +23,34 @@ const L = (ko: string, en: string) => ({ ko, en });
 /** 행사 소식. 인명 영문 표기는 확인된 표기만 사용합니다. */
 export const eventItems = [
   {
+    slug: "medi-cal-seminar-2026-11-19",
+    date: "2026-11-19",
+    dateLabel: L("2026년 11월 19일(목) · 오전 11시", "Thursday, November 19, 2026 · 11:00 AM"),
+    title: L("“메디칼 갱신 편지, 언제까지 무엇을 내야 하나요?” — 메디칼 한국어 설명회", "Medi-Cal Renewal Letters: What to Submit and When — Korean-Language Seminar"),
+    lead: L(
+      "KSLC가 CalOptima Health의 후원으로 메디칼 한국어 설명회를 개최합니다. 2027년 변경 사항과 가입·갱신 지원, 갱신 안내문 읽는 법을 안내합니다. 장소: 부에나팍 시 시니어 센터, 8150 Knott Ave., Buena Park, CA 90620. 어르신과 가족 모두 참석 가능하며, 선착순 30명 전화 예약을 받습니다. 예약·문의: (657) 239-0226.",
+      "With support from CalOptima Health, KSLC will hold a Korean-language Medi-Cal seminar covering 2027 changes, enrollment and renewal assistance, and how to read renewal notices. Venue: Buena Park Senior Activity Center, 8150 Knott Ave., Buena Park, CA 90620. Seniors and family members are welcome. Telephone reservations are accepted for the first 30 participants. Reservations and inquiries: (657) 239-0226.",
+    ),
+    body: [
+      L("보도자료 | 2026년 11월 14일 · 즉시 배포용", "Press release | November 14, 2026 · For immediate release"),
+      L("한인 시니어 삶터, 11월 19일 부에나팍서 한국어 설명회 — CalOptima Health 관계자 참석…2027년 변경 사항과 가입·갱신 지원 안내", "KSLC to hold a Korean-language seminar in Buena Park on November 19 — CalOptima Health representatives to discuss 2027 changes and enrollment and renewal assistance."),
+      L("캘리포니아주 부에나팍, 2026년 11월 14일 — 카운티에서 메디칼(Medi-Cal) 갱신 편지가 왔다. 영어 안내문에서 제출 기한은 어디에 적혀 있을까. 어떤 서류를 내야 하고, 집이나 통장 잔액은 재산 심사에서 어떻게 다뤄질까. 한인 시니어 삶터(Korean Senior Life Campus, KSLC)는 한인 어르신과 가족이 이런 질문에 답을 얻을 수 있도록 11월 19일 목요일 오전 11시, 부에나팍 시 시니어 센터에서 메디칼 한국어 설명회를 연다.", "Buena Park, California, November 14, 2026 — A Medi-Cal renewal letter arrives from the county. Where is the submission deadline in the English-language notice? Which documents are required, and how are a home and bank balances treated in an asset review? Korean Senior Life Campus (KSLC) will hold a Korean-language Medi-Cal seminar at 11 a.m. on Thursday, November 19, at the Buena Park Senior Activity Center to help Korean seniors and their families find answers."),
+      L("이번 설명회는 CalOptima Health의 후원으로 마련됐다. CalOptima Health 관계자가 참석해 메디칼 변경 사항과 오렌지카운티 주민을 위한 가입·갱신 지원 계획을 소개한다. KSLC는 예시 갱신 안내문을 함께 읽으며 제출 기한과 요청 서류를 찾는 법, 갱신에 도움이 필요할 때 어디에 문의할 수 있는지를 한국어로 설명한다.", "The seminar is supported by CalOptima Health. CalOptima Health representatives will introduce Medi-Cal changes and plans for enrollment and renewal assistance for Orange County residents. KSLC will walk through a sample renewal notice in Korean, explaining how to locate deadlines and requested documents and where to ask for renewal assistance."),
+      L("연방정부의 새 규정에 따라 2027년부터 일부 성인 가입자는 자격을 더 자주 갱신하거나 근로·지역사회 활동 등 새 요건을 충족해야 한다. 설명회에서는 이 규정이 누구에게 적용되는지 살펴보고, 65세 이상 어르신과 가족의 관심이 큰 캘리포니아주 메디칼 재산 심사 기준도 별도로 다룬다. 실제 거주하는 집과 은행 예금이 심사에서 어떻게 다뤄지는지 등 생활 속 질문을 중심으로 설명할 예정이다.", "The press release explains that, under new federal rules beginning in 2027, some adult members will need to renew eligibility more frequently or meet new requirements such as work or community activities. The seminar will discuss whom these rules apply to and separately address California Medi-Cal asset-review standards of particular interest to people age 65 and older and their families. Practical questions will include how a primary residence and bank deposits are treated in the review."),
+      L("갱신 편지를 아직 받지 않은 분도 참석할 수 있다. 부모님이나 배우자의 메디칼 우편물과 서류를 챙기는 가족도 함께 참석할 수 있다. 참석은 선착순 30명으로, 전화 예약을 받는다.", "People who have not yet received a renewal letter may attend. Family members who help manage a parent’s or spouse’s Medi-Cal mail and documents are also welcome. Attendance is limited to the first 30 participants, with reservations accepted by telephone."),
+      L("일시: 2026년 11월 19일(목) 오전 11시", "Date and time: Thursday, November 19, 2026, at 11 a.m."),
+      L("장소: 부에나팍 시 시니어 센터(Buena Park Senior Activity Center), 8150 Knott Ave., Buena Park, CA 90620", "Location: Buena Park Senior Activity Center, 8150 Knott Ave., Buena Park, CA 90620"),
+      L("주최: 한인 시니어 삶터(Korean Senior Life Campus, KSLC) · 후원: CalOptima Health", "Organizer: Korean Senior Life Campus (KSLC) · Supported by: CalOptima Health"),
+      L("참석 예약 및 취재 문의: 한인 시니어 삶터(KSLC) (657) 239-0226", "Reservations and media inquiries: Korean Senior Life Campus (KSLC), (657) 239-0226"),
+    ],
+    photo: {
+      src: "/events/medical-seminar-2026-11-19.webp",
+      width: 1005,
+      height: 1300,
+      alt: L("11월 19일 메디칼 한국어 설명회 보도자료 원문: 오전 11시 부에나팍 시 시니어 센터, 선착순 30명 전화 예약 (657) 239-0226", "Original Korean press release for the November 19 Medi-Cal seminar: 11 a.m. at Buena Park Senior Activity Center; telephone reservations for the first 30 participants at (657) 239-0226"),
+    },
+  },
+  {
     slug: "clippers-community-tickets-2026-11-04",
     date: "2026-11-04",
     dateLabel: L("2026년 11월 4일 · 오후 7:30", "November 4, 2026 · 7:30 PM"),
