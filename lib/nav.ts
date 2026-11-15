@@ -6,7 +6,7 @@ export const siteInfo = {
   ko: {
     name: "Korean Senior Life Campus",
     shortName: "KSLC",
-    tagline: "한인 시니어라면 가장 먼저 찾는 곳.",
+    tagline: "한인 시니어가 가장 먼저 찾는 곳.",
     missionShort: "건강을 잇고, 공동체를 세우며, 다음 세대에 희망을 남깁니다.",
     phone: "(657) 239-0226",
     phoneHref: "tel:+16572390226",
@@ -125,4 +125,5 @@ export function langHref(path: string, lang: Lang): string {
   if (lang === "en") return path;
   return path === "/" ? "/ko" : `/ko${path}`;
 }
+
 
