@@ -125,5 +125,3 @@ export function langHref(path: string, lang: Lang): string {
   if (lang === "en") return path;
   return path === "/" ? "/ko" : `/ko${path}`;
 }
-
-
