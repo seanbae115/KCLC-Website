@@ -14,8 +14,6 @@ export type NewsItem = {
   clipping?: { src: string; alt: Record<Lang, string> };
   /** Where the piece can be read online, when it is published there. */
   href?: string;
-  /** Show this coverage immediately before the matching event poster. */
-  beforeEvent?: string;
 };
 
 const L = (ko: string, en: string) => ({ ko, en });
@@ -173,7 +171,6 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "hankook-board-session-2026-10-19",
-    beforeEvent: "councilmember-remarks-2026-10-10",
     date: "2026-10-19",
     dateLabel: L("2026년 10월 19일 보도 · 10월 10일 행사", "Published October 19, 2026 · Event: October 10"),
     kind: L("언론 보도", "In the news"),
@@ -191,7 +188,6 @@ export const newsItems: NewsItem[] = [
   },
   {
     slug: "joongang-clippers-2026-10-16",
-    beforeEvent: "clippers-community-tickets-2026-11-04",
     date: "2026-10-16",
     dateLabel: L("2026년 10월 16일 보도 · 11월 4일 경기", "Published October 16, 2026 · Game: November 4"),
     kind: L("언론 보도", "In the news"),
