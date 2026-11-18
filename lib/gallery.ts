@@ -1,5 +1,43 @@
 // 사진 추가: 앨범별로 사진 경로와 한국어·영어 설명을 함께 입력합니다.
 export const albums = [{
+  "id": "ducks-flames-2026-11-15",
+  "date": "2026-11-15",
+  "dateLabel": {
+    "ko": "11월 15일 · 오후 5시",
+    "en": "November 15 · 5:00 PM"
+  },
+  "title": {
+    "ko": "아이스하키 경기 관람 — 애너하임 덕스 vs 캘거리 플레임스",
+    "en": "Ice Hockey Game — Anaheim Ducks vs. Calgary Flames"
+  },
+  "description": {
+    "ko": "애너하임 혼다 센터에서 열린 NHL 아이스하키 경기 현장입니다.",
+    "en": "Scenes from the NHL game at Honda Center in Anaheim."
+  },
+  "photos": [
+    {
+      "src": "/gallery/ducks-flames-2026-11-15/01.webp",
+      "alt": {
+        "ko": "경기 전 링크에서 몸을 푸는 캘거리 플레임스 선수들",
+        "en": "Calgary Flames players warming up on the ice"
+      }
+    },
+    {
+      "src": "/gallery/ducks-flames-2026-11-15/02.webp",
+      "alt": {
+        "ko": "경기 전 골대 주변에서 몸을 푸는 애너하임 덕스 선수들",
+        "en": "Anaheim Ducks players warming up near the goal"
+      }
+    },
+    {
+      "src": "/gallery/ducks-flames-2026-11-15/03.webp",
+      "alt": {
+        "ko": "애너하임 덕스 선수 포스터가 걸린 혼다 센터 북쪽 입구",
+        "en": "Honda Center’s north entrance with a large Anaheim Ducks player poster"
+      }
+    }
+  ]
+},{
   "id": "grace-information-2026-10-14",
   "date": "2026-10-14",
   "title": {
