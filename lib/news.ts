@@ -140,6 +140,38 @@ export const eventItems = [
 
 export const newsItems: NewsItem[] = [
   {
+    slug: "hankook-medi-cal-2026-11-18",
+    date: "2026-11-18",
+    dateLabel: L("2026년 11월 18일", "November 18, 2026"),
+    kind: L("언론 보도", "In the news"),
+    title: L("메디캘 갱신 편지 한국어 설명회", "Korean-Language Seminar on Medi-Cal Renewal Letters"),
+    lead: L(
+      "한국일보는 KSLC가 11월 19일 부에나파크에서 여는 한국어 설명회를 소개했습니다. 칼옵티마 헬스가 후원하는 이 설명회에서는 갱신 안내문의 제출 기한과 요청 서류를 확인하는 방법을 다룹니다.",
+      "The Korea Times covered KSLC’s November 19 Korean-language seminar in Buena Park. Supported by CalOptima Health, the seminar explains how to find deadlines and requested documents in Medi-Cal renewal letters.",
+    ),
+    source: L("한국일보 A11 · 2026년 11월 18일", "The Korea Times A11 · November 18, 2026"),
+    clipping: {
+      src: "/press/hankook-medi-cal-2026-11-18.jpg",
+      alt: L("한국일보 A11 지면에 실린 메디캘 갱신 편지 한국어 설명회 기사", "The Korea Times A11 print clipping on KSLC’s Korean-language seminar about Medi-Cal renewal letters"),
+    },
+  },
+  {
+    slug: "joongang-medi-cal-2026-11-18",
+    date: "2026-11-18",
+    dateLabel: L("2026년 11월 18일", "November 18, 2026"),
+    kind: L("언론 보도", "In the news"),
+    title: L("“메디캘 갱신 궁금증 풀어드려요”", "“Get Answers to Your Medi-Cal Renewal Questions”"),
+    lead: L(
+      "중앙일보는 KSLC의 부에나파크 설명회를 소개하며 칼옵티마 헬스 관계자가 2027년 변경 사항과 가입·갱신 지원 정보를 안내한다고 보도했습니다.",
+      "The Korea Daily reported that a CalOptima Health representative would discuss 2027 changes and enrollment and renewal support at the KSLC seminar in Buena Park.",
+    ),
+    source: L("중앙일보 · 2026년 11월 18일", "The Korea Daily · November 18, 2026"),
+    clipping: {
+      src: "/press/joongang-medi-cal-2026-11-18.jpg",
+      alt: L("중앙일보 지면에 실린 KSLC 메디캘 갱신 한국어 설명회 기사", "The Korea Daily print clipping on KSLC’s Korean-language Medi-Cal renewal seminar"),
+    },
+  },
+  {
     slug: "hankook-board-session-2026-10-19",
     beforeEvent: "councilmember-remarks-2026-10-10",
     date: "2026-10-19",
