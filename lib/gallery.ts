@@ -38,6 +38,51 @@ export const albums = [{
     }
   ]
 },{
+  "id": "clippers-heat-2026-11-04",
+  "date": "2026-11-04",
+  "dateLabel": {
+    "ko": "2026년 11월 4일 · 오후 7:30",
+    "en": "November 4, 2026 · 7:30 PM"
+  },
+  "title": {
+    "ko": "함께 즐기는 NBA의 밤 — LA 클리퍼스 vs 마이애미 히트",
+    "en": "An NBA Night Together — LA Clippers vs. Miami Heat"
+  },
+  "description": {
+    "ko": "인튜이트 돔에서 열린 LA 클리퍼스와 마이애미 히트의 경기 현장입니다.",
+    "en": "Scenes from the LA Clippers and Miami Heat game at Intuit Dome."
+  },
+  "photos": [
+    {
+      "src": "/gallery/clippers-heat-2026-11-04/01.webp",
+      "alt": {
+        "ko": "클리퍼스 선수가 자유투를 던지는 순간",
+        "en": "A Clippers player takes a free throw"
+      }
+    },
+    {
+      "src": "/gallery/clippers-heat-2026-11-04/02.webp",
+      "alt": {
+        "ko": "심판이 공을 들고 선수들이 자유투를 기다리는 모습",
+        "en": "Players line up for a free throw as the referee holds the ball"
+      }
+    },
+    {
+      "src": "/gallery/clippers-heat-2026-11-04/03.webp",
+      "alt": {
+        "ko": "파란색과 보라색 조명이 켜진 인튜이트 돔 외관",
+        "en": "The Intuit Dome exterior lit in blue and purple"
+      }
+    },
+    {
+      "src": "/gallery/clippers-heat-2026-11-04/04.webp",
+      "alt": {
+        "ko": "관중석에서 바라본 코트와 2쿼터 시작을 알리는 전광판",
+        "en": "The court and scoreboard at the start of the second quarter, seen from the stands"
+      }
+    }
+  ]
+},{
   "id": "grace-information-2026-10-14",
   "date": "2026-10-14",
   "title": {
