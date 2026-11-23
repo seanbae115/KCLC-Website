@@ -21,6 +21,22 @@ const L = (ko: string, en: string) => ({ ko, en });
 /** 행사 소식. 인명 영문 표기는 확인된 표기만 사용합니다. */
 export const eventItems = [
   {
+    slug: "laguna-beach-retreat-thanks",
+    date: "2026-11-23",
+    dateLabel: L("2026년 11월 23일 게시", "Posted November 23, 2026"),
+    title: L("라구나비치 MT를 함께 준비해 주셔서 감사합니다", "Thank You for Organizing the Laguna Beach Retreat"),
+    lead: L(
+      "라구나비치 MT를 마련해 주신 KSLC 임원진과 감사님들께 감사드립니다. 함께한 추억을 단체사진과 함께 전합니다.",
+      "Thank you to the KSLC officers and auditors who organized the Laguna Beach retreat. We’re sharing a group photo from our time together.",
+    ),
+    photo: {
+      src: "/events/laguna-beach-retreat-thanks.webp",
+      width: 1122,
+      height: 1402,
+      alt: L("라구나비치 구조대 타워 앞 단체사진과 KSLC 임원진 및 감사님들께 전하는 감사 메시지", "A group photo in front of the Laguna Beach lifeguard tower with a thank-you message to KSLC officers and auditors"),
+    },
+  },
+  {
     slug: "medi-cal-seminar-2026-11-19",
     date: "2026-11-19",
     dateLabel: L("2026년 11월 19일(목) · 오전 11시", "Thursday, November 19, 2026 · 11:00 AM"),
@@ -137,6 +153,22 @@ export const eventItems = [
 ];
 
 export const newsItems: NewsItem[] = [
+  {
+    slug: "hankook-medi-cal-2026-11-23",
+    date: "2026-11-23",
+    dateLabel: L("2026년 11월 23일 보도 · 11월 19일 행사", "Published November 23, 2026 · Event: November 19"),
+    kind: L("언론 보도", "In the news"),
+    title: L("메디캘 갱신 편지 한국어 설명회 현장", "A Look at the Korean-Language Seminar on Medi-Cal Renewal Letters"),
+    lead: L(
+      "한국일보는 KSLC가 11월 19일 부에나파크 시니어 센터에서 개최한 메디캘 갱신 한국어 설명회 현장을 사진과 함께 보도했습니다.",
+      "The Korea Times published a photo from KSLC’s November 19 Korean-language seminar on Medi-Cal renewal at the Buena Park Senior Center.",
+    ),
+    source: L("한국일보 A13 · 2026년 11월 23일", "The Korea Times A13 · November 23, 2026"),
+    clipping: {
+      src: "/press/hankook-medi-cal-2026-11-23.jpg",
+      alt: L("11월 23일자 한국일보 A13 지면에 실린 메디캘 설명회 기사와 발표를 듣는 참석자들", "The November 23 Korea Times A13 clipping showing attendees listening to the Medi-Cal seminar presentation"),
+    },
+  },
   {
     slug: "hankook-medi-cal-2026-11-18",
     date: "2026-11-18",
